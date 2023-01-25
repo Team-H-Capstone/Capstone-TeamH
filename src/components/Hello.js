@@ -48,6 +48,15 @@ const Hello = () => {
         </h1>
       </section>
       <section className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white">
+        <h2
+          className="flex justify-center items-center text-9xl font-bold"
+          data-aos="fade-zoom-in"
+          data-aos-easing="ease-in-back"
+          data-aos-delay="500"
+          data-aos-offset="0"
+        >
+          Welcome to
+        </h2>
         <h1
           className="flex justify-center items-center text-9xl font-bold"
           data-aos="fade-zoom-in"
@@ -55,8 +64,17 @@ const Hello = () => {
           data-aos-delay="500"
           data-aos-offset="0"
         >
-          *Text*
+          *OUR WEBSITE NAME*
         </h1>
+        <div className="flex flex-row">
+          <button className="text-white group border-2 px-6 py-3 my-2 flex items-center hover:bg-orange-600 hover:border-orange-600">
+            Sign Up
+          </button>
+
+          <button className="text-white group border-2 px-6 py-3 my-2 flex items-center hover:bg-orange-600 hover:border-orange-600">
+            Sign In
+          </button>
+        </div>
       </section>
     </div>
   );
