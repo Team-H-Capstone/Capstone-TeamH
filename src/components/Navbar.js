@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -8,24 +8,55 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 
 const Navbar = () => {
+
+  const [open, setOpen] = useState("false")
+
+  const handleClick = () => {
+    setOpen(!open)
+    console.log("dropdown")
+  }
+
+  const handleRoom1 = () => {
+    setOpen(!open)
+    console.log("Room 1 open!")
+  }
+
+  const handleRoom2 = () => {
+    setOpen(!open)
+    
+    console.log("Room 2 open!")
+  }
+
   return (
-    <div style={{position:"fixed", width: "100vw"}}>
-      <Box sx={{ flexGrow: 5 }}>
+    <div style={{position:"fixed", width: "100vw", zIndex:200}}>
+      <Box sx={{ flexGrow: 0 }}>
         <AppBar>
           <Toolbar>
-            <IconButton
+          <Button color="inherit" sx={{ml:0}}>Home</Button>
+          <Button color="inherit">MyDashboard</Button>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 5 }} style={{textAlign:"center"}}>
+            </Typography>
+            <Button color="inherit">About</Button>
+            <Button color="inherit">Login</Button>
+            <IconButton className="dropdown" onClick={handleClick}
               size="large"
               edge="start"
               color="inherit"
               aria-label="menu"
-              sx={{ mr: 2 }}
+              sx={{ mr: 0 }}
             >
-              <MenuIcon />
+            <MenuIcon />
             </IconButton>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 5 }}>
-              Mental Health Wellness Website
-            </Typography>
-            <Button color="inherit">Login</Button>
+              {open ? null : (
+                <ul className="menu">
+                  <li className="menuItem">
+                    <Button onClick={handleRoom1}>Room 1</Button>
+                  </li>
+                  <li className="menuItem">
+                    <Button onClick={handleRoom2}>Room 2</Button>
+                  </li>
+                </ul>
+              )}
           </Toolbar>
         </AppBar>
       </Box>
