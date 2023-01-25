@@ -4,6 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { Link } from "react-scroll";
+import Login from "./Login";
 
 const Hello = () => {
   useEffect(() => {
@@ -75,6 +76,7 @@ const Hello = () => {
             Sign In
           </button>
         </div>
+        <Login />
       </section>
     </div>
   );
