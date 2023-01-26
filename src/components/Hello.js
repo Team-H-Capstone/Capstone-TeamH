@@ -7,7 +7,7 @@ import { Link } from "react-scroll";
 import Login from "./Login";
 import Register from "./Register"
 
-const Hello = () => {
+const Home = () => {
   useEffect(() => {
     AOS.init();
   }, []);
@@ -75,4 +75,4 @@ const Hello = () => {
   );
 };
 
-export default Hello;
+export default Home;

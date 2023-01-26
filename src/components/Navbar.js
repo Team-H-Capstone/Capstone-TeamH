@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
+import {Link} from "react-router-dom";
 
 const Navbar = () => {
 
@@ -32,11 +33,17 @@ const Navbar = () => {
       <Box sx={{ flexGrow: 0 }}>
         <AppBar>
           <Toolbar>
-          <Button color="inherit" sx={{ml:0}}>Home</Button>
+          <Link to="/home" >
+            <Button color="inherit" sx={{ml:0}}>Home</Button>
+          </Link>
           <Button color="inherit">MyDashboard</Button>
+          <Button color="inherit">Profile Settings</Button>
             <Typography variant="h6" component="div" sx={{ flexGrow: 5 }} style={{textAlign:"center"}}>
             </Typography>
-            <Button color="inherit">About</Button>
+            <Link to="/aboutUs" >
+              <Button color="inherit" >About</Button>
+            </Link>
+            <Button color="inherit">Forum</Button>
             <Button color="inherit">Login</Button>
             <IconButton className="dropdown" onClick={handleClick}
               size="large"
