@@ -31,28 +31,20 @@ const Navbar = () => {
     <div style={{ position: "fixed", width: "100vw", zIndex: 200 }}>
       <Box sx={{ flexGrow: 0 }}>
         <AppBar>
-          <Toolbar>
-            <Link to="/home">
-              <Button color="inherit" sx={{ ml: 0 }}>
-                Home
-              </Button>
-            </Link>
-            <Button color="inherit">MyDashboard</Button>
-            <Button color="inherit">Profile Settings</Button>
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{ flexGrow: 5 }}
-              style={{ textAlign: "center" }}
-            ></Typography>
-            <Link to="/aboutUs">
-              <Button color="inherit">About</Button>
+          <Toolbar className="bg-[#1e3a8a]">
+          <Link to="/home" >
+            <Button color="inherit" sx={{ml:0}}>Home</Button>
+          </Link>
+          <Button color="inherit">MyDashboard</Button>
+          <Button color="inherit">Profile Settings</Button>
+            <Typography variant="h6" component="div" sx={{ flexGrow: 5 }} style={{textAlign:"center"}}>
+            </Typography>
+            <Link to="/about" >
+              <Button color="inherit" >About</Button>
             </Link>
             <Button color="inherit">Forum</Button>
-            <Button color="inherit">Login</Button>
-            <IconButton
-              className="dropdown"
-              onClick={handleClick}
+            <Link to="/login"><Button color="inherit">Login</Button></Link>
+            <IconButton className="dropdown" onClick={handleClick}
               size="large"
               edge="start"
               color="inherit"

@@ -68,8 +68,6 @@ const Home = () => {
         >
           *OUR WEBSITE NAME*
         </h1>
-        <Login />
-        <Register />
       </section>
     </div>
   );
