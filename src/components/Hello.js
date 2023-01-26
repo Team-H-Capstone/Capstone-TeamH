@@ -4,8 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { Link } from "react-scroll";
-import Login from "./Login";
-import Register from "./Register";
+
 
 const Home = () => {
   useEffect(() => {
@@ -68,8 +67,6 @@ const Home = () => {
         >
           *OUR WEBSITE NAME*
         </h1>
-        <Login />
-        <Register />
       </section>
     </div>
   );

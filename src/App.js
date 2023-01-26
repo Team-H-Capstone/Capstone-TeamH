@@ -2,6 +2,8 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./components/Hello";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
+import Login from './components/Login';
+import Register from './components/Register';
 
 const App = () => {
   return (
@@ -10,8 +12,10 @@ const App = () => {
       <Routes>
         <Route path="/*" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/aboutUs" element={<About />} />
-      </Routes>
+        <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+    </Routes>
     </div>
   );
 };
