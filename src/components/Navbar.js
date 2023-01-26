@@ -36,11 +36,13 @@ const Navbar = () => {
           <Link to="/home" >
             <Button color="inherit" sx={{ml:0}}>Home</Button>
           </Link>
-          <Button color="inherit">MyDashboard</Button>
+          <Link to="/mydashboard">
+            <Button color="inherit">MyDashboard</Button>
+          </Link>
           <Button color="inherit">Profile Settings</Button>
             <Typography variant="h6" component="div" sx={{ flexGrow: 5 }} style={{textAlign:"center"}}>
             </Typography>
-            <Link to="/aboutUs" >
+            <Link to="/about" >
               <Button color="inherit" >About</Button>
             </Link>
             <Button color="inherit">Forum</Button>
