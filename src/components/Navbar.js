@@ -40,8 +40,11 @@ const Navbar = () => {
           <Button color="inherit">Profile Settings</Button>
             <Typography variant="h6" component="div" sx={{ flexGrow: 5 }} style={{textAlign:"center"}}>
             </Typography>
+            <Link to="/memoryGame" >
+              <Button color="inherit">Memory Game</Button>
+            </Link>
             <Link to="/aboutUs" >
-              <Button color="inherit" >About</Button>
+              <Button color="inherit">About</Button>
             </Link>
             <Button color="inherit">Forum</Button>
             <Button color="inherit">Login</Button>
