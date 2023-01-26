@@ -14,14 +14,14 @@ const Login = () => {
       <div className="login__container">
         <input
           type="text"
-          className="login__textBox"
+          className="login__textBox text-black"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="E-mail Address"
         />
         <input
           type="password"
-          className="login__textBox"
+          className="login__textBox text-black"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
