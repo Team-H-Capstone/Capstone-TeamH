@@ -9,15 +9,21 @@ function Register() {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
 <<<<<<< HEAD
+<<<<<<< HEAD
   //   const [user, loading, error] = useAuthState(auth);
   //   const history = useHistory();
 =======
 
 >>>>>>> ac0a39caa275583c13deabf4cf5a1d7ab5df8a97
+=======
+//   const [user, loading, error] = useAuthState(auth);
+//   const history = useHistory();
+>>>>>>> d615c9ce37f772068119fe6bdfe81f144a0f7647
   const register = () => {
     if (!name) alert("Please enter name");
     registerWithEmailAndPassword(name, email, password);
   };
+<<<<<<< HEAD
 <<<<<<< HEAD
   //   useEffect(() => {
   //     if (loading) return;
@@ -26,6 +32,12 @@ function Register() {
 =======
 
 >>>>>>> ac0a39caa275583c13deabf4cf5a1d7ab5df8a97
+=======
+//   useEffect(() => {
+//     if (loading) return;
+//     if (user) history.replace("/dashboard");
+//   }, [user, loading]);
+>>>>>>> d615c9ce37f772068119fe6bdfe81f144a0f7647
   return (
     <div className="register bg-[#1e3a8a]">
       <div className="register__container">

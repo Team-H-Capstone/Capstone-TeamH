@@ -7,6 +7,9 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
+import Logout from "./Logout";
+import { auth } from "../firebase-config";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const Navbar = () => {
   const [open, setOpen] = useState("false");
@@ -27,24 +30,45 @@ const Navbar = () => {
     console.log("Room 2 open!");
   };
 
+  const [user] = useAuthState(auth);
+
+  console.log(user);
+
   return (
     <div style={{ position: "fixed", width: "100vw", zIndex: 200 }}>
       <Box sx={{ flexGrow: 0 }}>
         <AppBar>
           <Toolbar className="bg-[#1e3a8a]">
-          <Link to="/home" >
-            <Button color="inherit" sx={{ml:0}}>Home</Button>
-          </Link>
-          <Button color="inherit">MyDashboard</Button>
-          <Button color="inherit">Profile Settings</Button>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 5 }} style={{textAlign:"center"}}>
-            </Typography>
-            <Link to="/about" >
-              <Button color="inherit" >About</Button>
+            <Link to="/home">
+              <Button color="inherit" sx={{ ml: 0 }}>
+                Home
+              </Button>
+            </Link>
+            <Button color="inherit">MyDashboard</Button>
+            <Button color="inherit">Profile Settings</Button>
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ flexGrow: 5 }}
+              style={{ textAlign: "center" }}
+            ></Typography>
+            <Link to="/about">
+              <Button color="inherit">About</Button>
             </Link>
             <Button color="inherit">Forum</Button>
-            <Link to="/login"><Button color="inherit">Login</Button></Link>
-            <IconButton className="dropdown" onClick={handleClick}
+
+            {user ? (
+              <Logout />
+            ) : (
+              <Link to="/login">
+                <Button color="inherit">Login</Button>
+              </Link>
+            )}
+
+            {/* <Logout /> */}
+            <IconButton
+              className="dropdown"
+              onClick={handleClick}
               size="large"
               edge="start"
               color="inherit"

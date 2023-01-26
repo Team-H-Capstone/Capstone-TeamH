@@ -1,6 +1,9 @@
 import React, { useState } from "react";
+import {
+  signInWithEmailAndPassword,
+  signInWithGoogle,
+} from "../firebase-config";
 import { Link } from "react-router-dom";
-import { signInWithEmailAndPassword, signInWithGoogle } from "../firebase-config";
 
 const Login = () => {
   const [email, setEmail] = useState("");
