@@ -5,7 +5,7 @@ import "aos/dist/aos.css";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { Link } from "react-scroll";
 
-const Hello = () => {
+const Home = () => {
   useEffect(() => {
     AOS.init();
   }, []);
@@ -80,4 +80,4 @@ const Hello = () => {
   );
 };
 
-export default Hello;
+export default Home;

@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const About = () => {
   return (
     <div className="w-full h-screen">
@@ -57,6 +58,7 @@ const About = () => {
               alt="creator"
               src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
             />
+            <h3 className="text-xl font-medium" >Atif Hussaini</h3>
             <div className="space-x-3 text-lg font-medium" >
                 <a className="hover:text-[#e63946]" href="http://www.linkedin.com">LinkedIn</a>
                 <a className="hover:text-[#e63946]" href="http://www.github.com">GitHub</a>
@@ -68,6 +70,7 @@ const About = () => {
               alt="creator"
               src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
             />
+            <h3 className="text-xl font-medium" >Andrew Kidd</h3>
             <div className="space-x-3 text-lg font-medium" >
                 <a className="hover:text-[#e63946]" href="http://www.linkedin.com">LinkedIn</a>
                 <a className="hover:text-[#e63946]" href="http://www.github.com">GitHub</a>
@@ -79,6 +82,7 @@ const About = () => {
               alt="creator"
               src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
             />
+            <h3 className="text-xl font-medium" >Tien La</h3>
             <div className="space-x-3 text-lg font-medium" >
                 <a className="hover:text-[#e63946]" href="http://www.linkedin.com">LinkedIn</a>
                 <a className="hover:text-[#e63946]" href="http://www.github.com">GitHub</a>
@@ -90,6 +94,7 @@ const About = () => {
               alt="creator"
               src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
             />
+            <h3 className="text-xl font-medium" >Eva Li</h3>
             <div className="space-x-3 text-lg font-medium" >
                 <a className="hover:text-[#e63946]" href="http://www.linkedin.com">LinkedIn</a>
                 <a className="hover:text-[#e63946]" href="http://www.github.com">GitHub</a>
@@ -101,6 +106,7 @@ const About = () => {
               alt="creator"
               src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
             />
+            <h3 className="text-xl font-medium" >Justin Signo</h3>
             <div className="space-x-3 text-lg font-medium" >
                 <a className="hover:text-[#e63946]" href="http://www.linkedin.com">LinkedIn</a>
                 <a className="hover:text-[#e63946]" href="http://www.github.com">GitHub</a>
