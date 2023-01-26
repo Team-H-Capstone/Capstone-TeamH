@@ -1,5 +1,6 @@
 import React from "react";
-
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const About = () => {
   return (
@@ -59,9 +60,9 @@ const About = () => {
               src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
             />
             <h3 className="text-xl font-medium" >Atif Hussaini</h3>
-            <div className="space-x-3 text-lg font-medium" >
-                <a className="hover:text-[#e63946]" href="http://www.linkedin.com">LinkedIn</a>
-                <a className="hover:text-[#e63946]" href="http://www.github.com">GitHub</a>
+            <div className="space-x-3 text-lg font-medium border-t border-gray-200" >
+                <a className="text-[#2E4C6D] dark:hover:text-[#e63946] transition-colors duration-200" href="http://www.linkedin.com"><LinkedInIcon /></a>
+                <a className="text-[#2E4C6D] dark:hover:text-[#e63946] transition-colors duration-200" href="http://www.github.com"><GitHubIcon/></a>
             </div>
           </div>
           <div className="flex flex-col justify-center items-center px-5">
@@ -71,9 +72,9 @@ const About = () => {
               src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
             />
             <h3 className="text-xl font-medium" >Andrew Kidd</h3>
-            <div className="space-x-3 text-lg font-medium" >
-                <a className="hover:text-[#e63946]" href="http://www.linkedin.com">LinkedIn</a>
-                <a className="hover:text-[#e63946]" href="http://www.github.com">GitHub</a>
+            <div className="space-x-3 text-lg font-medium border-t border-gray-200" >
+                <a className="text-[#2E4C6D] dark:hover:text-[#e63946] transition-colors duration-200" href="http://www.linkedin.com"><LinkedInIcon /></a>
+                <a className="text-[#2E4C6D] dark:hover:text-[#e63946] transition-colors duration-200" href="http://www.github.com"><GitHubIcon/></a>
             </div>
           </div>
           <div className="flex flex-col justify-center items-center px-5">
@@ -83,9 +84,9 @@ const About = () => {
               src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
             />
             <h3 className="text-xl font-medium" >Tien La</h3>
-            <div className="space-x-3 text-lg font-medium" >
-                <a className="hover:text-[#e63946]" href="http://www.linkedin.com">LinkedIn</a>
-                <a className="hover:text-[#e63946]" href="http://www.github.com">GitHub</a>
+            <div className="space-x-3 text-lg font-medium border-t border-gray-200" >
+                <a className="text-[#2E4C6D] dark:hover:text-[#e63946] transition-colors duration-200" href="http://www.linkedin.com"><LinkedInIcon /></a>
+                <a className="text-[#2E4C6D] dark:hover:text-[#e63946] transition-colors duration-200" href="http://www.github.com"><GitHubIcon/></a>
             </div>
           </div>
           <div className="flex flex-col justify-center items-center px-5">
@@ -95,9 +96,9 @@ const About = () => {
               src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
             />
             <h3 className="text-xl font-medium" >Eva Li</h3>
-            <div className="space-x-3 text-lg font-medium" >
-                <a className="hover:text-[#e63946]" href="http://www.linkedin.com">LinkedIn</a>
-                <a className="hover:text-[#e63946]" href="http://www.github.com">GitHub</a>
+            <div className="space-x-3 text-lg font-medium border-t border-gray-200" >
+                <a className="text-[#2E4C6D] dark:hover:text-[#e63946] transition-colors duration-200" href="http://www.linkedin.com"><LinkedInIcon /></a>
+                <a className="text-[#2E4C6D] dark:hover:text-[#e63946] transition-colors duration-200" href="http://www.github.com"><GitHubIcon/></a>
             </div>
           </div>
           <div className="flex flex-col justify-center items-center px-5">
@@ -107,12 +108,20 @@ const About = () => {
               src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
             />
             <h3 className="text-xl font-medium" >Justin Signo</h3>
-            <div className="space-x-3 text-lg font-medium" >
-                <a className="hover:text-[#e63946]" href="http://www.linkedin.com">LinkedIn</a>
-                <a className="hover:text-[#e63946]" href="http://www.github.com">GitHub</a>
+            <div className="space-x-3 text-lg font-medium border-t border-gray-200" >
+                <a className="text-[#2E4C6D] dark:hover:text-[#e63946] transition-colors duration-200" href="http://www.linkedin.com"><LinkedInIcon /></a>
+                <a className="text-[#2E4C6D] dark:hover:text-[#e63946] transition-colors duration-200" href="http://www.github.com"><GitHubIcon/></a>
             </div>
           </div>
         </div>
+      </section>
+      <section className="flex flex-col justify-center items-center w-full py-3 bg-[#dad7cd] text-[#344e41]">
+       <h2 className="text-lg font-semibold">
+        Capstone Repo
+       </h2>
+       <a href="https://github.com/Team-H-Capstone/Capstone-TeamH">
+        Website Name --- GitHub Link
+       </a>
       </section>
     </div>
   );
