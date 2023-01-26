@@ -4,6 +4,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { HiArrowNarrowRight } from "react-icons/hi";
 import { Link } from "react-scroll";
+import Login from "./Login";
+import Register from "./Register"
 
 const Home = () => {
   useEffect(() => {
@@ -66,15 +68,8 @@ const Home = () => {
         >
           *OUR WEBSITE NAME*
         </h1>
-        <div className="flex flex-row">
-          <button className="text-white group border-2 px-6 py-3 my-2 flex items-center hover:bg-orange-600 hover:border-orange-600">
-            Sign Up
-          </button>
-
-          <button className="text-white group border-2 px-6 py-3 my-2 flex items-center hover:bg-orange-600 hover:border-orange-600">
-            Sign In
-          </button>
-        </div>
+        <Login />
+        <Register />
       </section>
     </div>
   );
