@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 // import { Link, useNavigate } from "react-router-dom";
-import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../firebase-config";
+import {
+  auth,
+  signInWithEmailAndPassword,
+  signInWithGoogle,
+} from "../firebase-config";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 const Login = () => {
@@ -35,9 +39,9 @@ const Login = () => {
         <button className="login__btn login__google" onClick={signInWithGoogle}>
           Login with Google
         </button>
-      <div>
-        Don't have an account? <br/> Register now.
-      </div> 
+        <div>
+          Don't have an account? <br /> Register now.
+        </div>
       </div>
     </div>
   );
