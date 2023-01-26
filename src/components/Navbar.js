@@ -32,7 +32,7 @@ const Navbar = () => {
     <div style={{position:"fixed", width: "100vw", zIndex:200}}>
       <Box sx={{ flexGrow: 0 }}>
         <AppBar>
-          <Toolbar>
+          <Toolbar className="bg-[#1e3a8a]">
           <Link to="/home" >
             <Button color="inherit" sx={{ml:0}}>Home</Button>
           </Link>
@@ -47,7 +47,7 @@ const Navbar = () => {
               <Button color="inherit">About</Button>
             </Link>
             <Button color="inherit">Forum</Button>
-            <Button color="inherit">Login</Button>
+            <Link to="/login"><Button color="inherit">Login</Button></Link>
             <IconButton className="dropdown" onClick={handleClick}
               size="large"
               edge="start"

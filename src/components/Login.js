@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from "react";
-// import { Link, useNavigate } from "react-router-dom";
-import { auth, signInWithEmailAndPassword, signInWithGoogle } from "../firebase-config";
-import { useAuthState } from "react-firebase-hooks/auth";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { signInWithEmailAndPassword, signInWithGoogle } from "../firebase-config";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, loading, error] = useAuthState(auth);
-  // const navigate = useNavigate();
 
   return (
-    <div className="login">
+    <div className="login bg-[#1e3a8a]">
       <div className="login__container">
         <input
           type="text"
@@ -36,7 +33,7 @@ const Login = () => {
           Login with Google
         </button>
       <div>
-        Don't have an account? <br/> Register now.
+        Don't have an account? <br/> <Link className="text-orange-500 font-bold" to="/register">Register</Link> now.
       </div> 
       </div>
     </div>
