@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import { collection, addDoc } from "firebase/firestore"
+import {db} from "../../firebase-config";
+
 
 import { EditorContent, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
@@ -14,7 +17,6 @@ import {
     FaIndent,
     FaUnderline
 } from "react-icons/fa";
-
 import { 
     MdHorizontalRule,
     MdUndo,
@@ -27,7 +29,7 @@ const MenuBar = ({ editor }) => {
   }
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex flex-row items-center">
       <button
         onClick={() => editor.chain().focus().toggleBold().run()}
         disabled={
@@ -145,13 +147,17 @@ const Notepad = () => {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <div className="flex flex-col justify-center items-center border-solid border-2 min-w-max max-w-xl py-4 bg-[#f8f9fa] rounded-3xl">
+      <h1 className="text-3xl pb-2 text-[#463f3a]">MyThoughts</h1>
       <MenuBar editor={editor} />
-      <EditorContent editor={editor} />
-      <div className="character-count">
-        {editor.storage.characterCount.characters()}/{limit} characters
-        <br />
-        {editor.storage.characterCount.words()} words
+      <div>
+        <EditorContent editor={editor} />
+        <div className="character-count">
+            {editor.storage.characterCount.characters()}/{limit} characters
+            <br />
+            {editor.storage.characterCount.words()} words
+            <button className="px-2 hover:bg-[#f8f9fa] hover:text-gray-800">Save</button>
+        </div>
       </div>
     </div>
   )
