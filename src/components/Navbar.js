@@ -44,7 +44,9 @@ const Navbar = () => {
                 Home
               </Button>
             </Link>
-            <Button color="inherit">MyDashboard</Button>
+            <Link to="/mydashboard">
+              <Button color="inherit">MyDashboard</Button>
+            </Link>
             <Button color="inherit">Profile Settings</Button>
             <Typography
               variant="h6"
