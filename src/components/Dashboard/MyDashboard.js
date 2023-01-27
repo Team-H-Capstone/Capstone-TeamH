@@ -2,6 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import ForumIcon from '@mui/icons-material/Forum';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import Notepad from "./Notepad";
 
 const MyDashboard = () => {
     return (
@@ -44,6 +45,7 @@ const MyDashboard = () => {
          <section
          className="flex-auto bg-slate h-full pt-28">
             Container
+            <Notepad />
          </section>
         </div>
     )

@@ -1,0 +1,59 @@
+/* TitTap Editor Design */
+.ProseMirror {
+    padding: 10px;
+    border: 2px solid black;
+    background: white;
+    border-radius: 0 0 5px 5px;
+    min-height: 100px;
+    width: 600px;
+  }
+  .ProseMirror:focus {
+    border: none;
+    outline: 2px solid lightseagreen;
+  }
+  
+  .ProseMirror > * + * {
+    margin-top: 0.75em;
+  }
+  
+  .ProseMirror ul,
+  .ProseMirror ol {
+    padding: 0 2rem;
+  }
+  
+  .ProseMirror h1,
+  .ProseMirror h2,
+  .ProseMirror h3,
+  .ProseMirror h4,
+  .ProseMirror h5,
+  .ProseMirror h6 {
+    line-height: 1.1;
+  }
+
+  .ProseMirror blockquote {
+    padding-left: 1rem;
+    border-left: 3px solid #999999;
+  }
+  
+  .ProseMirror hr {
+    border: none;
+    border-top: 3px solid #999999;
+    margin: 2rem 0;
+  }
+  
+  /* ............................ */
+
+    button {
+    font-size: 22px;
+    margin: 5px;
+    padding: 2.5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: rgb(70, 70, 70);
+    cursor: pointer;
+  }
+
+  .character-count {
+    color: #868e96;
+    margin-top: 1rem;
+  }
