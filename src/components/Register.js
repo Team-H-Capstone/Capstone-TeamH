@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 // import { Link, useHistory } from "react-router-dom";
 import {
-  auth,
   registerWithEmailAndPassword,
   signInWithGoogle,
 } from "../firebase-config";
+import { Link } from "react-router-dom";
 function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,7 +21,7 @@ function Register() {
 //     if (user) history.replace("/dashboard");
 //   }, [user, loading]);
   return (
-    <div className="register">
+    <div className="register bg-[#1e3a8a]">
       <div className="register__container">
         <input
           type="text"
@@ -53,9 +53,9 @@ function Register() {
         >
           Register with Google
         </button>
-        {/* <div>
-          Already have an account? <Link to="/">Login</Link> now.
-        </div> */}
+        <div>
+          Already have an account? <br/><Link className="text-orange-500 font-bold" to="/login">Login</Link> now.
+        </div>
       </div>
     </div>
   );
