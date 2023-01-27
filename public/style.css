@@ -1,8 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=IBM+Plex+Sans:wght@100&display=swap');
 
+/* Overall page */
+
 body {
     background-color: #1e3a8a;
 }
+
+/* Navbar CSS */
 
 .dropdown {
     position: relative;
@@ -10,46 +14,43 @@ body {
 }
   
 .menu {
-position: static;
-
-list-style-type: none;
-margin: 5px 0;
-padding: 0;
-
-border: 1px solid grey;
-width: 150px;
-z-index: 1;
+    position: static;
+    list-style-type: none;
+    margin: 5px 0;
+    padding: 0;
+    border: 1px solid grey;
+    width: 150px;
+    z-index: 1;
 }
 
 .menu > li {
-margin: 0;
-color: black;
-background-color: white;
+    margin: 0;
+    color: black;
+    background-color: white;
 }
 
 .menu > li:hover {
-background-color: lightgray;
+    background-color: lightgray;
 }
 
 .menu > li > button {
-width: 100%;
-height: 100%;
-text-align: left;
-
-background: none;
-color: inherit;
-border: none;
-padding: 5px;
-margin: 0;
-font: inherit;
-cursor: pointer;
+    width: 100%;
+    height: 100%;
+    text-align: left;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 5px;
+    margin: 0;
+    font: inherit;
+    cursor: pointer;
 }
 
 /* MEMORY GAME CSS */
 
 .memoryGame {
     font-family: 'Bungee Shade', cursive;
-    max-width:860px;
+    max-width: 1300px;
     margin: 40px auto;
     display: flex;
     flex-direction: column;
@@ -69,7 +70,7 @@ cursor: pointer;
 }
 
 .memoryGameButton:hover {
-    background: rgb(246, 72, 83);
+    background: rgb(71, 13, 100);
     color: #fff;
 }
 
@@ -80,3 +81,30 @@ cursor: pointer;
     text-align: center;
 }
 
+.cardGrid {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.card {
+    position: relative;
+}
+
+.card img {
+    width: 200px;
+    height: 150px;
+    display: block;
+    border: 2px solid #fff;
+    border-radius: 6px;
+}
+
+.card .front {
+    transform: rotateY(90deg);
+    position: absolute;
+}
+
+.flipped .front {
+    transform: rotateY(0deg);
+}
