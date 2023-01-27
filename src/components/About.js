@@ -4,7 +4,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const About = () => {
   return (
-    <div className="w-full h-screen">
+    <div className="w-full h-screen" style={{background:"white"}}>
       <section className="flex flex-col justify-center items-center w-full h-2/4 bg-[#dad7cd] text-[#344e41]">
         <h1 className="text-7xl font-bold tracking-wide">About Us</h1>
         <h2 className="text-lg italic pt-10">
@@ -13,7 +13,7 @@ const About = () => {
           Brené Brown
         </h2>
       </section>
-      <section className="flex flex-row justify-center items-center w-full py-12">
+      <section className="flex flex-row justify-center items-center w-full py-12" style={{background:"white"}}>
         <div className="flex flex-col pl-20">
           <h2 className="text-4xl font-bold pb-4">Mental Health Awareness</h2>
           <h3 className="text-lg">
@@ -39,26 +39,27 @@ const About = () => {
         "
         />
       </section>
-      <section className="flex flex-col justify-center items-center w-full">
+      <section className="flex flex-col justify-center items-center w-full" style={{background:"white"}}>
         <h2 className="text-3xl font-bold">Contact Us</h2>
         <div className="flex flex-row pb-7 pt-1">
           <div className="flex flex-col justify-center items-center px-5">
             <img
-              width="200"
+              className="rounded-full pb-2"
+              width="175"
               alt="creator"
-              src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
+              src="/img/atif.jpeg"
             />
             <h3 className="text-xl font-medium">Atif Hussaini</h3>
             <div className="space-x-3 text-lg font-medium border-t border-gray-200">
               <a
                 className="text-[#2E4C6D] dark:hover:text-[#e63946] transition-colors duration-200"
-                href="http://www.linkedin.com"
+                href="http://www.linkedin.com/atif-hussaini"
               >
                 <LinkedInIcon />
               </a>
               <a
                 className="text-[#2E4C6D] dark:hover:text-[#e63946] transition-colors duration-200"
-                href="http://www.github.com"
+                href="https://github.com/AtifHussaini"
               >
                 <GitHubIcon />
               </a>
@@ -118,13 +119,13 @@ const About = () => {
             <div className="space-x-3 text-lg font-medium border-t border-gray-200">
               <a
                 className="text-[#2E4C6D] dark:hover:text-[#e63946] transition-colors duration-200"
-                href="http://www.linkedin.com"
+                href="http://www.linkedin.com/in/eva-li-rd"
               >
                 <LinkedInIcon />
               </a>
               <a
                 className="text-[#2E4C6D] dark:hover:text-[#e63946] transition-colors duration-200"
-                href="http://www.github.com"
+                href="http://www.github.com/kibapika"
               >
                 <GitHubIcon />
               </a>

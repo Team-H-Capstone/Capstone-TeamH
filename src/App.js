@@ -2,9 +2,10 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./components/Hello";
 import Navbar from "./components/Navbar";
 import About from './components/About';
-import MyDashboard from './components/Dashboard/MyDashboard';
-import Login from './components/Login';
-import Register from './components/Register';
+import MyDashboard from "./components/Dashboard/MyDashboard";
+import MemoryGame from './components/MemoryGame';
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/mydashboard" element={<MyDashboard/>} />
+        <Route path="/memoryGame" element={<MemoryGame />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
     </Routes>

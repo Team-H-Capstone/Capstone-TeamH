@@ -137,7 +137,7 @@ const Notepad = () => {
     extensions: [StarterKit, Underline, CharacterCount.configure({
         limit,
       })],
-    content: ``,
+    content: ``, 
   })
 
   if (!editor) {
@@ -148,7 +148,6 @@ const Notepad = () => {
     <div className="flex flex-col justify-center items-center">
       <MenuBar editor={editor} />
       <EditorContent editor={editor} />
-
       <div className="character-count">
         {editor.storage.characterCount.characters()}/{limit} characters
         <br />

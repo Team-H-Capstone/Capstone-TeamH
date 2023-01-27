@@ -6,9 +6,9 @@ import Notepad from "./Notepad";
 
 const MyDashboard = () => {
     return (
-        <div className="w-full h-screen flex flex-row">
+        <div className="w-full h-screen flex flex-row" style={{background:"white"}}>
          <section
-         className="top-0 left-0 w-72 bg-[#ced4da] h-full border-r overflow overflow-auto pt-24"
+         className="top-0 left-0 w-72 bg-[#bcb8b1] h-full border-r overflow overflow-auto pt-24"
          >
             <div className="flex flex-col justify-center items-center">
                 <img
@@ -17,7 +17,7 @@ const MyDashboard = () => {
                 alt="creator"
                 src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
                 />
-                <h1 className="text-3xl font-bold text-[#212529] pt-4">
+                <h1 className="text-3xl font-bold text-[#463f3a] pt-4">
                     Hello, User Name!
                 </h1>
             </div>
@@ -43,8 +43,8 @@ const MyDashboard = () => {
             </div>
          </section>
          <section
-         className="flex-auto bg-slate h-full pt-28">
-            Container
+         className="flex-auto h-full pt-28 bg-[#f4f3ee]">
+            Hello
             <Notepad />
          </section>
         </div>

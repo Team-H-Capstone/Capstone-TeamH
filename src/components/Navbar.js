@@ -85,7 +85,9 @@ const Navbar = () => {
                   <Button onClick={handleRoom1}>Room 1</Button>
                 </li>
                 <li className="menuItem">
-                  <Button onClick={handleRoom2}>Room 2</Button>
+                  <Link to="/memoryGame" >
+                  <Button onClick={handleRoom2} style={{color:"black", textAlign:"center", fontSize:20}}>Game Room</Button>
+                  </Link>
                 </li>
               </ul>
             )}
