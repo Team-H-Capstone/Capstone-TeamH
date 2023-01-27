@@ -156,7 +156,7 @@ const Notepad = () => {
             {editor.storage.characterCount.characters()}/{limit} characters
             <br />
             {editor.storage.characterCount.words()} words
-            <button className="px-2 hover:bg-[#f8f9fa] hover:text-gray-800">Save</button>
+            <button className="px-2 border-solid border-2 hover:bg-white hover:text-gray-800">Save</button>
         </div>
       </div>
     </div>
