@@ -22,13 +22,23 @@ import {
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+// const firebaseConfig = {
+//   apiKey: 'AIzaSyBsIjlxWvMw-tWtRQXPpPx316byIMJg20A',
+//   authDomain: 'teamh-capstone.firebaseapp.com',
+//   projectId: 'teamh-capstone',
+//   storageBucket: 'teamh-capstone.appspot.com',
+//   messagingSenderId: '170344461409',
+//   appId: '1:170344461409:web:0cd61c18f493bbef562620',
+// };
+
+// trial
 const firebaseConfig = {
-  apiKey: 'AIzaSyBsIjlxWvMw-tWtRQXPpPx316byIMJg20A',
-  authDomain: 'teamh-capstone.firebaseapp.com',
-  projectId: 'teamh-capstone',
-  storageBucket: 'teamh-capstone.appspot.com',
-  messagingSenderId: '170344461409',
-  appId: '1:170344461409:web:0cd61c18f493bbef562620',
+  apiKey: "AIzaSyC18tFyiIfjfHzgFFGr060AHa4R_bbu8Bo",
+  authDomain: "notepad-c062b.firebaseapp.com",
+  projectId: "notepad-c062b",
+  storageBucket: "notepad-c062b.appspot.com",
+  messagingSenderId: "461540238529",
+  appId: "1:461540238529:web:61d8c4803cf1e0ede82040"
 };
 
 const googleProvider = new GoogleAuthProvider();

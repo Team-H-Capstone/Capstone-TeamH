@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { collection, addDoc } from "firebase/firestore"
-import {db} from "../../firebase-config";
+import {db, auth} from "../../firebase-config";
 
 
 import { EditorContent, useEditor } from '@tiptap/react';
@@ -15,7 +15,9 @@ import {
     FaListUl,
     FaListOl,
     FaIndent,
-    FaUnderline
+    FaUnderline,
+    FaArrowLeft,
+    FaArrowRight
 } from "react-icons/fa";
 import { 
     MdHorizontalRule,
@@ -27,7 +29,6 @@ const MenuBar = ({ editor }) => {
   if (!editor) {
     return null
   }
-
   return (
     <div className="flex flex-row items-center">
       <button
@@ -134,29 +135,48 @@ const MenuBar = ({ editor }) => {
 const limit = 280;
 
 const Notepad = () => {
+  const [textBox, setTextBox] = useState("");
 
   const editor = useEditor({
     extensions: [StarterKit, Underline, CharacterCount.configure({
         limit,
       })],
-    content: ``, 
-  })
+    content: ``,
+
+    onUpdate: ({ editor }) => {
+      const html = editor.getHTML();
+      setTextBox(html);
+    },
+
+  });
 
   if (!editor) {
     return null
   }
 
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    addDoc(collection(db,"Notepad"),{
+      textBox,
+      author: {name: auth.currentUser.displayName, id: auth.currentUser.uid}
+    })
+  };
+
   return (
     <div className="flex flex-col justify-center items-center border-solid border-2 min-w-max max-w-xl py-4 bg-[#f8f9fa] rounded-3xl">
-      <h1 className="text-3xl pb-2 text-[#463f3a]">MyThoughts</h1>
+      <div className="flex flex-row justify-center items-center">
+        <button><FaArrowLeft /></button>
+        <h1 className="text-3xl pb-2 px-10 text-[#463f3a]">MyThoughts</h1>
+        <button><FaArrowRight /></button>
+      </div>
       <MenuBar editor={editor} />
       <div>
-        <EditorContent editor={editor} />
+        <EditorContent editor={editor}/>
         <div className="character-count">
             {editor.storage.characterCount.characters()}/{limit} characters
             <br />
             {editor.storage.characterCount.words()} words
-            <button className="px-2 border-solid border-2 hover:bg-white hover:text-gray-800">Save</button>
+            <button className="px-2 border-solid border-2 hover:bg-white hover:text-gray-800" onClick={handleSubmit}>Save</button>
         </div>
       </div>
     </div>
