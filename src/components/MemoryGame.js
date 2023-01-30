@@ -39,6 +39,9 @@ const MemoryGame = () => {
     }
 
     const handleChoice = (card) => {
+        if(card.id === choiceOne?.id) {
+            return
+        }
         choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
     }
 
