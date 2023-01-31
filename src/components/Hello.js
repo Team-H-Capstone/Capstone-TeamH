@@ -10,6 +10,8 @@ import { auth } from "../firebase-config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import Chart from "./Chart";
+import { borderRadius } from "@mui/system";
+import Quiz from "./Quiz";
 
 const Home = () => {
   useEffect(() => {
@@ -23,7 +25,7 @@ const Home = () => {
     <div className="w-full h-screen">
       <section className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white">
         <h1
-          className="flex justify-center items-center text-9xl font-bold"
+          className="flex justify-center items-center text-9xl font-bold text-center"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
           data-aos-delay="300"
@@ -47,18 +49,18 @@ const Home = () => {
         className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white"
       >
         <h1
-          className="flex justify-center items-center text-9xl font-bold"
+          className="flex justify-center items-center text-9xl font-bold text-center"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
           data-aos-delay="500"
           data-aos-offset="0"
         >
-          How are you?
+          How are you doing today?
         </h1>
       </section>
-      <section className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white">
+      <section name="question" className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white">
         <h1
-          className="flex justify-center items-center text-9xl font-bold"
+          className="flex justify-center items-center text-9xl font-bold text-center"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
           data-aos-delay="500"
@@ -67,24 +69,23 @@ const Home = () => {
           Welcome to
         </h1>
         <h1
-          className="flex justify-center items-center text-9xl font-bold"
+          className="flex justify-center items-center text-9xl font-bold text-center"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
-          data-aos-delay="500"
+          data-aos-delay="1500"
           data-aos-offset="0"
         >
           BE MINDFUL
         </h1>
       </section>
       <section
-        name="question"
         className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white"
       >
         <h1
-          className="flex justify-center items-center text-4xl font-bold"
+          className="flex justify-center items-center text-4xl font-bold text-center"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
-          data-aos-delay="500"
+          data-aos-delay="1000"
           data-aos-offset="0"
         >
           Did you know mental health affects hundreds of millions of people around the world?
@@ -96,21 +97,35 @@ const Home = () => {
         name="question"
         className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white"
       >
-        <h1
-          className="flex justify-center items-center text-9xl font-bold"
+        <h1 className="flex justify-center text-center items-center text-5xl font-bold"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
           data-aos-delay="500"
           data-aos-offset="0"
+          >
+          Want to learn more about Mental Health? Take the quiz!
+          </h1>
+          <Quiz />
+      </section>
+      <section
+        name="question"
+        className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white"
+      >
+        <h1
+          className="flex justify-center items-center text-9xl font-bold text-center"
+          data-aos="fade-zoom-in"
+          data-aos-easing="ease-in-back"
+          data-aos-delay="1000"
+          data-aos-offset="0"
         >
-          Enter Mental Spa
+        Enter Our Mental Spa
         </h1>
         <h1
           style={{ fontStyle: "italic", marginTop: 50 }}
           className="flex justify-center items-center text-5xl font-bold"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
-          data-aos-delay="500"
+          data-aos-delay="2000"
           data-aos-offset="0"
         >
           Interactive Meditation Rooms
@@ -133,7 +148,8 @@ const Home = () => {
               border: "10px solid white",
               backgroundImage: `url("/img/meditation.jpeg")`,
               backgroundPosition: "center",
-              backgroundSize:"cover"
+              backgroundSize:"cover",
+              borderRadius: 50
             }}
           >
             <h1
@@ -142,10 +158,10 @@ const Home = () => {
                 alignItems: "center",
                 justifyContent: "center",
                 width: "100%",
-                fontSize: 43,
+                fontSize: 60,
               }}
             >
-              Music/Meditation/Videos
+              Music & Videos
             </h1>
           </div>
           <Link to="/memoryGame">
@@ -157,7 +173,8 @@ const Home = () => {
                 alignItems: "right",
                 border: "10px solid white",
                 backgroundImage: `url("/img/gameBackground.jpeg")`,
-                backgroundPosition: "center"
+                backgroundPosition: "center",
+                borderRadius: 50
               }}
             >
               <h1
@@ -166,7 +183,7 @@ const Home = () => {
                   alignItems: "center",
                   justifyContent: "center",
                   width: "100%",
-                  fontSize: 43
+                  fontSize: 60
                 }}
               >
                 Games
