@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { collection, query, orderBy, where, getDocs, onSnapshot  } from "firebase/firestore"
+import { collection, query, orderBy, where, onSnapshot } from "firebase/firestore"
 import {db, auth} from "../../firebase-config";
-import { useAuthState } from 'react-firebase-hooks/auth';
 import "./Notepad.css"
 import {
     FaArrowLeft,
@@ -11,49 +10,19 @@ import {
 const MyThoughts = () => {
     const [textBox, setTextBox] = useState([]);
 
-    console.log("user ----->",auth.currentUser.uid);
-
-    // where("uid", "==", auth.currentUser.uid)
-
     useEffect(() => {
-        const q = query(collection(db, "Notepad"), orderBy("Timestamp"));
-        console.log("q ------->", q);
-        console.log("user useEffect ----->", auth.currentUser.uid);
+        const q = query(collection(db, "Notepad"), where("uid", "==", auth.currentUser.uid), orderBy("Timestamp"));
 
         const unsubscribe = onSnapshot(q, (querySnapshot) => {
             let textBox = [];
             querySnapshot.forEach((doc) => {
-                textBox.push({...doc.data(), id:doc.id})
-                // console.log("docId ------>", doc.id)
+                textBox.push({...doc.data(), id:doc.id, date:doc.data().Timestamp})
+                console.log("doc ------>", doc.data().Timestamp);
             });
             setTextBox(textBox);
         })
         return () => unsubscribe();
     }, []);
-
-    // useEffect(() => {
-    //     const q = query(collection(db, "Notepad"), orderBy("Timestamp"), where("id", "==", auth.currentUser.uid));
-    //     const unsubscribe = onSnapshot(q, (querySnapshot) => {
-    //         const data = [];
-    //         querySnapshot.forEach((doc) => {
-    //             data.push(doc.doc().name);
-    //         })
-    //         console.log("current text ---->", data.join(","));
-    //     })
-    // });
-
-    // const unsubscribe = onSnapshot(q, (querySnapshot) => {
-    //     const cities = [];
-    //     querySnapshot.forEach((doc) => {
-    //         cities.push(doc.data().name);
-    //     });
-    //     console.log("Current cities in CA: ", cities.join(", "));
-
-    // const querySnapshot = await getDocs(q);
-    // querySnapshot.forEach((doc) => {
-    //     doc.data();
-    //     console.log(doc.id, "=>", doc.doc());
-    // })
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
