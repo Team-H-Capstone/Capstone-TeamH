@@ -32,8 +32,6 @@ const Navbar = () => {
 
   const [user] = useAuthState(auth);
 
-  console.log(user);
-
   return (
     <div style={{ position: "fixed", width: "100vw", zIndex: 200 }}>
       <Box sx={{ flexGrow: 0 }}>
