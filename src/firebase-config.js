@@ -9,6 +9,7 @@ import {
   sendPasswordResetEmail,
   signOut,
   updateProfile,
+  updateEmail,
   // updateDisplayName,
 } from "firebase/auth";
 
