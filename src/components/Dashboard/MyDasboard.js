@@ -7,6 +7,7 @@ import { auth } from '../../firebase-config';
 
 const MyDashboard = () => {
   const [user] = useAuthState(auth);
+  console.log('user--->', auth.currentUser)
 
   return (
     <div className="w-full h-screen flex flex-row">
