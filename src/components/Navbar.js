@@ -7,9 +7,10 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
-import Logout from "./Logout";
 import { auth } from "../firebase-config";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { logout } from "../firebase-config";
+
 
 const Navbar = () => {
   const [open, setOpen] = useState("false");
@@ -57,17 +58,24 @@ const Navbar = () => {
             <Link to="/about">
               <Button color="inherit">About</Button>
             </Link>
-            <Button color="inherit">Forum</Button>
+
+            <Link to="/forum">
+              <Button color="inherit">Forum</Button>
+            </Link>
 
             {user ? (
-              <Logout />
+              <>
+                <Link to="/createpost">
+                  <Button color="inherit">Create</Button>
+                </Link>
+                <button color="inherit" onClick={() => logout()}>LOG OUT</button>
+              </>
             ) : (
               <Link to="/login">
                 <Button color="inherit">Login</Button>
               </Link>
             )}
 
-            {/* <Logout /> */}
             <IconButton
               className="dropdown"
               onClick={handleClick}
