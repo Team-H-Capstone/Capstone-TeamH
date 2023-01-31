@@ -41,6 +41,7 @@ const MyThoughts = () => {
                     return (
                         <div key={text.id}>
                             <h1>{text.textBox}</h1>
+                            <h2>{text.date}</h2>
                         </div>
                     )
                 })}

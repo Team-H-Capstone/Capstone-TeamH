@@ -158,7 +158,9 @@ const Notepad = () => {
       textBox,
       name: auth.currentUser.displayName, 
       uid: auth.currentUser.uid,
-      Timestamp: new Date(),
+      // Timestamp: new Date(),
+      Timestamp: new Date(Date.now()).toLocaleString()
+      // Timestamp: new Date(Date.now()).toLocaleString().split(',')[0]
     })
   };
 
