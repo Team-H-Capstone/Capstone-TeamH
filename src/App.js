@@ -7,6 +7,8 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import CreatePost from "./components/Forum/CreatePost";
 import Forum from "./components/Forum/Forum";
+import MemoryGame from './components/MemoryGame';
+
 
 const App = () => {
   return (
@@ -17,6 +19,7 @@ const App = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/mydashboard" element={<MyDashboard />} />
+        <Route path="/memoryGame" element={<MemoryGame />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/createpost" element={<CreatePost />} />
