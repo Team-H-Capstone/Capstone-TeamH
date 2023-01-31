@@ -1,41 +1,42 @@
-import React, { useState } from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import { Link } from "react-router-dom";
-import Logout from "./Logout";
-import { auth } from "../firebase-config";
-import { useAuthState } from "react-firebase-hooks/auth";
+import React, { useState } from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import { Link } from 'react-router-dom';
+import Logout from './Logout';
+import { auth } from '../firebase-config';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 const Navbar = () => {
-  const [open, setOpen] = useState("false");
+  const [open, setOpen] = useState('false');
 
   const handleClick = () => {
     setOpen(!open);
-    console.log("dropdown");
+    console.log('dropdown');
   };
 
   const handleRoom1 = () => {
     setOpen(!open);
-    console.log("Room 1 open!");
+    console.log('Room 1 open!');
   };
 
   const handleRoom2 = () => {
     setOpen(!open);
 
-    console.log("Room 2 open!");
+    console.log('Room 2 open!');
   };
 
+  // const [user, loading, error] = useAuthState(auth);
   const [user] = useAuthState(auth);
 
-  console.log(user);
+  // console.log('navbar--->',user);
 
   return (
-    <div style={{ position: "fixed", width: "100vw", zIndex: 200 }}>
+    <div style={{ position: 'fixed', width: '100vw', zIndex: 200 }}>
       <Box sx={{ flexGrow: 0 }}>
         <AppBar>
           <Toolbar className="bg-[#1e3a8a]">
@@ -52,20 +53,28 @@ const Navbar = () => {
               variant="h6"
               component="div"
               sx={{ flexGrow: 5 }}
-              style={{ textAlign: "center" }}
+              style={{ textAlign: 'center' }}
             ></Typography>
             <Link to="/about">
               <Button color="inherit">About</Button>
             </Link>
             <Button color="inherit">Forum</Button>
 
+            <div className=''>
             {user ? (
-              <Logout />
+              // <Logout />
+              <span className=''> 
+                Hello {user?.displayName}
+                <span>
+                  <Logout />{' '}
+                </span>
+              </span>
             ) : (
               <Link to="/login">
                 <Button color="inherit">Login</Button>
               </Link>
             )}
+            </div>
 
             {/* <Logout /> */}
             <IconButton

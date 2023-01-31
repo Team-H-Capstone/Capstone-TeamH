@@ -5,6 +5,7 @@ import About from './components/About';
 import MyDashboard from './components/Dashboard/MyDasboard';
 import Login from './components/Login';
 import Register from './components/Register';
+import EditProfile from "./components/Dashboard/Profile";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/mydashboard" element={<MyDashboard/>} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<EditProfile/>} />
     </Routes>
     </div>
   );
