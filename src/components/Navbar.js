@@ -7,9 +7,8 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
-import { auth } from "../firebase-config";
+import { auth, logout } from "../firebase/firebase-config";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { logout } from "../firebase-config";
 
 
 const Navbar = () => {

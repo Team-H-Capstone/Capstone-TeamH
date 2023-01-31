@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import {
   registerWithEmailAndPassword,
   signInWithGoogle,
-} from "../firebase-config";
+} from "../firebase/firebase-config"
 import { Link } from "react-router-dom";
 function Register() {
   const [email, setEmail] = useState("");

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
-import { db, auth } from "../../firebase-config";
+import { db, auth } from "../../firebase/firebase-config"
 import { useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
@@ -39,8 +39,10 @@ const CreatePost = () => {
           <textarea
             className="box-border w-[1000px] h-96 font-bold text-black p-2"
             placeholder="Post"
+            maxLength={1200}
             onChange={(event) => {
               setPost(event.target.value);
+              
             }}
           />
            </form>
