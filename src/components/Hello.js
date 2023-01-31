@@ -72,7 +72,7 @@ const Home = () => {
           className="flex justify-center items-center text-9xl font-bold text-center"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
-          data-aos-delay="1500"
+          data-aos-delay="1200"
           data-aos-offset="0"
         >
           BE MINDFUL
@@ -105,6 +105,7 @@ const Home = () => {
           >
           Want to learn more about Mental Health? Take the quiz!
           </h1>
+          <br></br>
           <Quiz />
       </section>
       <section
@@ -115,7 +116,7 @@ const Home = () => {
           className="flex justify-center items-center text-9xl font-bold text-center"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
-          data-aos-delay="1000"
+          data-aos-delay="500"
           data-aos-offset="0"
         >
         Enter Our Mental Spa
@@ -125,7 +126,7 @@ const Home = () => {
           className="flex justify-center items-center text-5xl font-bold"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
-          data-aos-delay="2000"
+          data-aos-delay="1000"
           data-aos-offset="0"
         >
           Interactive Meditation Rooms
