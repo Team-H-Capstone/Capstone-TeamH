@@ -64,7 +64,7 @@ const Navbar = () => {
             {user ? (
               // <Logout />
               <span className=''> 
-                Hello {user?.displayName}
+                {/* Hello {user?.displayName} */}
                 <span>
                   <Logout />{' '}
                 </span>
