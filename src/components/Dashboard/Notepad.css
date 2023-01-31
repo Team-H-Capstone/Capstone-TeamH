@@ -7,10 +7,12 @@
     height: 300px;
     width: 500px;
   }
-  .ProseMirror:focus {
+
+.ProseMirror:focus {
     border: none;
     outline: 2.5px solid #d8e2dc;
-  }
+}
+
   
   .ProseMirror > * + * {
     margin-top: 0.75em;
@@ -65,4 +67,9 @@
     justify-content: space-between;
     color: #463f3a;
     margin-top: 1rem;
+  }
+
+  .input-thoughts {
+    height: 300px;
+    width: 500px;
   }

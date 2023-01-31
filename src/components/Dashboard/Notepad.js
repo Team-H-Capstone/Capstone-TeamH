@@ -15,9 +15,7 @@ import {
     FaListUl,
     FaListOl,
     FaIndent,
-    FaUnderline,
-    FaArrowLeft,
-    FaArrowRight
+    FaUnderline
 } from "react-icons/fa";
 import { 
     MdHorizontalRule,
@@ -158,17 +156,14 @@ const Notepad = () => {
     evt.preventDefault();
     addDoc(collection(db,"Notepad"),{
       textBox,
-      author: {name: auth.currentUser.displayName, id: auth.currentUser.uid}
+      author: {name: auth.currentUser.displayName, id: auth.currentUser.uid},
+      Timestamp: new Date(),
     })
   };
 
   return (
     <div className="flex flex-col justify-center items-center border-solid border-2 min-w-max max-w-xl py-4 bg-[#f8f9fa] rounded-3xl">
-      <div className="flex flex-row justify-center items-center">
-        <button><FaArrowLeft /></button>
-        <h1 className="text-3xl pb-2 px-10 text-[#463f3a]">MyThoughts</h1>
-        <button><FaArrowRight /></button>
-      </div>
+      <h1 className="text-3xl pb-2 px-10 text-[#463f3a]">MyNotePad</h1>
       <MenuBar editor={editor} />
       <div>
         <EditorContent editor={editor}/>

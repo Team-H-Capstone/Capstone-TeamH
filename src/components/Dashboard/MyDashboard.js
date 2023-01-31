@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import ForumIcon from '@mui/icons-material/Forum';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import Notepad from "./Notepad";
+import MyThoughts from "./MyThoughts";
 
 const MyDashboard = () => {
     return (
@@ -45,6 +46,7 @@ const MyDashboard = () => {
          <section
          className="flex-auto h-full pt-28 bg-[#edf2f4]">
             <Notepad />
+            <MyThoughts />
          </section>
         </div>
     )
