@@ -1,10 +1,8 @@
 import React from "react";
-import { logout } from "../firebase-config";
-import Button from "@mui/material/Button";
+import { logout } from "../firebase/firebase-config";
 
 const Logout = () => {
-  return <Button color="inherit" onClick={() => logout()}>Logout</Button>
-
+  return <button onClick={() => logout()}>Log Out</button>;
 };
 
 export default Logout;
