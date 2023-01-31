@@ -6,6 +6,7 @@ import {
     FaArrowLeft,
     FaArrowRight
 } from "react-icons/fa";
+import parse from 'html-react-parser';
 
 const MyThoughts = () => {
     const [textBox, setTextBox] = useState([]);
@@ -17,7 +18,7 @@ const MyThoughts = () => {
             let textBox = [];
             querySnapshot.forEach((doc) => {
                 textBox.push({...doc.data(), id:doc.id, date:doc.data().Timestamp})
-                console.log("doc ------>", doc.data().Timestamp);
+                console.log("text useEffect", doc.data().textBox)
             });
             setTextBox(textBox);
         })
@@ -40,7 +41,7 @@ const MyThoughts = () => {
                 {textBox.map((text) => {
                     return (
                         <div key={text.id}>
-                            <h1>{text.textBox}</h1>
+                            <h1>{parse(text.textBox)}</h1>
                             <h2>{text.date}</h2>
                         </div>
                     )
