@@ -3,8 +3,9 @@ import Home from "./components/Hello";
 import Navbar from "./components/Navbar";
 import About from './components/About';
 import MyDashboard from './components/Dashboard/MyDasboard';
-import Login from './components/Login';
-import Register from './components/Register';
+import MemoryGame from './components/MemoryGame';
+import Login from "./components/Login";
+import Register from "./components/Register";
 
 const App = () => {
   return (
@@ -13,8 +14,9 @@ const App = () => {
       <Routes>
         <Route path="/*" element={<Home />} />
         <Route path="/home" element={<Home />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/aboutUs" element={<About />} />
         <Route path="/mydashboard" element={<MyDashboard/>} />
+        <Route path="/memoryGame" element={<MemoryGame />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
     </Routes>
