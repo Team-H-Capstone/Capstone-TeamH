@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { collection, query, orderBy, where, getDocs, onSnapshot  } from "firebase/firestore"
 import {db, auth} from "../../firebase-config";
+import { useAuthState } from 'react-firebase-hooks/auth';
 import "./Notepad.css"
 import {
     FaArrowLeft,
@@ -10,15 +11,20 @@ import {
 const MyThoughts = () => {
     const [textBox, setTextBox] = useState([]);
 
-    // console.log("user ----->",auth.currentUser.uid);
+    console.log("user ----->",auth.currentUser.uid);
+
+    // where("uid", "==", auth.currentUser.uid)
 
     useEffect(() => {
         const q = query(collection(db, "Notepad"), orderBy("Timestamp"));
+        console.log("q ------->", q);
+        console.log("user useEffect ----->", auth.currentUser.uid);
 
         const unsubscribe = onSnapshot(q, (querySnapshot) => {
             let textBox = [];
             querySnapshot.forEach((doc) => {
-                textBox.push({...doc.data(), id:doc.id});
+                textBox.push({...doc.data(), id:doc.id})
+                // console.log("docId ------>", doc.id)
             });
             setTextBox(textBox);
         })
@@ -64,7 +70,7 @@ const MyThoughts = () => {
             <div>
                 {textBox.map((text) => {
                     return (
-                        <div ke={text.id}>
+                        <div key={text.id}>
                             <h1>{text.textBox}</h1>
                         </div>
                     )

@@ -156,7 +156,8 @@ const Notepad = () => {
     evt.preventDefault();
     addDoc(collection(db,"Notepad"),{
       textBox,
-      author: {name: auth.currentUser.displayName, id: auth.currentUser.uid},
+      name: auth.currentUser.displayName, 
+      uid: auth.currentUser.uid,
       Timestamp: new Date(),
     })
   };
