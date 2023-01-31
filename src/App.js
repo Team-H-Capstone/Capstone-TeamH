@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./components/Hello";
 import Navbar from "./components/Navbar";
 import About from './components/About';
-import MyDashboard from './components/Dashboard/MyDasboard';
+import MyDashboard from './components/Dashboard/MyDashboard';
 import Login from './components/Login';
 import Register from './components/Register';
 
