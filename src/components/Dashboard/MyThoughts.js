@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { collection, query, orderBy, where, onSnapshot } from "firebase/firestore"
-import {db, auth} from "../../firebase-config";
+import { db, auth } from "../../firebase/firebase-config";
 import "./Notepad.css"
 import {
     FaArrowLeft,
@@ -18,7 +18,6 @@ const MyThoughts = () => {
             let textBox = [];
             querySnapshot.forEach((doc) => {
                 textBox.push({...doc.data(), id:doc.id, date:doc.data().Timestamp})
-                console.log("text useEffect", doc.data().textBox)
             });
             setTextBox(textBox);
         })

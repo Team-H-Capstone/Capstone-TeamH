@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { collection, addDoc } from "firebase/firestore"
-import {db, auth} from "../../firebase-config";
+import { db, auth } from "../../firebase/firebase-config";
 
 
 import { EditorContent, useEditor } from '@tiptap/react';
