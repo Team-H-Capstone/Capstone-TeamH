@@ -7,6 +7,9 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
+  updateProfile,
+  updateEmail,
+  // updateDisplayName,
 } from "firebase/auth";
 
 import {
@@ -16,6 +19,10 @@ import {
   collection,
   where,
   addDoc,
+  update,
+  setDoc,
+  doc
+
 } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -29,6 +36,7 @@ const firebaseConfig = {
   messagingSenderId: '170344461409',
   appId: '1:170344461409:web:0cd61c18f493bbef562620',
 };
+
 
 const googleProvider = new GoogleAuthProvider();
 const signInWithGoogle = async () => {
@@ -62,21 +70,64 @@ const logInWithEmailAndPassword = async (email, password) => {
 
 const registerWithEmailAndPassword = async (name, email, password) => {
   try {
-   
+    const auth = getAuth();
     const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
-    await addDoc(collection(db, "users"), {
-      uid: user.uid,
+    // console.log('user created', user)
+    await setDoc(doc(db, "users", user.uid), {
       name,
       authProvider: "local",
       email,
     });
+    console.log('user auth', auth.currentUser)
+    await updateProfile(user,{
+      displayName: name,
+    })
+    await user.reload()
+    console.log('user updated', user)
   } catch (err) {
     console.error(err);
     alert(err.message);
   }
 };
 
+// const registerWithEmailAndPassword = async (name, email, password) => {
+//   try {
+//     const auth = getAuth();
+//     const res = await createUserWithEmailAndPassword(auth, email, password);
+//     const user = res.user;
+//     const userRef = db.collection("users").doc(user.uid);
+//     const userDoc = await userRef.get();
+//     if (!userDoc.exists) {
+//       await addDoc(collection(db, "users"), {
+//         uid: user.uid,
+//         name,
+//         authProvider: "local",
+//         email,
+//       });
+//     } else {
+//       await userRef.update({ name });
+//     }
+//     await updateProfile(user,{
+//       displayName: name,
+//     })
+//     await user.reload()
+//   } catch (err) {
+//     console.error(err);
+//     alert(err.message);
+//   }
+// };
+
+
+// const sendPasswordReset = async (email) => {
+//   try {
+//     await sendPasswordResetEmail(auth, email);
+//     alert("Password reset link sent!");
+//   } catch (err) {
+//     console.error(err);
+//     alert(err.message);
+//   }
+// };
 
 const logout = () => {
   signOut(auth);
@@ -85,7 +136,7 @@ const logout = () => {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const db = getFirestore();
+const db = getFirestore(app);
 
 export {
   auth,
