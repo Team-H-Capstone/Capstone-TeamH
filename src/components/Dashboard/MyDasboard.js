@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import ForumIcon from '@mui/icons-material/Forum';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth } from '../../firebase-config';
+import { auth } from '../../firebase/firebase-config';
 
 const MyDashboard = () => {
   const [user] = useAuthState(auth);

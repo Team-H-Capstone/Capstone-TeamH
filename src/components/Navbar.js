@@ -59,7 +59,7 @@ const Navbar = () => {
               <Button color="inherit">Forum</Button>
             </Link>
 
-            <div className=''>
+            {/* <div className=''> */}
             {user ? (
               <>
                 <Link to="/createpost">
@@ -100,6 +100,7 @@ const Navbar = () => {
         </AppBar>
       </Box>
     </div>
+    
   );
 };
 

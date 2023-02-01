@@ -6,7 +6,8 @@ import {
   registerWithEmailAndPassword,
   signInWithGoogle,
 } from "../firebase/firebase-config"
-import { Link } from "react-router-dom";
+
+
 function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
