@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
-import { db, auth } from "../../firebase-config";
+import { db, auth } from "../../firebase/firebase-config";
 
 const MoodTracker = () => {
   const [mood, setMood] = useState("");
@@ -26,7 +26,7 @@ const MoodTracker = () => {
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center bg-white">
       <h1 className="text-3xl font-bold text-[#212529] pt-4">
         My Mood Tracker
       </h1>

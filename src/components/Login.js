@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import {
+  logInWithEmailAndPassword,
   signInWithEmailAndPassword,
   signInWithGoogle,
-} from "../firebase-config";
+} from "../firebase/firebase-config";
 import { Link } from "react-router-dom";
+
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -28,7 +31,7 @@ const Login = () => {
         />
         <button
           className="login__btn"
-          onClick={() => signInWithEmailAndPassword(email, password)}
+          onClick={() => logInWithEmailAndPassword(email, password)}
         >
           Login
         </button>

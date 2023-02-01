@@ -7,35 +7,32 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Link } from "react-router-dom";
-import Logout from "./Logout";
-import { auth } from "../firebase-config";
+import { auth, logout } from "../firebase/firebase-config";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 const Navbar = () => {
-  const [open, setOpen] = useState("false");
+  const [open, setOpen] = useState('false');
 
   const handleClick = () => {
     setOpen(!open);
-    console.log("dropdown");
+    console.log('dropdown');
   };
 
   const handleRoom1 = () => {
     setOpen(!open);
-    console.log("Room 1 open!");
+    console.log('Room 1 open!');
   };
 
   const handleRoom2 = () => {
     setOpen(!open);
 
-    console.log("Room 2 open!");
+    console.log('Room 2 open!');
   };
 
   const [user] = useAuthState(auth);
 
-  console.log(user);
-
   return (
-    <div style={{ position: "fixed", width: "100vw", zIndex: 200 }}>
+    <div style={{ position: 'fixed', width: '100vw', zIndex: 200 }}>
       <Box sx={{ flexGrow: 0 }}>
         <AppBar>
           <Toolbar className="bg-[#1e3a8a]">
@@ -52,22 +49,30 @@ const Navbar = () => {
               variant="h6"
               component="div"
               sx={{ flexGrow: 5 }}
-              style={{ textAlign: "center" }}
+              style={{ textAlign: 'center' }}
             ></Typography>
-            <Link to="/about">
+            <Link to="/aboutUs">
               <Button color="inherit">About</Button>
             </Link>
-            <Button color="inherit">Forum</Button>
 
+            <Link to="/forum">
+              <Button color="inherit">Forum</Button>
+            </Link>
+
+            {/* <div className=''> */}
             {user ? (
-              <Logout />
+              <>
+                <Link to="/createpost">
+                  <Button color="inherit">Create</Button>
+                </Link>
+                <button color="inherit" onClick={() => logout()}>LOG OUT</button>
+              </>
             ) : (
               <Link to="/login">
                 <Button color="inherit">Login</Button>
               </Link>
             )}
 
-            {/* <Logout /> */}
             <IconButton
               className="dropdown"
               onClick={handleClick}
@@ -85,7 +90,9 @@ const Navbar = () => {
                   <Button onClick={handleRoom1}>Room 1</Button>
                 </li>
                 <li className="menuItem">
-                  <Button onClick={handleRoom2}>Room 2</Button>
+                  <Link to="/memoryGame" >
+                  <Button onClick={handleRoom2} style={{color:"black", textAlign:"center", fontSize:20}}>Game Room</Button>
+                  </Link>
                 </li>
               </ul>
             )}
@@ -93,6 +100,7 @@ const Navbar = () => {
         </AppBar>
       </Box>
     </div>
+    
   );
 };
 
