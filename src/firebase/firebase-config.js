@@ -6,7 +6,6 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
-  sendPasswordResetEmail,
   signOut,
   updateProfile,
   updateEmail,
@@ -28,30 +27,14 @@ import {
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-// // Your web app's Firebase configuration
-// const firebaseConfig = {
-//   apiKey: 'AIzaSyBsIjlxWvMw-tWtRQXPpPx316byIMJg20A',
-//   authDomain: 'teamh-capstone.firebaseapp.com',
-//   projectId: 'teamh-capstone',
-//   storageBucket: 'teamh-capstone.appspot.com',
-//   messagingSenderId: '170344461409',
-//   appId: '1:170344461409:web:0cd61c18f493bbef562620',
-// };
-
+// Your web app's Firebase configuration
 const firebaseConfig = {
-
-  apiKey: "AIzaSyDE9IokUbq006zsbcQ2pQ-i7g6ONSrI7SA",
-
-  authDomain: "teamh-test-tien.firebaseapp.com",
-
-  projectId: "teamh-test-tien",
-
-  storageBucket: "teamh-test-tien.appspot.com",
-
-  messagingSenderId: "1077718509267",
-
-  appId: "1:1077718509267:web:05b49668f2846cf352d626"
-
+  apiKey: 'AIzaSyBsIjlxWvMw-tWtRQXPpPx316byIMJg20A',
+  authDomain: 'teamh-capstone.firebaseapp.com',
+  projectId: 'teamh-capstone',
+  storageBucket: 'teamh-capstone.appspot.com',
+  messagingSenderId: '170344461409',
+  appId: '1:170344461409:web:0cd61c18f493bbef562620',
 };
 
 
@@ -162,6 +145,5 @@ export {
   logInWithEmailAndPassword,
   signInWithEmailAndPassword,
   registerWithEmailAndPassword,
-  // sendPasswordReset,
   logout,
 };

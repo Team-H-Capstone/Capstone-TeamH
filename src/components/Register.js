@@ -5,8 +5,8 @@ import {
   auth,
   registerWithEmailAndPassword,
   signInWithGoogle,
-} from '../firebase-config';
-
+} from "../firebase/firebase-config"
+import { Link } from "react-router-dom";
 function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -19,11 +19,6 @@ function Register() {
     registerWithEmailAndPassword(name, email, password);
     navigate('/');
   };
-
-  // useEffect(() => {
-  //   if (loading) return;
-  //   if (user) navigate(0);
-  // }, [user, loading]);
 
   return (
     <div className="register bg-[#1e3a8a]">

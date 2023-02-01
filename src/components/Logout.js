@@ -1,5 +1,5 @@
 import React from "react";
-import { logout } from "../firebase-config";
+import { logout } from "../firebase/firebase-config";
 
 const Logout = () => {
   return <button onClick={() => logout()}>Log Out</button>;
