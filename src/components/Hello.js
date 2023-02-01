@@ -6,7 +6,7 @@ import { HiArrowNarrowRight } from "react-icons/hi";
 import Linky from "react-scroll";
 import Login from "./Login";
 import Register from "./Register";
-import { auth } from "../firebase-config";
+import { auth } from "../firebase/firebase-config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import Chart from "./Chart";
