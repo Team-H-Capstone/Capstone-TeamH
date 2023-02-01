@@ -1,17 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
 import {
+  auth,
   registerWithEmailAndPassword,
   signInWithGoogle,
 } from "../firebase/firebase-config"
-import { Link } from "react-router-dom";
+
+
 function Register() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  // const [user, loading, error] = useAuthState(auth);
+  const navigate = useNavigate();
 
   const register = () => {
-    if (!name) alert("Please enter name");
+    if (!name) alert('Please enter name');
     registerWithEmailAndPassword(name, email, password);
+    navigate('/');
   };
 
   return (
@@ -48,7 +55,11 @@ function Register() {
           Register with Google
         </button>
         <div>
-          Already have an account? <br/><Link className="text-orange-500 font-bold" to="/login">Login</Link> now.
+          Already have an account? <br />
+          <Link className="text-orange-500 font-bold" to="/login">
+            Login
+          </Link>{' '}
+          now.
         </div>
       </div>
     </div>

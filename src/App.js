@@ -8,7 +8,7 @@ import Register from "./components/Register";
 import CreatePost from "./components/Forum/CreatePost";
 import Forum from "./components/Forum/Forum";
 import MemoryGame from './components/MemoryGame';
-
+import EditProfile from "./components/Dashboard/Profile";
 
 const App = () => {
   return (
@@ -24,8 +24,8 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/createpost" element={<CreatePost />} />
         <Route path="/forum" element={<Forum />} />
-
-      </Routes>
+        <Route path="/profile" element={<EditProfile/>} />
+    </Routes>
     </div>
   );
 };
