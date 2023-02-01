@@ -52,7 +52,7 @@ const Navbar = () => {
               sx={{ flexGrow: 5 }}
               style={{ textAlign: "center" }}
             ></Typography>
-            <Link to="/aboutUs">
+            <Link to="/about">
               <Button color="inherit">About</Button>
             </Link>
 

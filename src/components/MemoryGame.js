@@ -1,4 +1,3 @@
-import { ResetTvRounded } from '@mui/icons-material';
 import React, { useEffect, useState } from 'react';
 import SingleCard from './SingleCard';
 
