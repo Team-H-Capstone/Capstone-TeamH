@@ -4,7 +4,10 @@ import { db, auth } from "../../firebase-config";
 
 const MoodTracker = () => {
   const [mood, setMood] = useState("");
-  const [emojiWiggle, setEmojiWiggle] = useState(false);
+  const [happyWiggle, setHappyWiggle] = useState(false);
+  const [sadWiggle, setSadWiggle] = useState(false);
+  const [excitedWiggle, setExcitedWiggle] = useState(false);
+  const [stressedWiggle, setStressedWiggle] = useState(false);
 
   const addMood = async (event) => {
     event.preventDefault();
@@ -40,46 +43,59 @@ const MoodTracker = () => {
           <span
             role="img"
             aria-label="Happy"
-            onClick={() => setMood("😊")}
-            className={"text-5xl mr-5 cursor-pointer"}
+            onClick={() => [setMood("😊"), setHappyWiggle(true)]}
+            className={`${
+              happyWiggle && "animate-wiggle"
+            } text-5xl mr-5 cursor-pointer`}
+            onAnimationEnd={() => setHappyWiggle(false)}
           >
             😊
           </span>
           <span
             role="img"
             aria-label="Sad"
-            onClick={() => setMood("😢")}
-            className={"text-5xl mr-5 cursor-pointer"}
+            onClick={() => [setMood("😢"), setSadWiggle(true)]}
+            className={`${
+              sadWiggle && "animate-wiggle"
+            } text-5xl mr-5 cursor-pointer`}
+            onAnimationEnd={() => setSadWiggle(false)}
           >
             😢
           </span>
           <span
             role="img"
             aria-label="Excited"
-            onClick={() => setMood("😁")}
-            className={"text-5xl mr-5 cursor-pointer"}
+            onClick={() => [setMood("😁"), setExcitedWiggle(true)]}
+            className={`${
+              excitedWiggle && "animate-wiggle"
+            } text-5xl mr-5 cursor-pointer`}
+            onAnimationEnd={() => setExcitedWiggle(false)}
           >
             😁
           </span>
           <span
             role="img"
             aria-label="Stressed"
-            onClick={() => [setMood("😰"), setEmojiWiggle(true)]}
-            className={`${
-              emojiWiggle && "animate-wiggle"
-            } text-5xl mr-5 cursor-pointer`}
-            onAnimationEnd={() => setEmojiWiggle(false)}
+            onClick={() => [setMood("😰"), setStressedWiggle("😰")]}
+            className={`text-5xl mr-5 cursor-pointer ${
+              stressedWiggle === "😰" ? "animate-wiggle" : ""
+            }`}
+            onAnimationEnd={() => setStressedWiggle("")}
           >
             😰
           </span>
         </div>
-        <p className="text-lg text-gray-600 mb-5 text-center pt-4">Mood submitted for today: {mood}</p>
+        <p className="text-2xl text-gray-600 mb-5 text-center pt-4">
+          Mood for today: {mood}
+        </p>
+        <div className="flex justify-center">
         <button
           type="submit"
-          className="mt-5 bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-full transition-colors duration-300"
+          className="mt-5 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-full transition-colors duration-300"
         >
           Submit Mood
         </button>
+        </div>
       </form>
     </div>
   );
