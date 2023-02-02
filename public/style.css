@@ -239,3 +239,19 @@ body {
     font-family: "Peaceful Nature";
     text-align: center;
   }
+
+  /* UNITED STATES MAP */
+
+  .map {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+  path {
+    pointer-events: all;
+  }
+
+  path:hover {
+    opacity: 0.5;
+    cursor: pointer;
+  }

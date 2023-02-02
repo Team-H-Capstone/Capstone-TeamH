@@ -11,6 +11,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import Chart from "./Chart";
 import Quiz from "./Quiz";
+import USA from "../USA";
 
 const Home = () => {
   useEffect(() => {
@@ -109,6 +110,22 @@ const Home = () => {
           </h1>
           <br></br>
           <Quiz />
+      </section>
+      <section
+        name="question"
+        className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white"
+        style={{backgroundImage: "radial-gradient(#2b53c4, #1e3987, #325edb)"}}
+      >
+        <h1 className="flex justify-center text-center items-center text-5xl font-bold"
+          data-aos="fade-zoom-in"
+          data-aos-easing="ease-in-back"
+          data-aos-delay="500"
+          data-aos-offset="0"
+          >
+          MAP OF THE UNITED STATES
+          </h1>
+          <br></br>
+          <USA />
       </section>
       <section
         name="question"
