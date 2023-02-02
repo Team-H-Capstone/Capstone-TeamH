@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import Chart from "./Chart";
 import { borderRadius } from "@mui/system";
 import Quiz from "./Quiz";
+import MusicPlayer from "./MusicPlayer/MusicPlayer";
 
 const Home = () => {
   useEffect(() => {
@@ -140,6 +141,7 @@ const Home = () => {
             justifyContent: "space-evenly",
           }}
         >
+          <Link to='/music'>
           <div
             style={{
               display: "flex",
@@ -165,6 +167,8 @@ const Home = () => {
               Music & Videos
             </h1>
           </div>
+          </Link>
+
           <Link to="/memoryGame">
             <div
               style={{
