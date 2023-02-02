@@ -32,51 +32,50 @@ const Navbar = () => {
   const [user] = useAuthState(auth);
 
   return (
-    <div style={{ position: 'fixed', width: '100vw', zIndex: 200 }}>
+    <div style={{ position: 'fixed', width: '100vw', zIndex: 200}}>
       <Box sx={{ flexGrow: 0 }}>
         <AppBar>
           <Toolbar className="bg-[#1e3a8a]">
             <Link to="/home">
-              <Button color="inherit" sx={{ ml: 0 }}>
+              <Button color="inherit" sx={{ ml: 0 }} style={{fontSize:30, marginRight:5, fontFamily:"Oddly Calming"}}>
                 Home
               </Button>
             </Link>
             <Link to="/mydashboard">
-              <Button color="inherit">MyDashboard</Button>
+              <Button color="inherit" style={{fontSize:30, marginRight:5, fontFamily:"Oddly Calming"}}>MyDashboard</Button>
             </Link>
-            <Button color="inherit">Profile Settings</Button>
             <Typography
               variant="h6"
               component="div"
               sx={{ flexGrow: 5 }}
-              style={{ textAlign: 'center' }}
+              style={{ textAlign: 'center', fontFamily: "Peaceful", fontSize: 60}}
             ></Typography>
             <Link to="/about">
-              <Button color="inherit">About</Button>
+              <Button color="inherit" style={{fontSize:30, marginRight:5, fontFamily:"Oddly Calming"}}>About</Button>
             </Link>
 
             <Link to="/forum">
-              <Button color="inherit">Forum</Button>
+              <Button color="inherit" style={{fontSize:30, marginRight:5, fontFamily:"Oddly Calming"}}>Forum</Button>
             </Link>
 
             {/* <div className=''> */}
             {user ? (
               <>
                 <Link to="/createpost">
-                  <Button color="inherit">Create</Button>
+                  <Button color="inherit" style={{fontSize:30, marginRight:5, fontFamily:"Oddly Calming"}}>Create</Button>
                 </Link>
-                <button color="inherit" onClick={() => logout()}>LOG OUT</button>
+                <Button color="inherit" style={{fontSize:30, marginRight:5, fontFamily:"Oddly Calming"}} onClick={() => logout()}>Logout</Button>
               </>
             ) : (
               <Link to="/login">
-                <Button color="inherit">Login</Button>
+                <Button color="inherit" style={{fontSize:30, marginRight:5, fontFamily:"Oddly Calming"}}>Login</Button>
               </Link>
             )}
 
             <IconButton
               className="dropdown"
               onClick={handleClick}
-              size="large"
+              size= "large"
               edge="start"
               color="inherit"
               aria-label="menu"
@@ -87,11 +86,11 @@ const Navbar = () => {
             {open ? null : (
               <ul className="menu">
                 <li className="menuItem">
-                  <Button onClick={handleRoom1}>Room 1</Button>
+                  <Button onClick={handleRoom1} style={{color:"black", textAlign:"center", fontSize:20, fontFamily:"Oddly Calming"}}>Music & Videos</Button>
                 </li>
                 <li className="menuItem">
                   <Link to="/memoryGame" >
-                  <Button onClick={handleRoom2} style={{color:"black", textAlign:"center", fontSize:20}}>Game Room</Button>
+                  <Button onClick={handleRoom2} style={{color:"black", textAlign:"center", fontSize:20, fontFamily:"Oddly Calming"}}>Memory Game</Button>
                   </Link>
                 </li>
               </ul>
