@@ -42,16 +42,15 @@ const Navbar = () => {
               </Button>
             </Link>
             <Link to="/mydashboard">
-              <Button color="inherit">MyDashboard</Button>
+              <Button color="inherit">Dashboard</Button>
             </Link>
-            <Button color="inherit">Profile Settings</Button>
             <Typography
               variant="h6"
               component="div"
               sx={{ flexGrow: 5 }}
               style={{ textAlign: 'center' }}
             ></Typography>
-            <Link to="/aboutUs">
+            <Link to="/about">
               <Button color="inherit">About</Button>
             </Link>
 
@@ -59,13 +58,14 @@ const Navbar = () => {
               <Button color="inherit">Forum</Button>
             </Link>
 
-            {/* <div className=''> */}
             {user ? (
               <>
                 <Link to="/createpost">
                   <Button color="inherit">Create</Button>
                 </Link>
+                <Link to="/home">
                 <button color="inherit" onClick={() => logout()}>LOG OUT</button>
+                </Link>
               </>
             ) : (
               <Link to="/login">
