@@ -8,7 +8,9 @@ import {
   startAt,
   getDocs,
   startAfter,
-  doc
+  doc,
+  limitToFirst,
+  onSnapshot,
 } from "firebase/firestore";
 import { db, auth } from "../../firebase/firebase-config";
 import "./Notepad.css";
@@ -17,75 +19,224 @@ import parse from "html-react-parser";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 const MyThoughts = () => {
+  //   const [secPost, setSecPost] = useState(false);
+
+  //   // will always start @ the second post and cont down the db list
+  //   const [latestDoc, setLatestDoc] = useState(null);
+
+  //   const [prevDoc, setPrevDoc] = useState(null);
+
+  //   const getPrevNote = async () => {
+  //     if (latestDoc == null) {
+  //       console.log("if");
+  //       const q = query(
+  //         collection(db, "Notepad"),
+  //         where("uid", "==", auth.currentUser.uid),
+  //         orderBy("Timestamp"),
+  //         limit(1)
+  //       );
+
+  //       const first = await getDocs(q);
+
+  //       const lastVisible = first.docs[first.docs.length - 1];
+
+  //       const next = query(
+  //         collection(db, "Notepad"),
+  //         where("uid", "==", auth.currentUser.uid),
+  //         orderBy("Timestamp"),
+  //         startAfter(lastVisible),
+  //         limit(1)
+
+  //       );
+
+  //       const second = await getDocs(next);
+
+  //       const nextPost = second.docs.map((post) => ({
+  //         ...post.data(),
+  //         id: post.id,
+  //       }));
+
+  //       setTextBox(nextPost);
+
+  //       setLatestDoc(second.docs[second.docs.length - 1]);
+
+  //       // setSecPost(second.docs[second.docs.length-1]);
+  //       setSecPost(true);
+  //     } else {
+  //       console.log("else");
+
+  //       setPrevDoc(latestDoc);
+  //       // setSecPost(latestDoc);
+  //       console.log("preDoc ----->", prevDoc.data());
+  //       // console.log("secDoc ----->", secPost.data());
+
+  //       const prev = query(
+  //         collection(db, "Notepad"),
+  //         where("uid", "==", auth.currentUser.uid),
+  //         orderBy("Timestamp"),
+  //         startAfter(latestDoc),
+  //         limit(1)
+  //       );
+
+  //       const third = await getDocs(prev);
+
+  //       const nextNextPost = third.docs.map((post) => ({
+  //         ...post.data(),
+  //         id: post.id,
+  //       }));
+
+  //       setTextBox(nextNextPost);
+
+  //       setLatestDoc(third.docs[third.docs.length - 1]);
+  //       console.log("index ---->", third.docs.length)
+  //       // console.log("latestdoc ---->", latestDoc.data());
+  //       setSecPost(false);
+  //     }
+  //   };
+
+  //   const getForNote = async () => {
+  //     const q = query(
+  //       collection(db, "Notepad"),
+  //       where("uid", "==", auth.currentUser.uid),
+  //       orderBy("Timestamp"),
+  //       limit(1)
+  //     );
+
+  //     const first = await getDocs(q);
+
+  //     const lastVisible = first.docs[first.docs.length - 1];
+
+  //     const next = query(
+  //       collection(db, "Notepad"),
+  //       where("uid", "==", auth.currentUser.uid),
+  //       orderBy("Timestamp"),
+  //       startAfter(lastVisible),
+  //       limit(1)
+  //     );
+
+  //     const second = await getDocs(next);
+
+  //     let x = second.docs[second.docs.length - 1];
+  //     console.log("x ---->", x.data());
+
+  //     if (secPost === true) {
+  //       console.log("getForNote if");
+
+  //       const q = query(
+  //         collection(db, "Notepad"),
+  //         where("uid", "==", auth.currentUser.uid),
+  //         orderBy("Timestamp"),
+  //         limit(1)
+  //       );
+
+  //       const first = await getDocs(q);
+
+  //       const firstPost = first.docs.map((post) => ({
+  //         ...post.data(),
+  //         id: post.id,
+  //       }));
+
+  //       const lastVisible = first.docs[first.docs.length - 1];
+
+  //       setTextBox(firstPost);
+
+  //       setLatestDoc(lastVisible);
+
+  //       setSecPost(false);
+  //     } else {
+  //       console.log("getForNote else");
+
+  //       const forw = query(
+  //         collection(db, "Notepad"),
+  //         where("uid", "==", auth.currentUser.uid),
+  //         orderBy("Timestamp"),
+  //         startAt(prevDoc),
+  //         limit(1)
+  //       );
+
+  //       const forth = await getDocs(forw);
+
+  //       const forwardPost = forth.docs.map((post) => ({
+  //         ...post.data(),
+  //         id: post.id,
+  //       }));
+  //       // console.log("fowardPost ---->", forwardPost);
+
+  //       setTextBox(forwardPost);
+
+  //       setLatestDoc(forth.docs[forth.docs.length - 1]);
+
+  //       // setSecPost(second.docs[second.docs.length-1]);
+  //       setSecPost(true);
+  //     }
+  //   };
+
   const [textBox, setTextBox] = useState([]);
+  const [list, setList] = useState([]);
   const [user] = useAuthState(auth);
 
   useEffect(() => {
     if (user) {
-        const getData = async () => {
-
-            const q = query(collection(db, "Notepad"), where("uid", "==", auth.currentUser.uid), orderBy("Timestamp"), limit(1));
-
-            const first = await getDocs(q);
-
-            const firstPost = first.docs.map((post) => ({
-                ...post.data(),
-                id: post.id,
-                    }));
-
-            setTextBox(firstPost);
-        }
-        getData()
-    }
-  }, [user]);
-
-  const [latestDoc, setLatestDoc] = useState(null);
-
-  const getPrevNote = async () => {
-    if (latestDoc == null) {
-        console.log("if");
-        const q = query(collection(db, "Notepad"), where("uid", "==", auth.currentUser.uid), orderBy("Timestamp"), limit(1));
+      const getData = async () => {
+        const q = query(
+          collection(db, "Notepad"),
+          where("uid", "==", auth.currentUser.uid),
+          orderBy("Timestamp"),
+          limit(1)
+        );
 
         const first = await getDocs(q);
 
-        const lastVisible = first.docs[first.docs.length-1];
+        const firstPost = first.docs.map((post) => ({
+          ...post.data(),
+          id: post.id,
+        }));
 
-        const next = query(collection(db, "Notepad"), where("uid", "==", auth.currentUser.uid), orderBy("Timestamp"), startAfter(lastVisible), limit(1));
+        setTextBox(firstPost);
+        // -------------------------------------------------------
+        const first10 = query(
+          collection(db, "Notepad"),
+          where("uid", "==", auth.currentUser.uid),
+          orderBy("Timestamp"),
+          limit(10)
+        );
 
-        const second = await getDocs(next);
+        const snippet = await getDocs(first10);
 
-        const nextPost = second.docs.map((post) => ({
-        ...post.data(),
-        id: post.id,
-            }));
+        const arry = snippet.docs.map((post) => ({
+          ...post.data(),
+          id: post.id,
+        }));
 
-        setTextBox(nextPost);
-
-        setLatestDoc(second.docs[second.docs.length-1]);
-
-    } else {
-        console.log("else")
-        const prev = query(collection(db, "Notepad"), where("uid", "==", auth.currentUser.uid), orderBy("Timestamp"), startAfter(latestDoc), limit(1));
-
-        const third = await getDocs(prev);
-
-        const nextNextPost = third.docs.map((post) => ({
-            ...post.data(),
-            id: post.id,
-                }));
-        
-        setTextBox(nextNextPost);
-
-        setLatestDoc(third.docs[third.docs.length-1]);
+        setList(arry);
+      };
+      getData();
     }
-  };
+  }, [user]);
+
+  
+  const [currentPage, setCurrentPage] = useState(1);
+  const postPerPage = 1
+  const getPrevNote = async() => {
+    if(currentPage < list.length)
+  setCurrentPage(currentPage + 1) };
 
   const getForNote = async () => {
+    if(currentPage > 1)
+  setCurrentPage(currentPage - 1) };
 
-  };
+
+  useEffect(() => { 
+  let lastPostIndex = currentPage * postPerPage;
+  let firstPostIndex = lastPostIndex - postPerPage;
+  let currentPosts = list.slice(firstPostIndex, lastPostIndex);
+  setTextBox(currentPosts);
+  console.log("currentpost ---->", currentPosts);
+  }, [currentPage, list]);
 
   const backwards = (evt) => {
     evt.preventDefault();
+    console.log("backwards");
     getPrevNote();
   };
 
@@ -95,7 +246,7 @@ const MyThoughts = () => {
     getForNote();
   };
 
-  const edit= (evt) => {
+  const edit = (evt) => {
     evt.preventDefault();
   };
 
@@ -107,19 +258,19 @@ const MyThoughts = () => {
         </button>
         <h1 className="text-3xl pb-2 px-10 text-[#463f3a]">MyThoughts</h1>
         <button>
-          <FaArrowRight onClick={fowards}/>
+          <FaArrowRight onClick={fowards} />
         </button>
       </div>
-        <div>
-          {textBox.map((text) => {
-            return (
-              <div key={text.id}>
-                <h1>{text.Timestamp}</h1>
-                <h2>{parse(text.textBox)}</h2>
-              </div>
-            );
-          })}
-        </div>
+      <div>
+        {textBox.map((text) => {
+          return (
+            <div key={text.id}>
+              <h1>{text.Timestamp}</h1>
+              <h2>{parse(text.textBox)}</h2>
+            </div>
+          );
+        })}
+      </div>
       <form
         onSubmit={edit}
         className="flex flex-col justify-center items-center"
@@ -127,7 +278,14 @@ const MyThoughts = () => {
         <input
           className="input-thoughts"
           type="text"
-          value={textBox}
+          value={textBox.map((text) => {
+            return (
+              <div key={text.id}>
+                <h1>{text.Timestamp}</h1>
+                <h2>{parse(text.textBox)}</h2>
+              </div>
+            );
+          })}
           onChange={(e) => setTextBox(e.target.value)}
         />
         <button
