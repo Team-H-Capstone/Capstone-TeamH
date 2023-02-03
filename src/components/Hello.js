@@ -10,8 +10,8 @@ import { auth } from "../firebase/firebase-config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import Chart from "./Chart";
-import { borderRadius } from "@mui/system";
 import Quiz from "./Quiz";
+import AdultChart from "../AdultChart";
 
 const Home = () => {
   useEffect(() => {
@@ -23,7 +23,7 @@ const Home = () => {
 
   return (
     <div className="w-full h-screen">
-      <section className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white">
+      <section className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white" style={{backgroundImage: "radial-gradient(#2b53c4, #1e3987, #325edb)"}}>
         <h1
           className="flex justify-center items-center text-9xl font-bold text-center"
           data-aos="fade-zoom-in"
@@ -33,20 +33,10 @@ const Home = () => {
         >
           Hello {user ? user.displayName : ""}!
         </h1>
-        <div>
-          {/* <Linky to="question" smooth={true} duration={500}> */}
-          {/* <button className="text-white group border-2 px-6 py-3 my-2 flex items-center hover:bg-orange-600 hover:border-orange-600">
-              Scroll Down */}
-          {/* <span className="group-hover:rotate-90 duration-300">
-                <HiArrowNarrowRight className="ml-3 " />
-              </span> */}
-          {/* </button> */}
-          {/* </Linky> */}
-        </div>
       </section>
       <section
         name="question"
-        className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white"
+        className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white" style={{backgroundImage: "radial-gradient(#2b53c4, #1e3987, #325edb)"}}
       >
         <h1
           className="flex justify-center items-center text-9xl font-bold text-center"
@@ -58,7 +48,7 @@ const Home = () => {
           How are you doing today?
         </h1>
       </section>
-      <section name="question" className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white">
+      <section name="question" className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white" style={{backgroundImage: "radial-gradient(#2b53c4, #1e3987, #325edb)"}}>
         <h1
           className="flex justify-center items-center text-9xl font-bold text-center"
           data-aos="fade-zoom-in"
@@ -69,20 +59,21 @@ const Home = () => {
           Welcome to
         </h1>
         <h1
-          className="flex justify-center items-center text-9xl font-bold text-center"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
-          data-aos-delay="1200"
+          data-aos-delay="1100"
           data-aos-offset="0"
+          className="title"
         >
           BE MINDFUL
         </h1>
       </section>
       <section
         className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white"
+        style={{backgroundImage: "radial-gradient(#2b53c4, #1e3987, #325edb)"}}
       >
         <h1
-          className="flex justify-center items-center text-4xl font-bold text-center"
+          className="flex justify-center items-center text-5xl font-bold text-center w-50 h-400"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
           data-aos-delay="1000"
@@ -91,11 +82,30 @@ const Home = () => {
           Did you know mental health affects hundreds of millions of people around the world?
         </h1>
         <br></br>
+        <br></br>
         <Chart />
       </section>
       <section
         name="question"
         className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white"
+        style={{backgroundImage: "radial-gradient(#2b53c4, #1e3987, #325edb)"}}
+      >
+        <h1 className="flex justify-center text-center items-center text-5xl font-bold"
+          data-aos="fade-zoom-in"
+          data-aos-easing="ease-in-back"
+          data-aos-delay="500"
+          data-aos-offset="0"
+          >
+          Statistics of mental health prevalence in the United States of America
+          </h1>
+          <br></br>
+          <br></br>
+          <AdultChart />
+      </section>
+      <section
+        name="question"
+        className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white"
+        style={{backgroundImage: "radial-gradient(#2b53c4, #1e3987, #325edb)"}}
       >
         <h1 className="flex justify-center text-center items-center text-5xl font-bold"
           data-aos="fade-zoom-in"
@@ -106,11 +116,13 @@ const Home = () => {
           Want to learn more about Mental Health? Take the quiz!
           </h1>
           <br></br>
+          <br></br>
           <Quiz />
       </section>
       <section
         name="question"
         className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white"
+        style={{backgroundImage: "repeating-radial-gradient(#2b53c4, #1e3987 10%, #325edb 15%)"}}
       >
         <h1
           className="flex justify-center items-center text-9xl font-bold text-center"
