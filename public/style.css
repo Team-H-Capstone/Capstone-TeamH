@@ -1,4 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=IBM+Plex+Sans:wght@100&display=swap');
+@font-face {
+  font-family: 'Oddly Calming';
+  src: url('public/fonts/OddlyCalmingRegular-7B89V.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'PeacefulNature';
+  src: url('public/fonts/PeacefulNature.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+
+}
 
 /* Overall page */
 
@@ -7,6 +22,11 @@ body {
 }
 
 /* Navbar CSS */
+
+.navBar {
+  background-color: #1e3a8a;
+  font-family: 'Oddly Calming';
+}
 
 .dropdown {
     position: relative;
@@ -137,9 +157,8 @@ body {
 
 .quiz {
     background-color: #252d4a;
-    width: 800px;
-    min-height: 500px;
-    height: min-content;
+    width: 30vw;;
+    height: 53vh;
     border-radius: 15px;
     padding: 20px;
     box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
@@ -155,13 +174,15 @@ body {
   
   /* QUESTION/TIMER/LEFT SECTION */
   .question-section {
-    width: 100%;
+    width: 30vw;
+    font-size: 1.3vw;
     position: relative;
     text-align: center;
   }
   
   .question-count {
-    font-size: 35px;
+    font-size: 1.3vw;
+    text-align: center;
     padding: 10px;
     color: #cdd9fa;
   }
@@ -171,10 +192,9 @@ body {
   }
   
   .question-text {
-    margin-bottom: 12px;
-    font-size: 30px;
-    margin-right: 20px;
+    font-size: 1.1vw;
     text-align: center;
+    justify-content: "center";
   }
   
   .timer-text {
@@ -190,20 +210,22 @@ body {
   /* ANSWERS/RIGHT SECTION */
   .answer-section {
     width: 100%;
+    font-Size: "1.3vw";
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
   }
   
  .quiz-button {
-    width: 100%;
-    font-size: 30px;
+    width: 30vw;
+    height: 6vh;
+    font-size: "1.1vw";
     color: #ffffff;
     background-color: #252d4a;
     border-radius: 15px;
     display: flex;
     padding: 5px;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     border: 5px solid #234668;
     cursor: pointer;
@@ -235,7 +257,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 350px;
+    font-size: 13vw;
     font-family: "Peaceful Nature";
     text-align: center;
   }
