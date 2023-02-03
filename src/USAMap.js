@@ -106,7 +106,8 @@ const USA = () => {
         endColor: am5.color(0x063b00),
         startText: "Lowest",
         endText: "Highest",
-        stepCount: 5
+        stepCount: 5,
+        height: 150
       }));
 
       heatLegend.startLabel.setAll({
@@ -132,7 +133,7 @@ const USA = () => {
   }, []);
 
   return (
-    <div id="chartdiv" style={{ width: "1050px", height: "600px" }}></div>
+    <div id="chartdiv" style={{ width: "45vw", height: "45vh"}}></div>
   );
 }
 export default USA;

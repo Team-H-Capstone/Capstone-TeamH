@@ -117,28 +117,27 @@ const Quiz = () => {
 	}
 
 	return (
-		<div className='quiz' style={{minHeight:600}}>
+		<div className='quiz' style={{width:"30vw"}}>
 			{showScore ? (
-				<div style={{display:"flex", flexDirection:"column",justifyContent:"space-evenly"}}>
-					<div className='score-section'>
+				<div style={{display:"flex", flexDirection:"column",justifyContent:"space-evenly", width:"50vw", textAlign:"center", alignItems:"center", maxWidth:800, maxHeight:"20vh", fontSize:"1.3vw", alignSelf:"center"}}>
+					<div className='score-section' style={{fontSize: "2.5vw"}}>
 						You scored {score} out of {questions.length}!
 					</div>
-					<Button onClick={handleTryAgain} style={{border:"5px solid white", fontSize:40, backgroundColor:"white", color:"#1e3987", borderRadius:20, width: 300, alignSelf:"center"}}>Try Again</Button>
+					<Button onClick={handleTryAgain} style={{border:"5px solid white", fontSize:"1.8vw", backgroundColor:"white", color:"#1e3987", borderRadius:20, width: "18vw", alignSelf:"center"}}>Try Again</Button>
 				</div> 
 			) : (
-				<div>
-					<div>
-						<div style={{display:"flex", flexDirection:"row", justifyContent:"space-between", border:"5px solid white", borderRadius: 15, alignItems:"center", padding:10, marginBottom:10, minWidth:760}}>
-						<div style={{fontSize:35, color:"#cdd9fa"}}>Mental Health Quiz</div>
+				<div style={{width:"50vw", maxWidth:800, maxHeight:"15vh"}}>
+					<div style={{width:"30vw", height:"10vh"}}>
+						<div style={{display:"flex", flexDirection:"row", justifyContent:"space-between", border:"3px solid white", borderRadius: 15, alignItems:"center", padding:10, marginBottom:10, width:"30vw", height:"10vh",maxWidth:800, textAlign:"center"}}>
+						<div style={{fontSize:"1.5vw", color:"#cdd9fa"}}>Mental Health Quiz</div>
 						<div className='question-count'>
-								<span style={{fontSize: 35}}>Question {currentQuestion + 1} </span>of {questions.length}
+								<span style={{fontSize: "1.5vw"}}>Question {currentQuestion + 1} of {questions.length} </span>
 						</div>
 					</div>
-						<div className='question-section'>
-							
+						<div className='question-section' style={{fontSize:"1.3vw"}}>
 							<div className='question-text'>{questions[currentQuestion].questionText}</div>
 						</div>
-						<div className='answer-section'>
+						<div className='answer-section' style={{fontSize: "1.1vw"}}>
 							{questions[currentQuestion].answerOptions.map((answerOption) => {
 								return <button key={answerOption.id} className="quiz-button" onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
 							})}
