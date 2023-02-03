@@ -11,7 +11,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import Chart from "./Chart";
 import Quiz from "./Quiz";
-import USA from "../USA";
+import AdultChart from "../AdultChart";
 
 const Home = () => {
   useEffect(() => {
@@ -33,16 +33,6 @@ const Home = () => {
         >
           Hello {user ? user.displayName : ""}!
         </h1>
-        <div>
-          {/* <Linky to="question" smooth={true} duration={500}> */}
-          {/* <button className="text-white group border-2 px-6 py-3 my-2 flex items-center hover:bg-orange-600 hover:border-orange-600">
-              Scroll Down */}
-          {/* <span className="group-hover:rotate-90 duration-300">
-                <HiArrowNarrowRight className="ml-3 " />
-              </span> */}
-          {/* </button> */}
-          {/* </Linky> */}
-        </div>
       </section>
       <section
         name="question"
@@ -106,10 +96,11 @@ const Home = () => {
           data-aos-delay="500"
           data-aos-offset="0"
           >
-          Want to learn more about Mental Health? Take the quiz!
+          Statistics of mental health prevalence in the United States of America
           </h1>
           <br></br>
-          <Quiz />
+          <br></br>
+          <AdultChart />
       </section>
       <section
         name="question"
@@ -122,10 +113,11 @@ const Home = () => {
           data-aos-delay="500"
           data-aos-offset="0"
           >
-          MAP OF THE UNITED STATES
+          Want to learn more about Mental Health? Take the quiz!
           </h1>
           <br></br>
-          <USA />
+          <br></br>
+          <Quiz />
       </section>
       <section
         name="question"
