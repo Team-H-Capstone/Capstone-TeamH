@@ -17,6 +17,7 @@ const CreatePost = () => {
       post,
       author: { name: auth.currentUser.displayName, id: auth.currentUser.uid },
       timestamp: serverTimestamp(),
+      comments: []
     });
     navigate("/forum")
   };
