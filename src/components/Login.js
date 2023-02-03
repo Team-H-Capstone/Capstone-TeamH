@@ -35,9 +35,11 @@ const Login = () => {
         >
           Login
         </button>
+        <Link to="/home">
         <button className="login__btn login__google" onClick={signInWithGoogle}>
           Login with Google
         </button>
+        </Link>
       <div>
         Don't have an account? <br/> <Link className="text-orange-500 font-bold" to="/register">Register</Link> now.
       </div> 
