@@ -35,7 +35,7 @@ const Navbar = () => {
     <div style={{ position: 'fixed', width: '100vw', zIndex: 200}}>
       <Box sx={{ flexGrow: 0 }}>
         <AppBar>
-          <Toolbar className="bg-[#1e3a8a]">
+          <Toolbar className="navBar">
             <Link to="/home">
               <Button color="inherit" sx={{ ml: 0 }} style={{fontSize:30, marginRight:5, fontFamily:"Oddly Calming"}}>
                 Home
