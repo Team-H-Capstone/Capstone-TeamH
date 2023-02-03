@@ -2,7 +2,6 @@ import { doc, onSnapshot, updateDoc, arrayUnion } from "firebase/firestore";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { db, auth } from "../../firebase/firebase-config";
-import { v4 as uuidv4 } from "uuid";
 
 const Comment = ({ id }) => {
   const [comments, setComments] = useState([]);
@@ -21,7 +20,7 @@ const Comment = ({ id }) => {
       updateDoc(commentCollection, {
         comments: arrayUnion({
           comment: comment,
-          commentId: uuidv4(),
+          name: user.displayName
         }),
       }).then(() => {
         setComment("");
@@ -37,8 +36,9 @@ const Comment = ({ id }) => {
       ) : (
         <div className="pt-2 bg-white rounded-lg p-1">
           {comments.map((comment) => (
-            <div key={comment} className="text-black rounded-lg p-1 py-1">
-              <h1>{comment.comment}</h1>
+            <div key={comment} className=" text-black rounded-lg p-1 py-1">
+              <span className="text-[12px]">{comment.name}:</span>
+              <h1 className="font-bold"> {comment.comment}</h1>
             </div>
           ))}
         </div>

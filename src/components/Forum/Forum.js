@@ -18,7 +18,7 @@ const Forum = () => {
   }, []);
 
   return (
-    <div className="w-full h-auto grid grid-cols-3 items-center pt-20 bg-[#1e3a8a]">
+    <div className="w-full h-auto grid grid-cols-3 pl-2 pt-20 bg-[#1e3a8a]">
       {posts.length === 0 ? (
         <p className="w-full h-screen flex justify-center pt-20 bg-[#1e3a8a] text-white">
           {" "}
@@ -28,7 +28,7 @@ const Forum = () => {
         posts.map(({ id, title, post }) => (
           <div
             key={id}
-            className="w-[545px] h-[500px] bg-white shadow-2xl m-2 p-2 rounded-lg"
+            className="w-[500px] h-[500px] justify-evenly bg-white shadow-2xl m-2 p-2 rounded-lg"
           >
             <Link to={`/post/${id}`}>
               <h1 className="justify-center font-bold text-2xl">{title}</h1>
