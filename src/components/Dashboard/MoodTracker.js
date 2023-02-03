@@ -1,5 +1,16 @@
 import React, { useState } from "react";
-import { collection, addDoc } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  getDoc,
+  updateDoc,
+  doc,
+  query,
+  where,
+  startAt,
+  getDocs,
+  setDoc,
+} from "firebase/firestore";
 import { db, auth } from "../../firebase/firebase-config";
 
 const MoodTracker = () => {
@@ -9,19 +20,28 @@ const MoodTracker = () => {
   const [excitedWiggle, setExcitedWiggle] = useState(false);
   const [stressedWiggle, setStressedWiggle] = useState(false);
 
-  const addMood = async (event) => {
+  const onSubmitMood = async (event) => {
     event.preventDefault();
-
+    // try {
     const currentDay = new Date().toLocaleDateString("default", {
       weekday: "long",
     });
 
-    addDoc(collection(db, "moods"), {
-      mood,
+    const currentDate = new Date().toLocaleDateString("default", {
+      day: "numeric",
+      month: "long",
+    });
+
+    const moodRef = doc(
+      db,
+      "moods",
+      auth.currentUser.uid,
+      auth.currentUser.displayName,
+      currentDate
+    );
+    await setDoc(moodRef, {
       dayOfWeek: currentDay,
-      author: auth.currentUser.displayName,
-      uid: auth.currentUser.uid,
-      Timestamp: new Date(),
+      mood: mood,
     });
   };
 
@@ -38,7 +58,7 @@ const MoodTracker = () => {
           weekday: "long",
         })}`}
       </p>
-      <form onSubmit={addMood} className="mt-5">
+      <form onSubmit={onSubmitMood} className="mt-5">
         <div className="flex">
           <span
             role="img"
@@ -89,12 +109,12 @@ const MoodTracker = () => {
           Mood for today: {mood}
         </p>
         <div className="flex justify-center">
-        <button
-          type="submit"
-          className="mt-5 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-full transition-colors duration-300"
-        >
-          Submit Mood
-        </button>
+          <button
+            type="submit"
+            className="mt-5 bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-full transition-colors duration-300"
+          >
+            Submit Mood
+          </button>
         </div>
       </form>
     </div>
