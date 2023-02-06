@@ -6,6 +6,7 @@ import Sound from './playSound';
 import ProgressBar from './ProgressBar';
 import StyleSlider from './Slider';
 import { playBtnImg, pauseBtnImg, loudVolumeImg, lowVolumeImg, muteVolumeImg, rainAudio, woodlandAudio, streamAudio, wavesAudio, fireAudio, thunderAudio, deepseaAudio, fanAudio, rainImg, woodlandImg, streamImg, wavesImg, fireImg, thunderImg, deepseaImg, fanImg } from './constant';
+import Quotes from './Quotes';
 
 const MusicPlayer = () => {
   const [playButton, setPlayButton] = useState(playBtnImg);
@@ -183,7 +184,10 @@ const MusicPlayer = () => {
         {/* <div className="mt-12 text-white">{timeOptions}</div> */}
       </div>
       <div className="audio_menu text-white" style={{opacity: opacity, transition: transition}}>{audioOptions}</div>
+     
+      <> <Quotes /> </>
     </div>
+    
   );
 };
 
