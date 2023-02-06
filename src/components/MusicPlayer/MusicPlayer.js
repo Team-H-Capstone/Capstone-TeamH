@@ -5,29 +5,13 @@ import 'react-circular-progressbar/dist/styles.css';
 import Sound from './playSound';
 import ProgressBar from './ProgressBar';
 import StyleSlider from './Slider';
-
-const playBtnImg = 'svg/play.svg';
-const pauseBtnImg = 'svg/pause.svg';
-const loudVolumeImg = 'svg/volume-2.svg';
-const lowVolumeImg = 'svg/volume-1.svg';
-const muteVolumeImg = 'svg/volume-x.svg';
-
-const rainAudio = 'audio/rain.mp3';
-const woodlandAudio = 'audio/woodland.mp3';
-const streamAudio = 'audio/stream.mp3';
-
-const rainImg = 'img/rain.jpg';
-const woodlandImg = 'img/woodland.jpg';
-const streamImg = 'img/stream.jpg';
-
-// const rainVid = 'img/rain.mp4';
-// const woodlandVid = 'img/woodland.mp4';
+import { playBtnImg, pauseBtnImg, loudVolumeImg, lowVolumeImg, muteVolumeImg, rainAudio, woodlandAudio, streamAudio, wavesAudio, fireAudio, thunderAudio, deepseaAudio, fanAudio, rainImg, woodlandImg, streamImg, wavesImg, fireImg, thunderImg, deepseaImg, fanImg } from './constant';
 
 const MusicPlayer = () => {
   const [playButton, setPlayButton] = useState(playBtnImg);
   const [audioStatus, setAudioStatus] = useState(ReactSound.status.STOPPED); //* react-sound playStatus:
   const [time, setTime] = useState([120, 300, 600, 900]); //* timeValues is an array of time values in seconds for the time
-  const [audioNames, setAudioNames] = useState(['Rain', 'Woodland', 'Stream']); //* audioNames is an array of audio names
+  const [audioNames, setAudioNames] = useState(['Rain', 'Woodland', 'Stream', 'Waves', 'Fire', 'Thunder', 'Deep Sea', 'Fan']); //* audioNames is an array of audio names
   const [seekCurrentPosition, setSeekCurrentPosition] = useState(0); //* seekCurrentPosition is the current position of the audio track
   const [audio, setAudio] = useState(rainAudio); //* audio is current audio track
   const [bgImg, setBgImg] = useState(rainImg); //* bgImg is the background image
@@ -64,6 +48,21 @@ const MusicPlayer = () => {
     } else if (name === 'Stream') {
       setAudio(streamAudio);
       setBgImg('img/stream.jpg');
+    } else if (name === 'Waves') {
+      setAudio(wavesAudio);
+      setBgImg('img/waves.jpg');
+    } else if (name === 'Fire') {
+      setAudio(fireAudio);
+      setBgImg('img/fire.jpg');
+    } else if (name === 'Thunder') {
+      setAudio(thunderAudio);
+      setBgImg('img/thunder.jpg');
+    } else if (name === 'Deep Sea') {
+      setAudio(deepseaAudio);
+      setBgImg('img/deepsea.jpg');
+    } else if (name === 'Fan') {
+      setAudio(fanAudio);
+      setBgImg('img/fan.jpg');
     }
   };
 
@@ -88,28 +87,41 @@ const MusicPlayer = () => {
     </button>
   ));
 
-  const audioOptions = audioNames.map((name) => (
-    <button className="music_bt" key={name} onClick={() => audioSelect(name)}>
-      {name}
-    </button>
-  ));
+  const audioOptions = audioNames.map((name) => {
+    let img;
+    if (name === 'Woodland') {
+      img = woodlandImg;
+    } else if (name === 'Rain') {
+      img = rainImg;
+    } else if (name === 'Stream') {
+      img = streamImg;
+    } else if (name === 'Waves') {
+      img = wavesImg;
+    } else if (name === 'Fire') {
+      img = fireImg;
+    } else if (name === 'Thunder') {
+      img = thunderImg;
+    } else if (name === 'Deep Sea') {
+      img = deepseaImg;
+    } else if (name === 'Fan') {
+      img = fanImg;
+    }
+    return (
+      <div className="music_bt" key={name} onClick={() => audioSelect(name)}>
+        <img className="music_img" src={img} alt={name} />
+        <span className="music_name">{name}</span>
+      </div>
+    );
+  });
 
   const volumeChange = (value) => {
     setVolume(mute ? volume : value);
-    setVolumeIcon(
-      mute || value === 0
-        ? muteVolumeImg
-        : value <= 50
-        ? lowVolumeImg
-        : loudVolumeImg
-    );
+    setVolumeIcon(mute || value === 0 ? muteVolumeImg : value <= 50 ? lowVolumeImg : loudVolumeImg);
   };
 
   const toggleMute = () => {
-    setVolumeIcon(
-      !mute ? muteVolumeImg : volume <= 50 ? lowVolumeImg : loudVolumeImg
-      );
-      setMute(!mute);
+    setVolumeIcon(!mute ? muteVolumeImg : volume <= 50 ? lowVolumeImg : loudVolumeImg);
+    setMute(!mute);
   };
 
   return (
@@ -117,14 +129,7 @@ const MusicPlayer = () => {
     <div className="app_container">
       <div className="background_overlay"></div>
       <div className="background">
-        <video
-          loop
-          playsInline
-          autoPlay
-          disablePictureInPicture
-          controlsList="nodownload noplaybackrate"
-          id="bg_vid"
-        >
+        <video loop playsInline autoPlay disablePictureInPicture controlsList="nodownload noplaybackrate" id="bg_vid">
           <source
             // src="https://assets.calm.com/02468a3ae77a0cd4b8104fda6b0164e8.mp4"
             src={bgImg}
@@ -136,39 +141,20 @@ const MusicPlayer = () => {
       {/* <div className="mt-12 text-white">{timeOptions}</div> */}
       {/* <div className="grid mt-12 text-white">{audioOptions}</div> */}
       <div className="player_container">
-        <img className="playPause" src={playButton} onClick={playPause} alt='playPause'/>
+        <img className="playPause" src={playButton} onClick={playPause} alt="playPause" />
 
         <div className="volume_container">
-          <img
-            className="volume_icon"
-            src={volumeIcon}
-            onClick={toggleMute}
-            alt='volume'
-          />
+          <img className="volume_icon" src={volumeIcon} onClick={toggleMute} alt="volume" />
           <div className="volume_bar">
-            <StyleSlider
-              id="volume_slider"
-              onChange={volumeChange}
-              step={1}
-              min={0}
-              max={100}
-              value={mute ? 0 : volume}
-            />
+            <StyleSlider id="volume_slider" onChange={volumeChange} step={1} min={0} max={100} value={mute ? 0 : volume} />
           </div>
         </div>
-
-        <div className="audio_bar">
+        {/* <div className="audio_bar">
           <ProgressBar id='seek' percentage={seekCurrentPosition} />
-        </div>
-        <Sound
-          audio={audio}
-          playStatus={audioStatus}
-          func={moveSeekBar}
-          desireTime={desiredTime}
-          volume={mute ? 0 : volume}
-        />
+        </div> */}
+        <Sound audio={audio} playStatus={audioStatus} func={moveSeekBar} desireTime={desiredTime} volume={mute ? 0 : volume} />
         <div className="timer text-white">00 : 00</div>
-        <div className="mt-12 text-white">{timeOptions}</div>
+        {/* <div className="mt-12 text-white">{timeOptions}</div> */}
       </div>
       <div className="audio_menu text-white">{audioOptions}</div>
     </div>

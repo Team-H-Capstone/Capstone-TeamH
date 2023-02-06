@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Home from './components/Hello';
 import Navbar from './components/Navbar';
 import About from './components/About';
@@ -11,10 +11,13 @@ import MemoryGame from './components/MemoryGame';
 import EditProfile from './components/Dashboard/Profile';
 import MusicPlayer from './components/MusicPlayer/MusicPlayer';
 
+
 const App = () => {
+  const location = useLocation();
+
   return (
     <div>
-      <Navbar />
+     {location.pathname !== '/music' && <Navbar />}
       <Routes>
         <Route path="/*" element={<Home />} />
         <Route path="/home" element={<Home />} />
