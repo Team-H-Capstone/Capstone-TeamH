@@ -117,7 +117,7 @@ const Quiz = () => {
 	}
 
 	return (
-		<div className='quiz' style={{width:"30vw"}}>
+		<div className='quiz' style={{width:"30vw", height: "48vh"}}>
 			{showScore ? (
 				<div style={{display:"flex", flexDirection:"column",justifyContent:"space-evenly", width:"50vw", textAlign:"center", alignItems:"center", maxWidth:800, maxHeight:"20vh", fontSize:"1.3vw", alignSelf:"center"}}>
 					<div className='score-section' style={{fontSize: "2.5vw"}}>

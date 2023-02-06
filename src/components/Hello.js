@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import Chart from "./Chart";
 import Quiz from "./Quiz";
 import AdultChart from "../AdultChart";
+import MusicPlayer from "./MusicPlayer/MusicPlayer";
 
 const Home = () => {
   useEffect(() => {
@@ -92,6 +93,7 @@ const Home = () => {
         className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white"
         style={{backgroundImage: "radial-gradient(#2b53c4, #1e3987, #325edb)"}}
       >
+        <br></br>
         <h1 className="flex justify-center text-center items-center text-5xl font-bold"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
@@ -157,6 +159,7 @@ const Home = () => {
             justifyContent: "center",
           }}
         >
+          <Link to='/music'>
           <div
             style={{
               display: "flex",
@@ -184,6 +187,8 @@ const Home = () => {
               Music & Videos
             </h1>
           </div>
+          </Link>
+
           <Link to="/memoryGame">
             <div
               style={{
