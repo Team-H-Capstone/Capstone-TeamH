@@ -30,32 +30,28 @@ const MoodTracker = () => {
   const [stressedWiggle, setStressedWiggle] = useState(false);
   const [moodList, setMoodList] = useState([]);
 
-
-    const getMoodList = async () => {
-      const q = query(
-        collection(
-          db,
-          "moods",
-          auth.currentUser.uid,
-          auth.currentUser.displayName
-        ),
-        orderBy("dayOfWeek", "desc"),
-        limit(7)
-      );
-      const data = await getDocs(q);
-      querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
-      });
-      setMoodList(querySnapshot);
-    };
-
-
+  const getMoodList = async () => {
+    const q = query(
+      collection(
+        db,
+        "moods",
+        auth.currentUser.uid,
+        auth.currentUser.displayName
+      ),
+      orderBy("date", "desc"),
+      limit(7)
+    );
+    const data = await getDocs(q);
+    const filteredData = data.docs.map((doc) => ({
+      ...doc.data(),
+      id: doc.id,
+    }));
+    setMoodList(filteredData);
+  };
 
   useEffect(() => {
     getMoodList();
   }, []);
-
-
 
   // This adds a new mood to the database.
   const onSubmitMood = async (event) => {
@@ -78,8 +74,9 @@ const MoodTracker = () => {
       currentDate
     );
     await setDoc(moodRef, {
-      dayOfWeek: currentDay,
       mood: mood,
+      dayOfWeek: currentDay,
+      date: currentDate,
     });
   };
 
@@ -136,8 +133,8 @@ const MoodTracker = () => {
 
   return (
     <div className="flex flex-col items-center bg-white">
-      <h1 className="text-3xl font-bold text-212529 pt-4">My Mood Tracker</h1>
-      <p className="text-m text-gray-600 mb-5">
+      <h1 className="text-4xl font-bold text-212529 pt-4">My Mood Tracker</h1>
+      <p className="text-lg text-gray-600 mb-5">
         {`${new Date().toLocaleDateString("default", {
           day: "numeric",
           month: "long",
@@ -145,8 +142,9 @@ const MoodTracker = () => {
           weekday: "long",
         })}`}
       </p>
+      <h2 className="text-xl">How are you feeling today?</h2>
       <form onSubmit={onSubmitMood} className="mt-5">
-        <div className="flex">
+        <div className="flex text-center">
           <span
             role="img"
             aria-label="Happy"
@@ -202,10 +200,16 @@ const MoodTracker = () => {
           </button>
         </div>
       </form>
-      <ul>
-        <li>
-
-      </ul>
+      <div>
+        <h2 className="text-3xl font-bold text-212529 pt-4 text-center">History</h2>
+        <ul className="text-2xl text-600 mb-5">
+          {moodList.map((mood) => (
+            <li>
+              {mood.date}, {mood.dayOfWeek} - {mood.mood}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };
