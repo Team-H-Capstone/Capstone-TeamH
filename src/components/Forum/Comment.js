@@ -30,7 +30,7 @@ const Comment = ({ id }) => {
 
   return (
     <div>
-      <h1 className="flex flex-col pt-20 font-bold text-4xl">Comments</h1>
+      <h1 className="flex flex-col font-bold text-4xl">Comments</h1>
       {comments.length === 0 ? (
         <h1>No Comments</h1>
       ) : (
