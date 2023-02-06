@@ -19,7 +19,6 @@ import { useAuthState } from "react-firebase-hooks/auth";
 const MyThoughts = () => {
   const [textBox, setTextBox] = useState([]);
   const [list, setList] = useState([]);
-  const [editBox, setEditBox] = useState("");
   const [user] = useAuthState(auth);
 
   useEffect(() => {
@@ -37,7 +36,14 @@ const MyThoughts = () => {
             query.forEach((doc) => {
                 texts.push({ ...doc.data(), id: doc.id });
             })
+
             setTextBox(texts);
+
+            // let obj = texts.map((text) => text.textBox);
+            // let x = obj.pop();
+            // setEditBox(x);
+            // console.log("editbox ------>", x);
+
         });
         // -------------------------------------------------------
         const first10 = query(
@@ -55,7 +61,7 @@ const MyThoughts = () => {
             setList(arry);
         });
         // -------------------------------------------------------
-        
+
       };
       getData();
     }
@@ -93,8 +99,17 @@ const MyThoughts = () => {
     getForNote();
   };
 
+//   useEffect(() => {
+//         let obj = textBox.map((text) => text.textBox);
+//         let x = obj.pop();
+//         setEditBox(x);
+//         console.log("editbox ------>", x);
+//   }, [textBox])
+
   const edit = (evt) => {
     evt.preventDefault();
+    console.log("edit btn")
+
   };
 
   return (
@@ -113,7 +128,7 @@ const MyThoughts = () => {
           return (
             <div key={text.id}>
               <h1>{text.Timestamp}</h1>
-              <p>{parse(text.textBox)}</p>
+              <span>{parse(text.textBox)}</span>
             </div>
           );
         })}
@@ -124,12 +139,8 @@ const MyThoughts = () => {
       >
         <input
           className="input-thoughts"
-          type="text"
-          value={textBox.map((text) => {
-            return (
-                <p key={text.id} >{parse(text.textBox)}</p>
-            );
-          })}
+          type="string"
+        //   value = {editBox}
           onChange={(e) => setTextBox(e.target.value)}
         />
         <button
