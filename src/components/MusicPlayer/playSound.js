@@ -8,7 +8,7 @@ const Sound = (props) => {
   const handleSongPlaying = ({position, duration}) => {
     setPosition(position); //* current position of the audio track in milliseconds
 
-    const timer = document.querySelector('.timer'); 
+    // const timer = document.querySelector('.timer'); 
     const pos = position + loop * duration; //* current position of the audio track in milliseconds
     const min = Math.floor(pos / (1000 * 60)); //* convert milliseconds to minutes
     const sec = Math.floor(pos / (1000) % 60); // convert milliseconds to seconds
@@ -16,7 +16,7 @@ const Sound = (props) => {
     const formattedMin = ('0' + min).slice(-2); //* format the minutes and seconds to 2 digits
     const formattedSec = ('0' + sec).slice(-2);
     
-    timer.innerHTML = `${formattedMin} : ${formattedSec}`; 
+    // timer.innerHTML = `${formattedMin} : ${formattedSec}`; 
     props.func(pos/1000); 
     
     console.log(Math.floor(pos/1000) + ", " + props.desireTime); 
@@ -27,7 +27,11 @@ const Sound = (props) => {
       url={props.audio} //* url is ReactSound's prop
       playStatus={props.playStatus}
       onPlaying={handleSongPlaying}
-      // onFinishedPlaying={() => setLoop(loop + 1)} //* loop the audio track
+      // onFinishedPlaying={() => {
+      //   if (props.playStatus !== ReactSound.status.PAUSED) {
+      //     setLoop(loop + 1);
+      //   }
+      // }}
       onFinishedPlaying={() => setPosition(0) && setLoop(loop + 1) && props.play()}
       onStop={() => setPosition(0) && setLoop(0)} //* reset the position of the audio track to 0
       position={position} 
