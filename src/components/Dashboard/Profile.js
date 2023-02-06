@@ -75,7 +75,6 @@ const Profile = () => {
     await updateDoc(profileRef, {
       name,
       email,
-      // name: name,
     })
     await updateProfile(auth.currentUser, {
       displayName: name,
