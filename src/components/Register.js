@@ -58,7 +58,7 @@ function Register() {
           Already have an account? <br />
           <Link className="text-orange-500 font-bold" to="/login">
             Login
-          </Link>{' '}
+          </Link>
           now.
         </div>
       </div>
