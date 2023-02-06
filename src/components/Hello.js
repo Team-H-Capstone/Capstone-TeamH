@@ -10,8 +10,9 @@ import { auth } from "../firebase/firebase-config";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import Chart from "./Chart";
-import { borderRadius } from "@mui/system";
 import Quiz from "./Quiz";
+import AdultChart from "../AdultChart";
+import MusicPlayer from "./MusicPlayer/MusicPlayer";
 
 const Home = () => {
   useEffect(() => {
@@ -23,85 +24,101 @@ const Home = () => {
 
   return (
     <div className="w-full h-screen">
-      <section className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white">
+      <section className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white" style={{backgroundImage: "radial-gradient(#2b53c4, #1e3987, #325edb)"}}>
         <h1
           className="flex justify-center items-center text-9xl font-bold text-center"
+          style={{fontSize: "5vw"}}
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
-          data-aos-delay="300"
+          data-aos-delay="500"
           data-aos-offset="0"
         >
           Hello {user ? user.displayName : ""}!
         </h1>
-        <div>
-          {/* <Linky to="question" smooth={true} duration={500}> */}
-          {/* <button className="text-white group border-2 px-6 py-3 my-2 flex items-center hover:bg-orange-600 hover:border-orange-600">
-              Scroll Down */}
-          {/* <span className="group-hover:rotate-90 duration-300">
-                <HiArrowNarrowRight className="ml-3 " />
-              </span> */}
-          {/* </button> */}
-          {/* </Linky> */}
-        </div>
-      </section>
-      <section
-        name="question"
-        className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white"
-      >
         <h1
           className="flex justify-center items-center text-9xl font-bold text-center"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
-          data-aos-delay="500"
+          data-aos-delay="2000"
           data-aos-offset="0"
+          style={{fontSize: "5vw"}}
         >
           How are you doing today?
         </h1>
       </section>
-      <section name="question" className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white">
+      {/* <section
+        name="question"
+        className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white" style={{backgroundImage: "radial-gradient(#2b53c4, #1e3987, #325edb)"}}
+      >
+        
+      </section> */}
+      <section name="question" className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white" style={{backgroundImage: "radial-gradient(#2b53c4, #1e3987, #325edb)"}}>
         <h1
           className="flex justify-center items-center text-9xl font-bold text-center"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
           data-aos-delay="500"
           data-aos-offset="0"
+          style={{fontSize: "5vw"}}
         >
           Welcome to
         </h1>
         <h1
-          className="flex justify-center items-center text-9xl font-bold text-center"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
-          data-aos-delay="1200"
+          data-aos-delay="1100"
           data-aos-offset="0"
+          className="title"
         >
           BE MINDFUL
         </h1>
       </section>
-      <section
-        className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white"
-      >
+      <section className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white" style={{backgroundImage: "radial-gradient(#2b53c4, #1e3987, #325edb)"}}>
         <h1
-          className="flex justify-center items-center text-4xl font-bold text-center"
+          className="flex justify-center items-center text-5xl font-bold text-center w-50 h-400"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
           data-aos-delay="1000"
           data-aos-offset="0"
+          style={{fontSize: "2vw"}}
         >
           Did you know mental health affects hundreds of millions of people around the world?
         </h1>
+        <br></br>
         <br></br>
         <Chart />
       </section>
       <section
         name="question"
         className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white"
+        style={{backgroundImage: "radial-gradient(#2b53c4, #1e3987, #325edb)"}}
       >
+        <br></br>
         <h1 className="flex justify-center text-center items-center text-5xl font-bold"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
           data-aos-delay="500"
           data-aos-offset="0"
+          style={{fontSize: "2vw"}}
+          >
+          Statistics of mental health prevalence in the United States of America
+          </h1>
+          <br></br>
+          <br></br>
+          <AdultChart />
+      </section>
+      <section
+        name="question"
+        className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white"
+        style={{backgroundImage: "radial-gradient(#2b53c4, #1e3987, #325edb)"}}
+      >
+        <br></br>
+        <h1 className="flex justify-center text-center items-center text-5xl font-bold"
+          data-aos="fade-zoom-in"
+          data-aos-easing="ease-in-back"
+          data-aos-delay="500"
+          data-aos-offset="0"
+          style={{fontSize: "2vw"}}
           >
           Want to learn more about Mental Health? Take the quiz!
           </h1>
@@ -111,6 +128,7 @@ const Home = () => {
       <section
         name="question"
         className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white"
+        style={{backgroundImage: "repeating-radial-gradient(#2b53c4, #1e3987 10%, #325edb 15%)"}}
       >
         <h1
           className="flex justify-center items-center text-9xl font-bold text-center"
@@ -118,11 +136,12 @@ const Home = () => {
           data-aos-easing="ease-in-back"
           data-aos-delay="500"
           data-aos-offset="0"
+          style={{fontSize: "5vw"}}
         >
         Enter Our Mental Spa
         </h1>
         <h1
-          style={{ fontStyle: "italic", marginTop: 50 }}
+          style={{ fontStyle: "italic", marginTop: 50, fontSize: "2vw" }}
           className="flex justify-center items-center text-5xl font-bold"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
@@ -133,44 +152,49 @@ const Home = () => {
         </h1>
         <div
           style={{
-            width: 1100,
+            width: "100vw",
             marginTop: 100,
             display: "flex",
             flexDirection: "row",
-            justifyContent: "space-evenly",
+            justifyContent: "center",
           }}
         >
+          <Link to='/music'>
           <div
             style={{
               display: "flex",
-              width: 500,
-              height: 300,
+              width: "25vw",
+              height: "25vh",
               alignItems: "right",
               border: "10px solid white",
               backgroundImage: `url("/img/meditation.jpeg")`,
               backgroundPosition: "center",
               backgroundSize:"cover",
-              borderRadius: 50
+              borderRadius: 50,
+              marginRight: 25
             }}
           >
             <h1
               style={{
                 display: "flex",
                 alignItems: "center",
+                textAlign: "center",
                 justifyContent: "center",
                 width: "100%",
-                fontSize: 60,
+                fontSize: "3vw"
               }}
             >
               Music & Videos
             </h1>
           </div>
+          </Link>
+
           <Link to="/memoryGame">
             <div
               style={{
                 display: "flex",
-                width: 500,
-                height: 300,
+                width: "25vw",
+                height: "25vh",
                 alignItems: "right",
                 border: "10px solid white",
                 backgroundImage: `url("/img/gameBackground.jpeg")`,
@@ -184,7 +208,7 @@ const Home = () => {
                   alignItems: "center",
                   justifyContent: "center",
                   width: "100%",
-                  fontSize: 60
+                  fontSize: "3vw"
                 }}
               >
                 Games

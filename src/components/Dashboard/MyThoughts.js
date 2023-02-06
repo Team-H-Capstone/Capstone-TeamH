@@ -113,7 +113,7 @@ const MyThoughts = () => {
           return (
             <div key={text.id}>
               <h1>{text.Timestamp}</h1>
-              <p>{parse(text.textBox)}</p>
+              <span>{parse(text.textBox)}</span>
             </div>
           );
         })}

@@ -47,7 +47,6 @@ const firebaseConfig = {
 //   appId: "1:461540238529:web:61d8c4803cf1e0ede82040"
 // };
 
-
 const googleProvider = new GoogleAuthProvider();
 const signInWithGoogle = async () => {
   try {

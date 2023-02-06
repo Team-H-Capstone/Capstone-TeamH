@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from 'react-router-dom';
 import Home from "./components/Hello";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
@@ -8,12 +8,16 @@ import Register from "./components/Register";
 import CreatePost from "./components/Forum/CreatePost";
 import Forum from "./components/Forum/Forum";
 import MemoryGame from './components/MemoryGame';
+import MusicPlayer from './components/MusicPlayer/MusicPlayer';
+import Post from "./components/Forum/Post";
 import EditProfile from "./components/Dashboard/Profile";
 
 const App = () => {
+  const location = useLocation();
+
   return (
     <div>
-      <Navbar />
+     {location.pathname !== '/music' && <Navbar />}
       <Routes>
         <Route path="/*" element={<Home />} />
         <Route path="/home" element={<Home />} />
@@ -23,9 +27,11 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/createpost" element={<CreatePost />} />
+        <Route path="/post/:id" element={<Post />} />
         <Route path="/forum" element={<Forum />} />
-        <Route path="/profile" element={<EditProfile/>} />
-    </Routes>
+        <Route path="/profile" element={<EditProfile />} />
+        <Route path="/music" element={<MusicPlayer />} />
+      </Routes>
     </div>
   );
 };

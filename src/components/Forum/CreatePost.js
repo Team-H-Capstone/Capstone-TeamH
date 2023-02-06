@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
-import { db, auth } from "../../firebase/firebase-config"
+import { db, auth } from "../../firebase/firebase-config";
 import { useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
@@ -9,7 +9,7 @@ const CreatePost = () => {
 
   const postCollection = collection(db, "posts");
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const createpost = async () => {
     await addDoc(postCollection, {
@@ -17,8 +17,9 @@ const CreatePost = () => {
       post,
       author: { name: auth.currentUser.displayName, id: auth.currentUser.uid },
       timestamp: serverTimestamp(),
+      comments: [],
     });
-    navigate("/forum")
+    navigate("/forum");
   };
 
   return (
@@ -27,7 +28,7 @@ const CreatePost = () => {
         <h1 className="text-5xl font-bold">Create a Post</h1>
         <div className="p-2">
           <input
-            className="box-border w-[1000px] font-bold text-black p-2"
+            className="border rounded-lg font-bold text-black p-2 w-full sm:w-64"
             placeholder="Title"
             onChange={(event) => {
               setTitle(event.target.value);
@@ -35,17 +36,16 @@ const CreatePost = () => {
           />
         </div>
         <div>
-        <form>
-          <textarea
-            className="box-border w-[1000px] h-96 font-bold text-black p-2"
-            placeholder="Post"
-            maxLength={1200}
-            onChange={(event) => {
-              setPost(event.target.value);
-              
-            }}
-          />
-           </form>
+          <form>
+            <textarea
+  className="border rounded-lg w-[500px] h-[500px] font-bold text-black p-2"
+              placeholder="Post"
+              maxLength={1200}
+              onChange={(event) => {
+                setPost(event.target.value);
+              }}
+            />
+          </form>
         </div>
         <button
           className="text-white group border-2 px-6 py-3 my-2 flex items-center hover:bg-orange-600 hover:border-orange-600"
