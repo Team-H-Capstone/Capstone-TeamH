@@ -19,17 +19,43 @@ const MusicPlayer = () => {
   const [volumeIcon, setVolumeIcon] = useState(); //* volumeIcon is the volume icon
   const [volume, setVolume] = useState(100); //* volume is the volume of the audio track
   const [mute, setMute] = useState(false); //* mute is the mute status of the audio track
+  const [opacity, setOpacity] = useState(1); 
+  const [transition, setTransition] = useState(''); 
+  const [centerOpacity, setCenterOpacity] = useState(1);
 
   const playPause = () => {
     console.log('playPause');
     if (playButton === playBtnImg) {
       setPlayButton(pauseBtnImg);
       setAudioStatus(ReactSound.status.PLAYING);
+      setOpacity(0);
+      setTransition('opacity 10s ease-out');
+      setCenterOpacity(0.5);
     } else if (playButton === pauseBtnImg) {
       setPlayButton(playBtnImg);
       setAudioStatus(ReactSound.status.PAUSED);
+      setOpacity(1);
+      setCenterOpacity(1);
+      setTransition("opacity 0s");
     }
   };
+
+  const onMouseMove = (e) => { 
+    setOpacity(1);
+    setCenterOpacity(1);
+    setTransition("opacity 0s");
+
+    setTimeout(() => {
+      if (
+        seekCurrentPosition < 100 &&
+        playButton === pauseBtnImg
+      ) {
+        setOpacity(0);
+        setCenterOpacity(0.6);
+        setTransition("opacity 10s ease-out");
+      }
+    }, 3000);
+  }
 
   const timeSelect = (e) => {
     setDesiredTime(e.duration);
@@ -126,24 +152,24 @@ const MusicPlayer = () => {
 
   return (
     // <div className="flex max-w-screen-xl my-10 h-screen">
-    <div className="app_container">
+    <div className="app_container" onMouseMove={onMouseMove}>
       <div className="background_overlay"></div>
       <div className="background">
-        <video loop playsInline autoPlay disablePictureInPicture controlsList="nodownload noplaybackrate" id="bg_vid">
+        {/* <video loop playsInline autoPlay disablePictureInPicture controlsList="nodownload noplaybackrate" id="bg_vid">
           <source
             // src="https://assets.calm.com/02468a3ae77a0cd4b8104fda6b0164e8.mp4"
             src={bgImg}
             type="video/mp4"
           ></source>
-        </video>
+        </video> */}
         <img src={bgImg} alt="backgroundImg" />
       </div>
       {/* <div className="mt-12 text-white">{timeOptions}</div> */}
       {/* <div className="grid mt-12 text-white">{audioOptions}</div> */}
       <div className="player_container">
-        <img className="playPause" src={playButton} onClick={playPause} alt="playPause" />
+        <img className="playPause" style={{opacity: centerOpacity, transition: transition }} src={playButton} onClick={playPause} alt="playPause" />
 
-        <div className="volume_container">
+        <div className="volume_container" style={{opacity: opacity, transition: transition}}>
           <img className="volume_icon" src={volumeIcon} onClick={toggleMute} alt="volume" />
           <div className="volume_bar">
             <StyleSlider id="volume_slider" onChange={volumeChange} step={1} min={0} max={100} value={mute ? 0 : volume} />
@@ -156,7 +182,7 @@ const MusicPlayer = () => {
         <div className="timer text-white">00 : 00</div>
         {/* <div className="mt-12 text-white">{timeOptions}</div> */}
       </div>
-      <div className="audio_menu text-white">{audioOptions}</div>
+      <div className="audio_menu text-white" style={{opacity: opacity, transition: transition}}>{audioOptions}</div>
     </div>
   );
 };
