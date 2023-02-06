@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  
 
   return (
     <div className="login bg-[#1e3a8a]">
@@ -35,9 +36,11 @@ const Login = () => {
         >
           Login
         </button>
+        <Link to="/home">
         <button className="login__btn login__google" onClick={signInWithGoogle}>
           Login with Google
         </button>
+        </Link>
       <div>
         Don't have an account? <br/> <Link className="text-orange-500 font-bold" to="/register">Register</Link> now.
       </div> 

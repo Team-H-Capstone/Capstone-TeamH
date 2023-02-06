@@ -58,7 +58,6 @@ const Navbar = () => {
               <Button color="inherit" style={{fontSize:30, marginRight:5, fontFamily:"Oddly Calming"}}>Forum</Button>
             </Link>
 
-            {/* <div className=''> */}
             {user ? (
               <>
                 <Link to="/createpost">
