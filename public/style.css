@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=IBM+Plex+Sans:wght@100&display=swap');
 
 @font-face {
-  font-family: 'Oddly Calming';
-  src: url('public/fonts/OddlyCalmingRegular-7B89V.ttf') format('truetype');
+  font-family: 'OddlyCalming';
+  src: url('public/fonts/OddlyCalming.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
