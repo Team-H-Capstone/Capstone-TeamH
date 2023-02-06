@@ -83,7 +83,7 @@ const Home = () => {
         >
           Did you know mental health affects hundreds of millions of people around the world?
         </h1>
-        
+        <br></br>
         <br></br>
         <Chart />
       </section>
