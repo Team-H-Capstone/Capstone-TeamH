@@ -2,14 +2,14 @@
 
 @font-face {
   font-family: 'OddlyCalming';
-  src: url('public/fonts/OddlyCalming.ttf') format('truetype');
+  src: url('/fonts/OddlyCalming.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'PeacefulNature';
-  src: url('public/fonts/PeacefulNature.otf') format('truetype');
+  src: url('/fonts/PeacefulNature.otf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -22,9 +22,44 @@ body {
 
 /* Navbar CSS */
 
-.navBar {
-  background-color: #1e3a8a;
-  font-family: 'Oddly Calming';
+#home {
+  font-family: 'OddlyCalming';
+}
+
+#navBarHome {
+  font-family: 'OddlyCalming';
+}
+
+#navBarDashboard {
+  font-family: 'OddlyCalming';
+}
+
+#navBarAbout {
+  font-family: 'OddlyCalming';
+}
+
+#navBarForum {
+  font-family: 'OddlyCalming';
+}
+
+#navBarCreate {
+  font-family: 'OddlyCalming';
+}
+
+#navBarLogout {
+  font-family: 'OddlyCalming';
+}
+
+#navBarLogin {
+  font-family: 'OddlyCalming';
+}
+
+#navBarMusic {
+  font-family: 'OddlyCalming';
+}
+
+#navBarMemory {
+  font-family: 'OddlyCalming';
 }
 
 .dropdown {

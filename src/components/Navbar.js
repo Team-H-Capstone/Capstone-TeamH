@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -35,16 +33,16 @@ const Navbar = () => {
 
   return (
     <div style={{ position: 'fixed', width: '100vw', zIndex: 200}}>
-      <Box sx={{ flexGrow: 0 }}>
-        <AppBar>
-          <Toolbar className="navBar">
+      <Box sx={{ flexGrow: 0}}>
+        <AppBar sx={{backgroundColor: "#1e3a8a"}}>
+          <Toolbar>
             <Link to="/home">
-              <Button color="inherit" sx={{ ml: 0 }} style={{fontSize:30, marginRight:5, fontFamily:"Oddly Calming"}}>
+              <Button color="inherit" sx={{ ml: 0 }} style={{fontSize:30, marginRight:5}} id="navBarHome">
                 Home
               </Button>
             </Link>
             <Link to="/mydashboard">
-              <Button color="inherit" style={{fontSize:30, marginRight:5, fontFamily:"Oddly Calming"}}>MyDashboard</Button>
+              <Button color="inherit" style={{fontSize:30, marginRight:5}} id="navBarDashboard">MyDashboard</Button>
             </Link>
             <Typography
               variant="h6"
@@ -53,23 +51,23 @@ const Navbar = () => {
               style={{ textAlign: 'center', fontFamily: "Peaceful", fontSize: 60}}
             ></Typography>
             <Link to="/about">
-              <Button color="inherit" style={{fontSize:30, marginRight:5, fontFamily:"Oddly Calming"}}>About</Button>
+              <Button color="inherit" style={{fontSize:30, marginRight:5}} id="navBarAbout">About</Button>
             </Link>
 
             <Link to="/forum">
-              <Button color="inherit" style={{fontSize:30, marginRight:5, fontFamily:"Oddly Calming"}}>Forum</Button>
+              <Button color="inherit" style={{fontSize:30, marginRight:5}} id="navBarForum">Forum</Button>
             </Link>
 
             {user ? (
               <>
                 <Link to="/createpost">
-                  <Button color="inherit" style={{fontSize:30, marginRight:5, fontFamily:"Oddly Calming"}}>Create</Button>
+                  <Button color="inherit" style={{fontSize:30, marginRight:5}} id="navBarCreate">Create</Button>
                 </Link>
-                <Button color="inherit" style={{fontSize:30, marginRight:5, fontFamily:"Oddly Calming"}} onClick={() => logout()}>Logout</Button>
+                <Button color="inherit" style={{fontSize:30, marginRight:5}} onClick={() => logout()} id="navBarLogout">Logout</Button>
               </>
             ) : (
               <Link to="/login">
-                <Button color="inherit" style={{fontSize:30, marginRight:5, fontFamily:"Oddly Calming"}}>Login</Button>
+                <Button color="inherit" style={{fontSize:30, marginRight:5}} id="navBarLogin">Login</Button>
               </Link>
             )}
 
@@ -87,11 +85,11 @@ const Navbar = () => {
             {open ? null : (
               <ul className="menu">
                 <li className="menuItem">
-                  <Button onClick={handleRoom1} style={{color:"black", textAlign:"center", fontSize:20, fontFamily:"Oddly Calming"}}>Music & Videos</Button>
+                  <Button onClick={handleRoom1} style={{color:"black", textAlign:"center", fontSize:20}} id="navBarMusic">Music & Videos</Button>
                 </li>
                 <li className="menuItem">
                   <Link to="/memoryGame" >
-                  <Button onClick={handleRoom2} style={{color:"black", textAlign:"center", fontSize:20, fontFamily:"Oddly Calming"}}>Memory Game</Button>
+                  <Button onClick={handleRoom2} style={{color:"black", textAlign:"center", fontSize:20}} id="navBarMemory">Memory Game</Button>
                   </Link>
                 </li>
               </ul>
