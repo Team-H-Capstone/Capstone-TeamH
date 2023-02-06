@@ -1,17 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   collection,
   addDoc,
   getDoc,
   updateDoc,
-  doc,
   query,
   where,
   startAt,
   getDocs,
+  doc,
   setDoc,
 } from "firebase/firestore";
 import { db, auth } from "../../firebase/firebase-config";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import {
+  orderBy,
+  limit,
+  startAfter,
+  limitToFirst,
+  onSnapshot,
+} from "firebase/firestore";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const MoodTracker = () => {
   const [mood, setMood] = useState("");
@@ -19,10 +28,39 @@ const MoodTracker = () => {
   const [sadWiggle, setSadWiggle] = useState(false);
   const [excitedWiggle, setExcitedWiggle] = useState(false);
   const [stressedWiggle, setStressedWiggle] = useState(false);
+  const [moodList, setMoodList] = useState([]);
 
+
+    const getMoodList = async () => {
+      const q = query(
+        collection(
+          db,
+          "moods",
+          auth.currentUser.uid,
+          auth.currentUser.displayName
+        ),
+        orderBy("dayOfWeek", "desc"),
+        limit(7)
+      );
+      const data = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        console.log(`${doc.id} => ${doc.data()}`);
+      });
+      setMoodList(querySnapshot);
+    };
+
+
+
+  useEffect(() => {
+    getMoodList();
+  }, []);
+
+
+
+  // This adds a new mood to the database.
   const onSubmitMood = async (event) => {
     event.preventDefault();
-    // try {
+
     const currentDay = new Date().toLocaleDateString("default", {
       weekday: "long",
     });
@@ -45,11 +83,60 @@ const MoodTracker = () => {
     });
   };
 
+  // const [user] = useAuthState(auth);
+
+  // const currentDate = new Date().toLocaleDateString("default", {
+  //   day: "numeric",
+  //   month: "long",
+  // });
+
+  // const [selectedDate, setSelectedDate] = useState(currentDate);
+
+  // useEffect(() => {
+  //   if (user) {
+  //     const getMood = async () => {
+  //       const q = query(
+  //         collection(
+  //           db,
+  //           "moods",
+  //           auth.currentUser.uid,
+  //           auth.currentUser.displayName,
+  //           selectedDate,
+  //           "mood"
+  //         )
+  //       );
+  //       const querySnapshot = await getDocs(q);
+  //       querySnapshot.forEach((doc) => {
+  //         console.log(`${doc.id} => ${doc.data()}`);
+  //       });
+  //     };
+  //     getMood();
+  //   }
+  // }, [user, selectedDate]);
+
+  // const backwards = (evt) => {
+  //   if (selectedDate === currentDate) {
+  //     console.log("if");
+  //     const prevDay = currentDate.slice(-1) - 1;
+  //     setSelectedDate(prevDay);
+  //     console.log(selectedDate);
+  //   } else {
+  //     console.log("else");
+  //     const prevPrevDay = selectedDate - 1;
+  //     setSelectedDate(prevPrevDay);
+  //     console.log(selectedDate);
+  //   }
+  // };
+
+  // const forwards = () => {
+  //   const date = new Date();
+  //   date.setDate(date.getDate() + 1);
+  //   setSelectedDate(currentDate);
+  // };
+
   return (
     <div className="flex flex-col items-center bg-white">
-      <h1 className="text-3xl font-bold text-[#212529] pt-4">
-        My Mood Tracker
-      </h1>
+      <h1 className="text-3xl font-bold text-212529 pt-4">My Mood Tracker</h1>
       <p className="text-m text-gray-600 mb-5">
         {`${new Date().toLocaleDateString("default", {
           day: "numeric",
@@ -105,9 +192,7 @@ const MoodTracker = () => {
             😰
           </span>
         </div>
-        <p className="text-2xl text-gray-600 mb-5 text-center pt-4">
-          Mood for today: {mood}
-        </p>
+
         <div className="flex justify-center">
           <button
             type="submit"
@@ -117,8 +202,39 @@ const MoodTracker = () => {
           </button>
         </div>
       </form>
+      <ul>
+        <li>
+
+      </ul>
     </div>
   );
 };
 
 export default MoodTracker;
+
+// {/* <div className="flex justify-between items-center">
+//         <button>
+//           <FaArrowLeft onClick={backwards} />
+//         </button>
+//         <p className="text-m text-gray-600 mb-5 px-3">
+//           {selectedDate
+//             ? `${selectedDate}, ${new Date().toLocaleDateString("default", {
+//                 weekday: "long",
+//               })}`
+//             : `${new Date().toLocaleDateString("default", {
+//                 day: "numeric",
+//                 month: "long",
+//               })}, ${new Date().toLocaleDateString("default", {
+//                 weekday: "long",
+//               })}`}
+//           {/* {`${new Date().toLocaleDateString("default", {
+//             day: "numeric",
+//             month: "long",
+//           })}, ${new Date().toLocaleDateString("default", {
+//             weekday: "long",
+//           })}`} */}
+//         </p>
+//         <button>
+//           <FaArrowRight onClick={forwards} />
+//         </button>
+//       </div> */}
