@@ -6,6 +6,7 @@ import Sound from './playSound';
 import ProgressBar from './ProgressBar';
 import StyleSlider from './Slider';
 import { playBtnImg, pauseBtnImg, loudVolumeImg, lowVolumeImg, muteVolumeImg, rainAudio, woodlandAudio, streamAudio, wavesAudio, fireAudio, thunderAudio, deepseaAudio, fanAudio, rainImg, woodlandImg, streamImg, wavesImg, fireImg, thunderImg, deepseaImg, fanImg } from './constant';
+import Quotes from './Quotes';
 
 const MusicPlayer = () => {
   const [playButton, setPlayButton] = useState(playBtnImg);
@@ -152,7 +153,9 @@ const MusicPlayer = () => {
 
   return (
     // <div className="flex max-w-screen-xl my-10 h-screen">
+    
     <div className="app_container" onMouseMove={onMouseMove}>
+      {/* <nav className='nav'> YOO</nav> */}
       <div className="background_overlay"></div>
       <div className="background">
         {/* <video loop playsInline autoPlay disablePictureInPicture controlsList="nodownload noplaybackrate" id="bg_vid">
@@ -179,11 +182,14 @@ const MusicPlayer = () => {
           <ProgressBar id='seek' percentage={seekCurrentPosition} />
         </div> */}
         <Sound audio={audio} playStatus={audioStatus} func={moveSeekBar} desireTime={desiredTime} volume={mute ? 0 : volume} />
-        <div className="timer text-white">00 : 00</div>
+        {/* <div className="timer text-white">00 : 00</div> */}
         {/* <div className="mt-12 text-white">{timeOptions}</div> */}
       </div>
       <div className="audio_menu text-white" style={{opacity: opacity, transition: transition}}>{audioOptions}</div>
+     
+      <Quotes /> 
     </div>
+    
   );
 };
 
