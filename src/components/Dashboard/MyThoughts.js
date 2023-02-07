@@ -9,17 +9,21 @@ import {
   getDocs,
   startAfter,
   onSnapshot,
+  deleteDoc,
+  doc
 } from "firebase/firestore";
 import { db, auth } from "../../firebase/firebase-config";
 import "./Notepad.css";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import parse from "html-react-parser";
 import { useAuthState } from "react-firebase-hooks/auth";
+import UpdateThoughts from "./UpdateThoughts";
+import { ConnectingAirportsOutlined } from "@mui/icons-material";
+import { async } from "@firebase/util";
 
 const MyThoughts = () => {
   const [textBox, setTextBox] = useState([]);
   const [list, setList] = useState([]);
-  const [editBox, setEditBox] = useState("");
   const [user] = useAuthState(auth);
 
   useEffect(() => {
@@ -54,7 +58,6 @@ const MyThoughts = () => {
             })
             setList(arry);
         });
-        // -------------------------------------------------------
         
       };
       getData();
@@ -93,9 +96,42 @@ const MyThoughts = () => {
     getForNote();
   };
 
-  const edit = (evt) => {
+  const [remove, setRemove] = useState("");
+
+  const deleteBtn = async (evt) => {
     evt.preventDefault();
-  };
+    console.log("delete");
+
+    const doc1 = query(
+      collection(db, "Notepad"),
+      where("uid", "==", auth.currentUser.uid),
+      orderBy("Timestamp", "desc"),
+      limit(10)
+    );
+
+    const x = await getDocs(doc1);
+
+    const post = x.docs.map((post) => post.id);
+    console.log("id ----->",post);
+
+    let lastPostIndex = currentPage * postPerPage;
+    let firstPostIndex = lastPostIndex - postPerPage;
+    let deletePost = post.slice(firstPostIndex, lastPostIndex);
+    console.log("deletepost ---->", deletePost)
+    let y = deletePost.pop();
+    console.log("y ---->", typeof y, y)
+
+    const docRef = doc(db, "Notepad", y);
+    console.log("docref ------->", docRef)
+
+    deleteDoc(docRef)
+    .then(() => {
+    console.log("Entire Document has been deleted successfully.")
+      })
+    .catch(error => {
+    console.log(error);
+      })
+  }
 
   return (
     <div className="flex flex-col justify-center items-center border-solid border-2 min-w-max max-w-xl py-4 bg-[#f8f9fa] rounded-3xl">
@@ -118,27 +154,13 @@ const MyThoughts = () => {
           );
         })}
       </div>
-      <form
-        onSubmit={edit}
-        className="flex flex-col justify-center items-center"
-      >
-        <input
-          className="input-thoughts"
-          type="text"
-          value={textBox.map((text) => {
-            return (
-                <p key={text.id} >{parse(text.textBox)}</p>
-            );
-          })}
-          onChange={(e) => setTextBox(e.target.value)}
-        />
-        <button
+      <button
+          onClick={deleteBtn}
           className="px-2 border-solid border-2 hover:bg-white hover:text-gray-800 mt-5"
           type="submit"
         >
-          Edit Entry
-        </button>
-      </form>
+          Delete MyThoughts
+      </button>
     </div>
   );
 };
