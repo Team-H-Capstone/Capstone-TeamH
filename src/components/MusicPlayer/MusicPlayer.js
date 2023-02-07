@@ -141,7 +141,8 @@ const MusicPlayer = () => {
     );
   });
 
-  const volumeChange = (value) => {
+  const volumeChange = (event) => {
+    const value = Number(event.target.value)
     setVolume(mute ? volume : value);
     setVolumeIcon(mute || value === 0 ? muteVolumeImg : value <= 50 ? lowVolumeImg : loudVolumeImg);
   };

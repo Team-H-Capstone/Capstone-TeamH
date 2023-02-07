@@ -4,6 +4,18 @@ export const data = [
     a: 'Tien La',
   },
   {
+    q: 'I am HIM',
+    a: 'Justin Signo',
+  },
+  {
+    q: 'The biggest dreams are not filled by belief. They are fueled by doubt.',
+    a: 'Kobe Bryant',
+  },
+  {
+    q: 'The best way to predict the future is to create it.',
+    a: 'Jaylen Brown'
+  },
+  {
     q: 'You are your best thing.',
     a: 'Toni Morrison',
   },
@@ -182,10 +194,6 @@ export const data = [
   {
     q: 'Beginning today, treat everyone you meet as if they were going to be dead by midnight. Your life will never be the same again.',
     a: 'Og Mandino',
-  },
-  {
-    q: 'Weeds are flowers too, once you get to know them.',
-    a: 'A.A. Milne',
   },
   {
     q: 'Life without love is like a tree without blossoms or fruit.',
