@@ -5,9 +5,7 @@ import {
   orderBy,
   where,
   limit,
-  startAt,
   getDocs,
-  startAfter,
   onSnapshot,
   deleteDoc,
   doc
@@ -17,9 +15,6 @@ import "./Notepad.css";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import parse from "html-react-parser";
 import { useAuthState } from "react-firebase-hooks/auth";
-import UpdateThoughts from "./UpdateThoughts";
-import { ConnectingAirportsOutlined } from "@mui/icons-material";
-import { async } from "@firebase/util";
 
 const MyThoughts = () => {
   const [textBox, setTextBox] = useState([]);
@@ -96,8 +91,6 @@ const MyThoughts = () => {
     getForNote();
   };
 
-  const [remove, setRemove] = useState("");
-
   const deleteBtn = async (evt) => {
     evt.preventDefault();
     console.log("delete");
@@ -118,7 +111,7 @@ const MyThoughts = () => {
     let firstPostIndex = lastPostIndex - postPerPage;
     let deletePost = post.slice(firstPostIndex, lastPostIndex);
     console.log("deletepost ---->", deletePost)
-    let y = deletePost.pop();
+    const y = deletePost.pop();
     console.log("y ---->", typeof y, y)
 
     const docRef = doc(db, "Notepad", y);
