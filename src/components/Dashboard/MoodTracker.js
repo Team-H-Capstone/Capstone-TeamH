@@ -1,25 +1,14 @@
 import React, { useState, useEffect } from "react";
 import {
   collection,
-  addDoc,
-  getDoc,
-  updateDoc,
   query,
-  where,
-  startAt,
-  getDocs,
   doc,
   setDoc,
-} from "firebase/firestore";
-import { db, auth } from "../../firebase/firebase-config";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import {
   orderBy,
   limit,
-  startAfter,
-  limitToFirst,
   onSnapshot,
 } from "firebase/firestore";
+import { db, auth } from "../../firebase/firebase-config";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 const MoodTracker = () => {
@@ -29,29 +18,33 @@ const MoodTracker = () => {
   const [excitedWiggle, setExcitedWiggle] = useState(false);
   const [stressedWiggle, setStressedWiggle] = useState(false);
   const [moodList, setMoodList] = useState([]);
+  const [user] = useAuthState(auth);
 
-  const getMoodList = async () => {
-    const q = query(
-      collection(
-        db,
-        "moods",
-        auth.currentUser.uid,
-        auth.currentUser.displayName
-      ),
-      orderBy("date", "desc"),
-      limit(7)
-    );
-    const data = await getDocs(q);
-    const filteredData = data.docs.map((doc) => ({
-      ...doc.data(),
-      id: doc.id,
-    }));
-    setMoodList(filteredData);
-  };
-
+  // This queries Firestore for the user's mood history and displays it to the page
   useEffect(() => {
-    getMoodList();
-  }, []);
+    if (user) {
+      const getMoodList = async () => {
+        const q = query(
+          collection(
+            db,
+            "moods",
+            auth.currentUser.uid,
+            auth.currentUser.displayName
+          ),
+          orderBy("date", "desc"),
+          limit(7)
+        );
+        onSnapshot(q, (query) => {
+          let moods = [];
+          query.forEach((doc) => {
+            moods.push({ ...doc.data(), id: doc.id });
+          });
+          setMoodList(moods);
+        });
+      };
+      getMoodList();
+    }
+  }, [user]);
 
   // This adds a new mood to the database.
   const onSubmitMood = async (event) => {
@@ -79,57 +72,6 @@ const MoodTracker = () => {
       date: currentDate,
     });
   };
-
-  // const [user] = useAuthState(auth);
-
-  // const currentDate = new Date().toLocaleDateString("default", {
-  //   day: "numeric",
-  //   month: "long",
-  // });
-
-  // const [selectedDate, setSelectedDate] = useState(currentDate);
-
-  // useEffect(() => {
-  //   if (user) {
-  //     const getMood = async () => {
-  //       const q = query(
-  //         collection(
-  //           db,
-  //           "moods",
-  //           auth.currentUser.uid,
-  //           auth.currentUser.displayName,
-  //           selectedDate,
-  //           "mood"
-  //         )
-  //       );
-  //       const querySnapshot = await getDocs(q);
-  //       querySnapshot.forEach((doc) => {
-  //         console.log(`${doc.id} => ${doc.data()}`);
-  //       });
-  //     };
-  //     getMood();
-  //   }
-  // }, [user, selectedDate]);
-
-  // const backwards = (evt) => {
-  //   if (selectedDate === currentDate) {
-  //     console.log("if");
-  //     const prevDay = currentDate.slice(-1) - 1;
-  //     setSelectedDate(prevDay);
-  //     console.log(selectedDate);
-  //   } else {
-  //     console.log("else");
-  //     const prevPrevDay = selectedDate - 1;
-  //     setSelectedDate(prevPrevDay);
-  //     console.log(selectedDate);
-  //   }
-  // };
-
-  // const forwards = () => {
-  //   const date = new Date();
-  //   date.setDate(date.getDate() + 1);
-  //   setSelectedDate(currentDate);
-  // };
 
   return (
     <div className="flex flex-col items-center bg-white">
@@ -190,7 +132,6 @@ const MoodTracker = () => {
             😰
           </span>
         </div>
-
         <div className="flex justify-center">
           <button
             type="submit"
@@ -201,7 +142,9 @@ const MoodTracker = () => {
         </div>
       </form>
       <div>
-        <h2 className="text-3xl font-bold text-212529 pt-4 text-center">History</h2>
+        <h2 className="text-3xl font-bold text-212529 pt-4 text-center">
+          History
+        </h2>
         <ul className="text-2xl text-600 mb-5">
           {moodList.map((mood) => (
             <li>
@@ -215,30 +158,3 @@ const MoodTracker = () => {
 };
 
 export default MoodTracker;
-
-// {/* <div className="flex justify-between items-center">
-//         <button>
-//           <FaArrowLeft onClick={backwards} />
-//         </button>
-//         <p className="text-m text-gray-600 mb-5 px-3">
-//           {selectedDate
-//             ? `${selectedDate}, ${new Date().toLocaleDateString("default", {
-//                 weekday: "long",
-//               })}`
-//             : `${new Date().toLocaleDateString("default", {
-//                 day: "numeric",
-//                 month: "long",
-//               })}, ${new Date().toLocaleDateString("default", {
-//                 weekday: "long",
-//               })}`}
-//           {/* {`${new Date().toLocaleDateString("default", {
-//             day: "numeric",
-//             month: "long",
-//           })}, ${new Date().toLocaleDateString("default", {
-//             weekday: "long",
-//           })}`} */}
-//         </p>
-//         <button>
-//           <FaArrowRight onClick={forwards} />
-//         </button>
-//       </div> */}
