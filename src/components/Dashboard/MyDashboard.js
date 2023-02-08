@@ -5,6 +5,7 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import Notepad from "./Notepad";
 import MyThoughts from "./MyThoughts";
+import MoodTracker from "./MoodTracker";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase/firebase-config";
 
@@ -82,6 +83,7 @@ const MyDashboard = () => {
       <section className="flex-auto h-full pt-28 bg-[#edf2f4]">
         <Notepad />
         <MyThoughts />
+        <MoodTracker />
       </section>
     </div>
   );
