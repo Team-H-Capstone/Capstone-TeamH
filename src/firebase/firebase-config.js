@@ -37,16 +37,6 @@ const firebaseConfig = {
   appId: '1:170344461409:web:0cd61c18f493bbef562620',
 };
 
-// trial
-// const firebaseConfig = {
-//   apiKey: "AIzaSyC18tFyiIfjfHzgFFGr060AHa4R_bbu8Bo",
-//   authDomain: "notepad-c062b.firebaseapp.com",
-//   projectId: "notepad-c062b",
-//   storageBucket: "notepad-c062b.appspot.com",
-//   messagingSenderId: "461540238529",
-//   appId: "1:461540238529:web:61d8c4803cf1e0ede82040"
-// };
-
 const googleProvider = new GoogleAuthProvider();
 const signInWithGoogle = async () => {
   try {

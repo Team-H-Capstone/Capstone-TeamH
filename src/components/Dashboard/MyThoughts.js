@@ -127,7 +127,7 @@ const MyThoughts = () => {
   }
 
   return (
-    <div className="flex flex-col justify-center items-center border-solid border-2 min-w-max max-w-xl py-4 bg-[#f8f9fa] rounded-3xl">
+    <div className="flex flex-col justify-around items-center border-solid border-2 min-w-max max-w-xl py-4 bg-[#f8f9fa] rounded-3xl">
       <div className="flex flex-row justify-center items-center">
         <button onClick={backwards}>
           <FaArrowLeft />
@@ -137,10 +137,10 @@ const MyThoughts = () => {
           <FaArrowRight onClick={fowards} />
         </button>
       </div>
-      <div>
+      <div className="text-lgr">
         {textBox.map((text) => {
           return (
-            <div key={text.id}>
+            <div key={text.id} className="flex flex-col justify-around items-center">
               <h1>{text.Timestamp}</h1>
               <span>{parse(text.textBox)}</span>
             </div>

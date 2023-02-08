@@ -18,7 +18,7 @@ const MyDashboard = () => {
       className="w-full h-screen flex flex-row"
       style={{ background: "white" }}
     >
-      <section className="top-0 left-0 w-72 bg-[#2b2d42] h-full border-r overflow overflow-auto pt-24">
+      <section className="top-0 left-0 min-w-min bg-[#2b2d42] h-100% border-r overflow overflow-auto pt-24">
         <div className="flex flex-col justify-center items-center">
           <img
             className="rounded-full"
@@ -27,7 +27,7 @@ const MyDashboard = () => {
             src="https://media.istockphoto.com/id/1300845620/vector/user-icon-flat-isolated-on-white-background-user-symbol-vector-illustration.jpg?s=612x612&w=0&k=20&c=yBeyba0hUkh14_jgv1OKqIH0CCSWU_4ckRkAoy2p73o="
           />
           {user ? (
-            <h1 className="text-3xl font-bold text-[#edf2f4] pt-4">
+            <h1 className="text-3xl font-bold text-[#edf2f4] pt-4 px-4">
               Hello, {user?.displayName} !
             </h1>
           ) : (
@@ -81,9 +81,11 @@ const MyDashboard = () => {
         </div>
       </section>
       <section className="flex-auto h-full pt-28 bg-[#edf2f4]">
-        <Notepad />
-        <MyThoughts />
         <MoodTracker />
+        <div className="flex flex-row justify-around">
+          <Notepad />
+          <MyThoughts />
+        </div>
       </section>
     </div>
   );

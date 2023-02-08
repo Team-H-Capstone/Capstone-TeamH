@@ -158,18 +158,10 @@ const Notepad = () => {
       textBox,
       name: auth.currentUser.displayName, 
       uid: auth.currentUser.uid,
-      // Timestamp: new Date(),
       Timestamp: new Date(Date.now()).toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'})
-      // Timestamp: new Date(Date.now()).toLocaleString().split(',')[0]
-      // Timestamp: new Date().toDateString().replace(/^\S+\s/,'')
     })
   };
 
-  //   console.log("date db ---->", new Date(Date.now()).toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'}));
-//   console.log("date alt ---->", new Date(Date.now()).toLocaleDateString());
-
-// startAt(new Date().toDateString().replace(/^\S+\s/,''))
-// startAt(new Date(Date.now()).toLocaleDateString())
 
   return (
     <div className="flex flex-col justify-center items-center border-solid border-2 min-w-max max-w-xl py-4 bg-[#f8f9fa] rounded-3xl">
