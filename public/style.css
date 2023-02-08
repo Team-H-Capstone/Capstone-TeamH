@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=IBM+Plex+Sans:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=IBM+Plex+Sans:wght@100&display=swap');
 
 @font-face {
-  font-family: 'OddlyCalming';
-  src: url('/fonts/OddlyCalming.ttf') format('truetype');
+  font-family: 'Jua';
+  src: url('/fonts/Jua.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -18,48 +19,49 @@
 
 body {
     background-color: #1e3a8a;
+    font-family: "Jua";
 }
 
 /* Navbar CSS */
 
 #home {
-  font-family: 'OddlyCalming';
+  font-family: 'Jua';
 }
 
 #navBarHome {
-  font-family: 'OddlyCalming';
+  font-family: 'Jua';
 }
 
 #navBarDashboard {
-  font-family: 'OddlyCalming';
+  font-family: 'Jua';
 }
 
 #navBarAbout {
-  font-family: 'OddlyCalming';
+  font-family: 'Jua';
 }
 
 #navBarForum {
-  font-family: 'OddlyCalming';
+  font-family: 'Jua';
 }
 
 #navBarCreate {
-  font-family: 'OddlyCalming';
+  font-family: 'Jua';
 }
 
 #navBarLogout {
-  font-family: 'OddlyCalming';
+  font-family: 'Jua';
 }
 
 #navBarLogin {
-  font-family: 'OddlyCalming';
+  font-family: 'Jua';
 }
 
 #navBarMusic {
-  font-family: 'OddlyCalming';
+  font-family: 'Jua';
 }
 
 #navBarMemory {
-  font-family: 'OddlyCalming';
+  font-family: 'Jua';
 }
 
 .dropdown {
@@ -265,12 +267,34 @@ body {
     cursor: pointer;
   }
   
-  .correct {
+  #correct {
     background-color: #2f922f;
+    width: 30vw;
+    height: 6vh;
+    font-size: "1.1vw";
+    color: #ffffff;
+    border-radius: 15px;
+    display: flex;
+    padding: 5px;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 5px solid #234668;
+    cursor: pointer;
   }
   
   .incorrect {
     background-color: #ff3333;
+    width: 30vw;
+    height: 6vh;
+    font-size: "1.1vw";
+    color: #ffffff;
+    border-radius: 15px;
+    display: flex;
+    padding: 5px;
+    justify-content: space-evenly;
+    align-items: center;
+    border: 5px solid #234668;
+    cursor: pointer;
   }
   
   .quiz-button:hover {

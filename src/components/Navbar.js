@@ -85,11 +85,11 @@ const Navbar = () => {
             {open ? null : (
               <ul className="menu">
                 <li className="menuItem">
-                  <Button onClick={handleRoom1} style={{color:"black", textAlign:"center", fontSize:20}} id="navBarMusic">Music & Videos</Button>
+                  <Button onClick={handleRoom1} style={{color:"black", textAlign:"center", fontSize:15}} id="navBarMusic">Music & Videos</Button>
                 </li>
                 <li className="menuItem">
                   <Link to="/memoryGame" >
-                  <Button onClick={handleRoom2} style={{color:"black", textAlign:"center", fontSize:20}} id="navBarMemory">Memory Game</Button>
+                  <Button onClick={handleRoom2} style={{color:"black", textAlign:"center", fontSize:15}} id="navBarMemory">Memory Game</Button>
                   </Link>
                 </li>
               </ul>

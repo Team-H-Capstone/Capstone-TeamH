@@ -58,7 +58,7 @@ const Quiz = () => {
 			],
 		},
 		{
-			questionText: 'Can mental illness can be treated?',
+			questionText: 'Can mental illness be treated?',
 			answerOptions: [
 				{ answerText: 'True', isCorrect: true, id:1 },
 				{ answerText: 'False', isCorrect: false, id:2 },
@@ -96,17 +96,24 @@ const Quiz = () => {
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
+	const [className, setClassName] = useState(false)
+	const [correct, setCorrect] = useState("")
 
 	const handleAnswerOptionClick = (isCorrect) => {
 		if (isCorrect) {
 			setScore(score + 1);
+			setCorrect("correct")
+		} else {
+			setClassName(true)
 		}
 
 		const nextQuestion = currentQuestion + 1;
 		if (nextQuestion < questions.length) {
-			setCurrentQuestion(nextQuestion);
+			setTimeout(() => setCurrentQuestion(nextQuestion), 2000);
+			setTimeout(() => setClassName(false), 2000)
+			setTimeout(() => setCorrect(""), 2000)
 		} else {
-			setShowScore(true);
+			setTimeout(() => setShowScore(true), 2000);
 		}
 	};
 
@@ -114,6 +121,8 @@ const Quiz = () => {
 		setCurrentQuestion(0)
 		setShowScore(false)
 		setScore(0)
+		setClassName(false)
+		setCorrect("")
 	}
 
 	return (
@@ -123,7 +132,7 @@ const Quiz = () => {
 					<div className='score-section' style={{fontSize: "2.5vw"}}>
 						You scored {score} out of {questions.length}!
 					</div>
-					<Button onClick={handleTryAgain} style={{border:"5px solid white", fontSize:"1.8vw", backgroundColor:"white", color:"#1e3987", borderRadius:20, width: "18vw", alignSelf:"center"}}>Try Again</Button>
+					<Button onClick={handleTryAgain} style={{border:"5px solid white", fontSize:"1.8vw", backgroundColor:"white", color:"#1e3987", borderRadius:20, width: "18vw", alignSelf:"center", fontFamily:"Jua"}}>Try Again</Button>
 				</div> 
 			) : (
 				<div style={{width:"50vw", maxWidth:800, maxHeight:"15vh"}}>
@@ -139,7 +148,7 @@ const Quiz = () => {
 						</div>
 						<div className='answer-section' style={{fontSize: "1.1vw"}}>
 							{questions[currentQuestion].answerOptions.map((answerOption) => {
-								return <button key={answerOption.id} className="quiz-button" onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
+								return <button key={answerOption.id} className={className ? "incorrect" : "quiz-button"} id={correct} onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
 							})}
 						</div>
 					</div>

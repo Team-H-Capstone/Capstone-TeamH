@@ -211,7 +211,7 @@ const Home = () => {
                   fontSize: "3vw"
                 }}
               >
-                Games
+                Memory Game
               </h1>
             </div>
           </Link>
