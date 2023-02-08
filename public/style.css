@@ -22,19 +22,19 @@ body {
     min-height: 100vh;
 }
 
-section #text {
+#main_sec #text {
   position: absolute;
   font-size: 10vw;
   line-height: 0.55em;
   transform: translateY(-50%);
 }
 
-section #text span {
+#main_sec #text span {
   /* font-size: 0.20em; */
   /* letter-spacing: 2px; */
 }
 
-section::before {
+#main_sec::before {
   content: '';
   position: absolute;
   bottom: 0;
@@ -47,7 +47,7 @@ section::before {
   z-index: 10;
 }
 
-section img {
+#main_sec img {
   position: absolute;
   top: 0;
   left: 0;

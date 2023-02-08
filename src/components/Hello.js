@@ -45,8 +45,8 @@ const Home = () => {
       bird2.style.top = value * -1.5 + 'px'; 
       bird2.style.left = value * -5 + 'px';
       btn.style.marginTop = value * 1.5 + 'px';
-      rocks.style.top = value * -0.12 + 'px';
-      forest.style.top = value * 0.25 + 'px';
+      // rocks.style.top = value * -0.1 + 'px';
+      forest.style.top = value * 0.55 + 'px';
     })
 
     const handleClick = () => {
@@ -66,7 +66,7 @@ const Home = () => {
 
   return (
     <div className="w-full h-screen">
-      <section className="flex flex-col justify-center items-center w-full h-screen relative bg-[#1e3a8a] text-white" style={{ backgroundImage: 'radial-gradient(#2b53c4, #1e3987, #325edb)' }}>
+      <section id='main_sec' className="flex flex-col justify-center items-center w-full h-screen relative bg-[#1e3a8a] text-white" style={{ backgroundImage: 'radial-gradient(#2b53c4, #1e3987, #325edb)' }}>
         <h2 className="flex justify-center items-center text-9xl font-bold text-center" id='text' style={{ fontSize: '5vw' }} data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500" data-aos-offset="0">
           <span className="tracking-wide leading-none ">
             {' '}
@@ -76,11 +76,11 @@ const Home = () => {
           {/* <br/>{user ? user.displayName : ""}! */}
         </h2>
         <img src={bird1Img} id='bird1' alt='bird1'/>
-        <img src={bird2Img} id='bird2' alt='bird2'/>
-        <img src={forestImg} id='forest' alt='forest'/>
+        <img src={bird2Img} id='bird2' alt='bird2' className='mt-8'/>
+        <img src={forestImg} id='forest' alt='forest' className='mt-10'/>
         <button className='' id='home_btn' onClick={handleClick}>Explore</button>
-        <img src={rocksImg} id='rocks' alt='rocks'/>
-        <img src={waterImg} id='water' alt='water'/>
+        <img src={rocksImg} id='rocks' alt='rocks' className='my-9'/>
+        {/* <img src={waterImg} id='water' alt='water'/> */}
         {/* <h1
           className="flex justify-center items-center text-9xl font-bold text-center"
           data-aos="fade-zoom-in"
