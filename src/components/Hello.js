@@ -27,6 +27,7 @@ const Home = () => {
   const forest = document.getElementById('forest')
   const rocks = document.getElementById('rocks');
   const water = document.getElementById('water');
+  const btn = document.getElementById('home_btn');
 
   // const textRef = useRef(null);
   // const bird1Ref = useRef(null);
@@ -38,19 +39,21 @@ const Home = () => {
    window.addEventListener('scroll', function() {
       let value = window.scrollY;
 
-      text.style.top = 50 + value * -0.5 + '%';
-      bird1.style.top = value * -1.5 + 'px';
-      bird1.style.left = value * 2 + 'px';
-      bird2.style.top = value * -1.5 + 'px';
+      text.style.top = 50 + value * -0.5 + '%'; //* 0.5 is the speed of the movement 
+      bird1.style.top = value * -1.5 + 'px'; 
+      bird1.style.left = value * 2 + 'px'; 
+      bird2.style.top = value * -1.5 + 'px'; 
       bird2.style.left = value * -5 + 'px';
-
-      // textRef.current.style.top = 50 + value * -0.5 + '%';
-      // bird1Ref.current.style.top = value * -1.5 + 'px';
-      // bird1Ref.current.style.left = value * 2 + 'px';
-      // bird2Ref.current.style.top = value * -1.5 + 'px';
-      // bird2Ref.current.style.left = value * -5 + 'px';
+      btn.style.marginTop = value * 1.5 + 'px';
+      rocks.style.top = value * -0.12 + 'px';
+      forest.style.top = value * 0.25 + 'px';
     })
 
+    const handleClick = () => {
+      const target = document.getElementById('map_chart');
+      // const target = document.querySelector('[name="question"]');
+      target.scrollIntoView({ behavior: 'smooth'});
+    };
 
 
   useEffect(() => {
@@ -63,7 +66,7 @@ const Home = () => {
 
   return (
     <div className="w-full h-screen">
-      <section className="flex flex-col justify-center items-center w-full h-full relative bg-[#1e3a8a] text-white" style={{ backgroundImage: 'radial-gradient(#2b53c4, #1e3987, #325edb)' }}>
+      <section className="flex flex-col justify-center items-center w-full h-screen relative bg-[#1e3a8a] text-white" style={{ backgroundImage: 'radial-gradient(#2b53c4, #1e3987, #325edb)' }}>
         <h2 className="flex justify-center items-center text-9xl font-bold text-center" id='text' style={{ fontSize: '5vw' }} data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500" data-aos-offset="0">
           <span className="tracking-wide leading-none ">
             {' '}
@@ -75,7 +78,7 @@ const Home = () => {
         <img src={bird1Img} id='bird1' alt='bird1'/>
         <img src={bird2Img} id='bird2' alt='bird2'/>
         <img src={forestImg} id='forest' alt='forest'/>
-        <button className='' id='home_btn'>Explore</button>
+        <button className='' id='home_btn' onClick={handleClick}>Explore</button>
         <img src={rocksImg} id='rocks' alt='rocks'/>
         <img src={waterImg} id='water' alt='water'/>
         {/* <h1
@@ -96,23 +99,23 @@ const Home = () => {
       >
         
       </section> */}
-      <section name="question" className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white" style={{ backgroundImage: 'radial-gradient(#2b53c4, #1e3987, #325edb)' }}>
+      <div name="question" className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white relative p-24" style={{ backgroundImage: 'radial-gradient(#2b53c4, #1e3987, #325edb)' }}>
         <h1 className="flex justify-center items-center text-9xl font-bold text-center" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500" data-aos-offset="0" style={{ fontSize: '5vw' }}>
           Welcome to
         </h1>
         <h1 data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="1100" data-aos-offset="0" className="title">
           BE MINDFUL
         </h1>
-      </section>
-      <section className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white" style={{ backgroundImage: 'radial-gradient(#2b53c4, #1e3987, #325edb)' }}>
+      </div>
+      <div className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white relative" style={{ backgroundImage: 'radial-gradient(#2b53c4, #1e3987, #325edb)' }}>
         <h1 className="flex justify-center items-center text-5xl font-bold text-center w-50 h-400" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="1000" data-aos-offset="0" style={{ fontSize: '2vw' }}>
           Did you know mental health affects hundreds of millions of people around the world?
         </h1>
         <br></br>
         <br></br>
         <Chart />
-      </section>
-      <section name="question" className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white" style={{ backgroundImage: 'radial-gradient(#2b53c4, #1e3987, #325edb)' }}>
+      </div>
+      <div id='map_chart' name="question" className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white relative" style={{ backgroundImage: 'radial-gradient(#2b53c4, #1e3987, #325edb)' }}>
         <br></br>
         <h1 className="flex justify-center text-center items-center text-5xl font-bold" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500" data-aos-offset="0" style={{ fontSize: '2vw' }}>
           Statistics of mental health prevalence in the United States of America
@@ -120,16 +123,16 @@ const Home = () => {
         <br></br>
         <br></br>
         <AdultChart />
-      </section>
-      <section name="question" className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white" style={{ backgroundImage: 'radial-gradient(#2b53c4, #1e3987, #325edb)' }}>
+      </div>
+      <div name="question" className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white" style={{ backgroundImage: 'radial-gradient(#2b53c4, #1e3987, #325edb)' }}>
         <br></br>
         <h1 className="flex justify-center text-center items-center text-5xl font-bold" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500" data-aos-offset="0" style={{ fontSize: '2vw' }}>
           Want to learn more about Mental Health? Take the quiz!
         </h1>
         <br></br>
         <Quiz />
-      </section>
-      <section name="question" className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white" style={{ backgroundImage: 'repeating-radial-gradient(#2b53c4, #1e3987 10%, #325edb 15%)' }}>
+      </div>
+      <div name="question4" className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white" style={{ backgroundImage: 'repeating-radial-gradient(#2b53c4, #1e3987 10%, #325edb 15%)' }}>
         <h1 className="flex justify-center items-center text-9xl font-bold text-center" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500" data-aos-offset="0" style={{ fontSize: '5vw' }}>
           Enter Our Mental Spa
         </h1>
@@ -202,7 +205,7 @@ const Home = () => {
             </div>
           </Link>
         </div>
-      </section>
+      </div>
     </div>
   );
 };
