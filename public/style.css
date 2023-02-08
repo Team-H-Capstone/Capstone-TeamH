@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=IBM+Plex+Sans:wght@100&display=swap');
 
+@font-face {
+  font-family: 'OddlyCalming';
+  src: url('/fonts/OddlyCalming.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'PeacefulNature';
+  src: url('/fonts/PeacefulNature.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Overall page */
 
 body {
@@ -7,6 +21,46 @@ body {
 }
 
 /* Navbar CSS */
+
+#home {
+  font-family: 'OddlyCalming';
+}
+
+#navBarHome {
+  font-family: 'OddlyCalming';
+}
+
+#navBarDashboard {
+  font-family: 'OddlyCalming';
+}
+
+#navBarAbout {
+  font-family: 'OddlyCalming';
+}
+
+#navBarForum {
+  font-family: 'OddlyCalming';
+}
+
+#navBarCreate {
+  font-family: 'OddlyCalming';
+}
+
+#navBarLogout {
+  font-family: 'OddlyCalming';
+}
+
+#navBarLogin {
+  font-family: 'OddlyCalming';
+}
+
+#navBarMusic {
+  font-family: 'OddlyCalming';
+}
+
+#navBarMemory {
+  font-family: 'OddlyCalming';
+}
 
 .dropdown {
     position: relative;
@@ -52,23 +106,26 @@ body {
 
 .memoryGame {
     font-family: 'Bungee Shade', cursive;
-    max-width: 1300px;
+    max-width: 1500px;
     margin: 40px auto;
     display: flex;
     flex-direction: column;
+    min-height: 1100px;
 }
 
 .memoryGameButton {
      background: black;
      border: 2px solid #fff;
      padding: 6px 12px;
-     border-radius: 4px;
+     border-radius: 10px;
      color: #fff;
      font-weight: bold;
      cursor: pointer;
-     font-size: 15px;
-     width: 150px;
+     font-size: 25px;
+     width: 225px;
+     height: 55px;
      align-self: center;
+     text-align: center;
 }
 
 .memoryGameButton:hover {
@@ -79,7 +136,7 @@ body {
 .memoryGameTitle {
     margin-top:50px;
     color: #fff;
-    font-size: 50px;
+    font-size: 100px;
     text-align: center;
 }
 
@@ -126,7 +183,7 @@ body {
 .memoryGameScore {
     margin-top:50px;
     color: #fff;
-    font-size: 30px;
+    font-size: 50px;
     text-align: center;
 }
 
@@ -134,9 +191,8 @@ body {
 
 .quiz {
     background-color: #252d4a;
-    width: 800px;
-    min-height: 500px;
-    height: min-content;
+    width: 30vw;;
+    height: 53vh;
     border-radius: 15px;
     padding: 20px;
     box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
@@ -152,14 +208,17 @@ body {
   
   /* QUESTION/TIMER/LEFT SECTION */
   .question-section {
-    width: 100%;
+    width: 30vw;
+    font-size: 1.3vw;
     position: relative;
     text-align: center;
   }
   
   .question-count {
-    margin-bottom: 20px;
-    font-size: 40px;
+    font-size: 1.3vw;
+    text-align: center;
+    padding: 10px;
+    color: #cdd9fa;
   }
   
   .question-count span {
@@ -167,10 +226,9 @@ body {
   }
   
   .question-text {
-    margin-bottom: 12px;
-    font-size: 30px;
-    margin-right: 20px;
+    font-size: 1.1vw;
     text-align: center;
+    justify-content: "center";
   }
   
   .timer-text {
@@ -186,20 +244,22 @@ body {
   /* ANSWERS/RIGHT SECTION */
   .answer-section {
     width: 100%;
+    font-Size: "1.3vw";
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
   }
   
  .quiz-button {
-    width: 100%;
-    font-size: 30px;
+    width: 30vw;
+    height: 6vh;
+    font-size: "1.1vw";
     color: #ffffff;
     background-color: #252d4a;
     border-radius: 15px;
     display: flex;
     padding: 5px;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     border: 5px solid #234668;
     cursor: pointer;
@@ -223,4 +283,31 @@ body {
   
   .quiz-button svg {
     margin-right: 5px;
+  }
+
+  /* BE MINDFUL TITLE */
+
+  .title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13vw;
+    font-family: "PeacefulNature";
+    text-align: center;
+  }
+
+  /* UNITED STATES MAP */
+
+  .map {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+  path {
+    pointer-events: all;
+  }
+
+  path:hover {
+    opacity: 0.5;
+    cursor: pointer;
   }
