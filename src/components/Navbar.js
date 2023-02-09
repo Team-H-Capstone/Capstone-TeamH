@@ -66,7 +66,9 @@ const Navbar = () => {
                 <Link to="/createpost">
                   <Button color="inherit" style={{fontSize:23, marginRight:5}} id="navBarCreate">Create</Button>
                 </Link>
+                <Link to="/">
                 <Button color="inherit" style={{fontSize:23, marginRight:5}} onClick={() => logout()} id="navBarLogout">Logout</Button>
+                </Link>
               </>
             ) : (
               <Link to="/login">
