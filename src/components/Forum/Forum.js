@@ -18,9 +18,9 @@ const Forum = () => {
   }, []);
 
   return (
-<div className="w-full grid grid-cols-1 sm:grid-cols-3 gap-4 pt-20 bg-[#1e3a8a]">
+<div className="w-full grid grid-cols-1 sm:grid-cols-3 gap-4 pt-20 bg-[#DAD7CD]">
   {posts.length === 0 ? (
-    <p className="w-full h-full flex justify-center items-center pt-20 bg-[#1e3a8a] text-white text-center">
+    <p className="w-full h-full flex justify-center items-center pt-20 bg-[#DAD7CD] text-[#3A5A40] text-center">
       No Posts Found!
     </p>
   ) : (

@@ -17,7 +17,9 @@
 /* Overall page */
 
 body {
-    background-color: #1e3a8a;
+    background-color: #344E41;
+    /* font-family: 'Comfortaa', cursive; */
+    font-family: 'Jost', sans-serif;
     overflow-x: hidden;
     height: 100vh;
     width: 100vw;
@@ -43,18 +45,19 @@ body {
   left: 0;
   width: 100%;
   height: 100px;
-  background: linear-gradient(to top, #2b53c4, transparent);
+  background: linear-gradient(to top, #344E41, transparent);
   /* background: linear-gradient(to top, #2b53c4, #1e3987, #325edb, transparent); */
   /* background: radial-gradient(to top, #2b53c4, #1e3987, #325edb, transparent); */
   z-index: 10;
 }
+
 
 #main_sec img {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 95%;  /* 100% but this a bug it will show the forest at the chart section */
   pointer-events: none;
   object-fit: cover;
 }
@@ -74,7 +77,7 @@ body {
   display: flex;
   flex-direction: row;
   gap: 5vmin;
-  position: absolute;
+  position: relative;
   /* height: 50%; */
   left: 50%;
   /* top: 50%; */
@@ -98,39 +101,42 @@ object-position: center;
 }
 
 #navBarHome {
-  font-family: 'OddlyCalming';
+  font-family: 'Jost', sans-serif;
 }
 
 #navBarDashboard {
-  font-family: 'OddlyCalming';
+  font-family: 'Jost', sans-serif;
+}
+#navBarData {
+  font-family: 'Jost', sans-serif;
 }
 
 #navBarAbout {
-  font-family: 'OddlyCalming';
+  font-family: 'Jost', sans-serif;
 }
 
 #navBarForum {
-  font-family: 'OddlyCalming';
+  font-family: 'Jost', sans-serif;
 }
 
 #navBarCreate {
-  font-family: 'OddlyCalming';
+  font-family: 'Jost', sans-serif;
 }
 
 #navBarLogout {
-  font-family: 'OddlyCalming';
+  font-family: 'Jost', sans-serif;
 }
 
 #navBarLogin {
-  font-family: 'OddlyCalming';
+  font-family: 'Jost', sans-serif;
 }
 
 #navBarMusic {
-  font-family: 'OddlyCalming';
+  font-family: 'Jost', sans-serif;
 }
 
 #navBarMemory {
-  font-family: 'OddlyCalming';
+  font-family: 'Jost', sans-serif;
 }
 
 .dropdown {
@@ -178,14 +184,15 @@ object-position: center;
 .memoryGame {
     font-family: 'Bungee Shade', cursive;
     max-width: 1500px;
-    margin: 40px auto;
+    margin: auto;
     display: flex;
     flex-direction: column;
     min-height: 1100px;
+    background-color: #DAD7CD;
 }
 
 .memoryGameButton {
-     background: black;
+     background: #343a40;
      border: 2px solid #fff;
      padding: 6px 12px;
      border-radius: 10px;
@@ -200,19 +207,21 @@ object-position: center;
 }
 
 .memoryGameButton:hover {
-    background: rgb(71, 13, 100);
-    color: #fff;
+    background: #6b9080;
+    color: #283618;
 }
 
 .memoryGameTitle {
     margin-top:50px;
-    color: #fff;
+    padding-top: 25px;
+    color: #3A5A40;
     font-size: 100px;
     text-align: center;
 }
 
 .cardGrid {
     margin-top: 40px;
+    /* margin-left: 35px; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
@@ -220,13 +229,17 @@ object-position: center;
 
 .card {
     position: relative;
+    width: 150px;
+    height: 150px;
+    margin-left: 20px;
+    margin-bottom: 5px;
 }
 
 .card img {
     width: 200px;
     height: 150px;
     display: block;
-    border: 2px solid #fff;
+    border: 2px solid #606C38;
     border-radius: 6px;
 }
 
@@ -253,7 +266,8 @@ object-position: center;
 
 .memoryGameScore {
     margin-top:50px;
-    color: #fff;
+    padding-bottom: 25px;
+    color: #3A5A40;
     font-size: 50px;
     text-align: center;
 }
@@ -261,7 +275,7 @@ object-position: center;
 /* QUIZ COMPONENT */
 
 .quiz {
-    background-color: #252d4a;
+    background-color: #3D405B;
     width: 30vw;;
     height: 53vh;
     border-radius: 15px;
@@ -283,6 +297,7 @@ object-position: center;
     font-size: 1.3vw;
     position: relative;
     text-align: center;
+    color: white;
   }
   
   .question-count {
