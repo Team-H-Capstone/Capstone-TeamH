@@ -22,7 +22,7 @@ function Register() {
   };
 
   return (
-    <div className="register bg-[#1e3a8a]">
+    <div className="register bg-[#DAD7CD]">
       <div className="register__container">
         <input
           type="text"
@@ -56,7 +56,7 @@ function Register() {
         </button>
         <div>
           Already have an account? <br />
-          <Link className="text-orange-500 font-bold" to="/login">
+          <Link className="text-[#d62828] font-bold" to="/login">
             Login
           </Link>{' '}
           now.
