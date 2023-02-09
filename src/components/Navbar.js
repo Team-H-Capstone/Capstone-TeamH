@@ -42,7 +42,7 @@ const Navbar = () => {
               </Button>
             </Link>
             <Link to="/mydashboard">
-              <Button color="inherit" style={{fontSize:23, marginRight:5}} id="navBarDashboard">MyDashboard</Button>
+              <Button color="inherit" style={{fontSize:23, marginRight:5}} id="navBarDashboard">Dashboard</Button>
             </Link>
             <Typography
               variant="h6"

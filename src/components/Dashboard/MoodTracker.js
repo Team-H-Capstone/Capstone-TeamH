@@ -76,7 +76,7 @@ const MoodTracker = () => {
   return (
     <div className="flex flex-row justify-around items-center border-solid border-2 bg-[#f8f9fa] rounded-3xl">
       <section>
-        <h1 className="text-4xl font-bold text-212529 pt-4">MyMoodTracker</h1>
+        <h1 className="text-4xl font-bold text-212529 pt-4">MoodTracker</h1>
         <p className="text-lg text-gray-600 mb-5">
           {`${new Date().toLocaleDateString("default", {
             day: "numeric",

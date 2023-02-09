@@ -132,7 +132,7 @@ const MyThoughts = () => {
         <button onClick={backwards}>
           <FaArrowLeft />
         </button>
-        <h1 className="text-3xl pb-2 px-10 text-[#463f3a]">MyThoughts</h1>
+        <h1 className="text-3xl pb-2 px-10 text-[#463f3a]">Thoughts</h1>
         <button>
           <FaArrowRight onClick={fowards} />
         </button>
@@ -152,7 +152,7 @@ const MyThoughts = () => {
           className="px-2 border-solid border-2 hover:bg-white hover:text-gray-800 mt-5"
           type="submit"
         >
-          Delete MyThoughts
+          Delete Thoughts
       </button>
     </div>
   );

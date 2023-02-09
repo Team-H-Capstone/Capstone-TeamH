@@ -70,7 +70,7 @@ const Home = () => {
           data-aos-offset="0"
           className="title"
         >
-          BE MINDFUL
+          MINDFUL
         </h1>
       </section>
       <section className="flex flex-col justify-center items-center w-full h-full text-[#344E41]" style={{backgroundImage: "radial-gradient(#DAD7CD, #A3B18A, #588157)"}}>

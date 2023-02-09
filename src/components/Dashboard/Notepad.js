@@ -164,8 +164,11 @@ const Notepad = () => {
 
 
   return (
-    <div className="flex flex-col justify-center items-center border-solid border-2 min-w-max max-w-xl py-4 bg-[#f8f9fa] rounded-3xl">
-      <h1 className="text-3xl pb-2 px-10 text-[#463f3a]">MyNotePad</h1>
+    <div 
+    className="flex flex-col justify-center items-center border-solid border-2 py-4 bg-[#fefcfb] rounded-3xl" 
+    style={{ width:"43vw" }}
+    >
+      <h1 className="text-3xl pb-2 px-10 text-[#344E41]">NotePad</h1>
       <MenuBar editor={editor} />
       <div>
         <EditorContent editor={editor}/>
@@ -173,7 +176,7 @@ const Notepad = () => {
             {editor.storage.characterCount.characters()}/{limit} characters
             <br />
             {editor.storage.characterCount.words()} words
-            <button className="px-2 border-solid border-2 hover:bg-white hover:text-gray-800" onClick={handleSubmit}>Save</button>
+            <button className="px-2 border-solid border-2 hover:bg-[#3D405B] hover:text-[#F4F1DE] rounded-full" onClick={handleSubmit}>Save</button>
         </div>
       </div>
     </div>
