@@ -42,7 +42,10 @@ const Navbar = () => {
               </Button>
             </Link>
             <Link to="/mydashboard">
-              <Button color="inherit" style={{fontSize:23, marginRight:5}} id="navBarDashboard">MyDashboard</Button>
+              <Button color="inherit" style={{fontSize:23, marginRight:5}} id="navBarDashboard">Dashboard</Button>
+            </Link>
+            <Link to="/data">
+              <Button color="inherit" style={{fontSize:23, marginRight:5}} id="navBarData">data</Button>
             </Link>
             <Typography
               variant="h6"
@@ -63,7 +66,9 @@ const Navbar = () => {
                 <Link to="/createpost">
                   <Button color="inherit" style={{fontSize:23, marginRight:5}} id="navBarCreate">Create</Button>
                 </Link>
+                <Link to="/">
                 <Button color="inherit" style={{fontSize:23, marginRight:5}} onClick={() => logout()} id="navBarLogout">Logout</Button>
+                </Link>
               </>
             ) : (
               <Link to="/login">

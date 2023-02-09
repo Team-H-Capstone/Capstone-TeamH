@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { auth, db } from '../../firebase/firebase-config';
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, db } from "../../firebase/firebase-config";
 import {
   updateDoc,
   doc,
@@ -9,20 +9,19 @@ import {
   collection,
   getDocs,
   onSnapshot,
-} from 'firebase/firestore';
-import { getAuth, updateEmail, updateProfile } from 'firebase/auth';
+} from "firebase/firestore";
+import { getAuth, updateEmail, updateProfile } from "firebase/auth";
 
 const Profile = () => {
   // const users = auth.currentUser;
   // console.log('current user--->', users)
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [userLists, setUserLists] = useState([]);
 
   const [user, loading, error] = useAuthState(auth);
   // console.log('profile--->', user)
   // console.log('current user--> ', auth.currentUser.displayName)
-  
 
   // const profileRefs = collection(db, 'users');
   // const fetchUserList = async () => {
@@ -39,57 +38,63 @@ const Profile = () => {
   //   }
   // }
 
-  // useEffect(() => { 
+  // useEffect(() => {
   //   if (user) {
   //     setName(user.displayName);
   //     setEmail(user.email);
   //     fetchUserList();
   //   }
   // }, []);
-  
+
   const handleUpdateV2 = async (id) => {
-    const profileDoc = doc(db, 'users', id)
+    const profileDoc = doc(db, "users", id);
     await updateDoc(profileDoc, {
       name: name,
-    }).then(() => console.log('updated!', auth.currentUser.displayName));
-  }
+    }).then(() => console.log("updated!", auth.currentUser.displayName));
+  };
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-    const profileRef = doc(db, 'users', user.uid);
-    console.log('event--->', e);
+    const profileRef = doc(db, "users", user.uid);
+    console.log("event--->", e);
     // console.log('user id --->', user.uid);
-    console.log('profileRef--->', profileRef);
+    console.log("profileRef--->", profileRef);
 
     const profileDoc = await getDoc(profileRef).catch((error) =>
       console.error(error)
     );
     if (!profileDoc) {
-      console.error('No document found for this user ID');
+      console.error("No document found for this user ID");
       return;
     }
-    console.log('profileDoc--->', profileDoc);
+    console.log("profileDoc--->", profileDoc);
     // const profile = await getDoc(profileRef);
     // console.log('profile--->', profile.data());
 
     await updateDoc(profileRef, {
       name,
       email,
-    })
+    });
     await updateProfile(auth.currentUser, {
       displayName: name,
-    })
-    await updateEmail(auth.currentUser, email)
-    await auth.currentUser.reload()
-    console.log('updated!', auth.currentUser.displayName);
-  }
+    });
+    await updateEmail(auth.currentUser, email);
+    await auth.currentUser.reload();
+    console.log("updated!", auth.currentUser.displayName);
+  };
 
   return (
-    <div className="w-full h-screen pt-20 bg-[#1e3a8a]">
-      <h1 className="text-5xl font-bold flex justify-center text-white"> Edit Profile</h1>
+    <div
+      className="flex flex-col justify-center items-center w-full h-screen bg-[#DAD7CD] text-[#3A5A40]"
+
+    >
+    <div className="flex flex-col justify-center items-center bg-[#D4A373] p-5">
+      <h1 className="text-5xl font-bold flex justify-center text-[#344E41]">
+        Edit Profile
+      </h1>
       <div className="text-2xl font-bold flex justify-center">
         <form className="p-10">
-        <div>
+          <div>
             <input
               type="string"
               placeholder="Name"
@@ -117,18 +122,16 @@ const Profile = () => {
             />
           </div>
           <div className="flex justify-center pt-5">
-        
             <button
-          
               onClick={handleUpdate}
-              className="text-white group border-2 px-6 py-3 my-2 flex items-center hover:bg-orange-600 hover:border-orange-600"
+              className="text-white bg-[#3D405B] group border-2 px-6 py-3 my-2 flex items-center hover:bg-[#6B9080] hover:border-[#CCE3DE] hover:text-[#283618] hover:font-bold"
             >
               Update
             </button>
-          
           </div>
         </form>
       </div>
+    </div>
     </div>
   );
 };

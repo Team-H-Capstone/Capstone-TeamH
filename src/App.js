@@ -11,6 +11,7 @@ import MemoryGame from './components/MemoryGame';
 import MusicPlayer from './components/MusicPlayer/MusicPlayer';
 import Post from "./components/Forum/Post";
 import EditProfile from "./components/Dashboard/Profile";
+import Data from './components/Data';
 
 const App = () => {
   const location = useLocation();
@@ -32,6 +33,8 @@ const App = () => {
         <Route path="/forum" element={<Forum />} />
         <Route path="/profile" element={<EditProfile />} />
         <Route path="/music" element={<MusicPlayer />} />
+        <Route path="/data" element={<Data />} />
+
       </Routes>
     </div>
   );
