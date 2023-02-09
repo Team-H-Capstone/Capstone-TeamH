@@ -14,7 +14,7 @@ const Login = () => {
   
 
   return (
-    <div className="login bg-[#1e3a8a]">
+    <div className="login bg-[#DAD7CD]">
       <div className="login__container">
         <input
           type="text"
@@ -42,7 +42,7 @@ const Login = () => {
         </button>
         </Link>
       <div>
-        Don't have an account? <br/> <Link className="text-orange-500 font-bold" to="/register">Register</Link> now.
+        Don't have an account? <br/> <Link className="text-[#d62828] font-bold" to="/register">Register</Link> now.
       </div> 
       </div>
     </div>

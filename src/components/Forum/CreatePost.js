@@ -23,8 +23,8 @@ const CreatePost = () => {
   };
 
   return (
-    <div className="w-full h-screen">
-      <section className="flex flex-col justify-center items-center w-full h-full bg-[#1e3a8a] text-white">
+    <div className="w-full h-screen bg-[#DAD7CD]">
+      <section className="flex flex-col justify-center items-center w-full h-full text-[#344E41]">
         <h1 className="text-5xl font-bold">Create a Post</h1>
         <div className="p-2">
           <input
@@ -48,7 +48,7 @@ const CreatePost = () => {
           </form>
         </div>
         <button
-          className="text-white group border-2 px-6 py-3 my-2 flex items-center hover:bg-orange-600 hover:border-orange-600"
+          className="text-white bg-[#3D405B] group border-2 px-6 py-3 my-2 flex items-center hover:bg-[#6B9080] hover:border-[#CCE3DE] hover:text-[#283618] hover:font-bold"
           onClick={createpost}
         >
           Submit
