@@ -7,11 +7,13 @@ const About = () => {
     <div className="w-full h-screen" style={{background:"white"}}>
       <section className="flex flex-col justify-center items-center w-full h-2/4 bg-[#dad7cd] text-[#344e41] border-solid">
         <h1 className="text-7xl font-bold tracking-wide">About Us</h1>
-        <h2 className="text-lg italic pt-10">
-          "Vulnerability sounds like truth and feels like courage. Truth and
-          courage aren't always comfortable, but they're never weakness." —
-          Brené Brown
-        </h2>
+        <div className="flex flex-col justify-center items-center">
+           <h2 className="text-lg italic pt-10">
+            "Vulnerability sounds like truth and feels like courage. Truth and
+            courage aren't always comfortable, but they're never weakness." —
+            Brené Brown
+          </h2> 
+        </div>
       </section>
       <section className="flex flex-row justify-center items-center w-full py-12" style={{background:"white"}}>
         <div className="flex flex-col pl-20">

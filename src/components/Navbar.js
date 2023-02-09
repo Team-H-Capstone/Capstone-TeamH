@@ -34,15 +34,18 @@ const Navbar = () => {
   return (
     <div style={{ position: 'fixed', width: '100vw', zIndex: 200}}>
       <Box sx={{ flexGrow: 0}}>
-        <AppBar sx={{backgroundColor: "#1e3a8a"}}>
+        <AppBar sx={{backgroundColor: "#344E41", color:"#DAD7CD"}}>
           <Toolbar>
             <Link to="/home">
-              <Button color="inherit" sx={{ ml: 0 }} style={{fontSize:30, marginRight:5}} id="navBarHome">
+              <Button color="inherit" sx={{ ml: 0 }} style={{fontSize:23, marginRight:5}} id="navBarHome">
                 Home
               </Button>
             </Link>
             <Link to="/mydashboard">
-              <Button color="inherit" style={{fontSize:30, marginRight:5}} id="navBarDashboard">MyDashboard</Button>
+              <Button color="inherit" style={{fontSize:23, marginRight:5}} id="navBarDashboard">Dashboard</Button>
+            </Link>
+            <Link to="/data">
+              <Button color="inherit" style={{fontSize:23, marginRight:5}} id="navBarData">data</Button>
             </Link>
             <Typography
               variant="h6"
@@ -51,25 +54,23 @@ const Navbar = () => {
               style={{ textAlign: 'center', fontFamily: "Peaceful", fontSize: 60}}
             ></Typography>
             <Link to="/about">
-              <Button color="inherit" style={{fontSize:30, marginRight:5}} id="navBarAbout">About</Button>
+              <Button color="inherit" style={{fontSize:23, marginRight:5}} id="navBarAbout">About</Button>
             </Link>
 
             <Link to="/forum">
-              <Button color="inherit" style={{fontSize:30, marginRight:5}} id="navBarForum">Forum</Button>
+              <Button color="inherit" style={{fontSize:23, marginRight:5}} id="navBarForum">Forum</Button>
             </Link>
 
             {user ? (
               <>
                 <Link to="/createpost">
-                  <Button color="inherit" style={{fontSize:30, marginRight:5}} id="navBarCreate">Create</Button>
+                  <Button color="inherit" style={{fontSize:23, marginRight:5}} id="navBarCreate">Create</Button>
                 </Link>
-                <Link to="/">
-                <Button color="inherit" style={{fontSize:30, marginRight:5}} onClick={() => logout()} id="navBarLogout">Logout</Button>
-                </Link>
+                <Button color="inherit" style={{fontSize:23, marginRight:5}} onClick={() => logout()} id="navBarLogout">Logout</Button>
               </>
             ) : (
               <Link to="/login">
-                <Button color="inherit" style={{fontSize:30, marginRight:5}} id="navBarLogin">Login</Button>
+                <Button color="inherit" style={{fontSize:23, marginRight:5}} id="navBarLogin">Login</Button>
               </Link>
             )}
 
