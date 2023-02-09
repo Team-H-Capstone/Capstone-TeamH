@@ -32,13 +32,13 @@ const Home = () => {
           data-aos-delay="500"
           data-aos-offset="0"
         >
-          Hello {user ? user.displayName : ""}
+          Hello, {user ? user.displayName : ""}
         </h1>
         <h1
           className="flex justify-center items-center text-9xl font-bold text-center"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
-          data-aos-delay="500"
+          data-aos-delay="1000"
           data-aos-offset="0"
           style={{ fontSize: "5vw" }}
         >
@@ -47,7 +47,7 @@ const Home = () => {
         <h1
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
-          data-aos-delay="1100"
+          data-aos-delay="2000"
           data-aos-offset="0"
           className="title"
         >
