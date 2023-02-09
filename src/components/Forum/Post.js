@@ -16,7 +16,7 @@ const Post = () => {
   }, []);
 
   return (
-<div className="flex justify-center h-screen pt-20 sm:flex-row sm:justify-center bg-[#1e3a8a] text-white">
+<div className="flex justify-center h-screen pt-20 sm:flex-row sm:justify-center bg-[#DAD7CD] text-[#344E41]">
   {post && (
     <div className="sm:flex-row sm:justify-center">
       <div>

@@ -13,6 +13,8 @@ const MyDashboard = () => {
   const [user] = useAuthState(auth);
   console.log("user--->", auth.currentUser);
 
+  // color #203239
+
   return (
     <div
       className="w-full h-screen flex flex-row"
