@@ -1,3 +1,4 @@
+// // Music Player
 export const playBtnImg = 'svg/play.svg';
 export const pauseBtnImg = 'svg/pause.svg';
 export const loudVolumeImg = 'svg/volume-2.svg';
@@ -25,3 +26,20 @@ export const fanImg = 'img/fan.jpg';
 // const rainVid = 'img/rain.mp4';
 // const woodlandVid = 'img/woodland.mp4';
 
+
+// ------------------------------------------------------------------------//
+
+
+// // Home
+export const bird1Img = 'img/bird1.png';
+export const bird2Img = 'img/bird2.png';
+export const forestImg = 'img/forest.png';
+export const rocksImg = 'img/rocks.png';
+export const waterImg = 'img/water.png';
+
+export const circleChart = 'img/circle-chart.png';
+export const mapChart = 'img/map-chart.png';
+export const mapChart2 = 'img/map-chart2.png';
+export const covid = 'img/covid.png';
+export const covid2 = 'img/covid2.png';
+export const covid3 = 'img/covid3.jpeg';

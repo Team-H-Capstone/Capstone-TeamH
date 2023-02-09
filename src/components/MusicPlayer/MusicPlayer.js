@@ -5,8 +5,9 @@ import 'react-circular-progressbar/dist/styles.css';
 import Sound from './playSound';
 import ProgressBar from './ProgressBar';
 import StyleSlider from './Slider';
-import { playBtnImg, pauseBtnImg, loudVolumeImg, lowVolumeImg, muteVolumeImg, rainAudio, woodlandAudio, streamAudio, wavesAudio, fireAudio, thunderAudio, deepseaAudio, fanAudio, rainImg, woodlandImg, streamImg, wavesImg, fireImg, thunderImg, deepseaImg, fanImg } from './constant';
+import { playBtnImg, pauseBtnImg, loudVolumeImg, lowVolumeImg, muteVolumeImg, rainAudio, woodlandAudio, streamAudio, wavesAudio, fireAudio, thunderAudio, deepseaAudio, fanAudio, rainImg, woodlandImg, streamImg, wavesImg, fireImg, thunderImg, deepseaImg, fanImg } from '../constant';
 import Quotes from './Quotes';
+import Navbar from '../Navbar'
 
 const MusicPlayer = () => {
   const [playButton, setPlayButton] = useState(playBtnImg);
@@ -156,6 +157,7 @@ const MusicPlayer = () => {
     // <div className="flex max-w-screen-xl my-10 h-screen">
     
     <div className="app_container" onMouseMove={onMouseMove}>
+      <Navbar style={{opacity: opacity, transition: transition}}/>
       {/* <nav className='nav'> YOO</nav> */}
       <div className="background_overlay"></div>
       <div className="background">
