@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=IBM+Plex+Sans:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=IBM+Plex+Sans:wght@100&display=swap');
 
 @font-face {
-  font-family: 'OddlyCalming';
-  src: url('/fonts/OddlyCalming.ttf') format('truetype');
+  font-family: 'Jua';
+  src: url('/fonts/Jua.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -25,7 +26,7 @@ body {
 /* Navbar CSS */
 
 #home {
-  font-family: 'OddlyCalming';
+  font-family: 'Jua';
 }
 
 #navBarHome {
@@ -73,25 +74,29 @@ body {
 }
   
 .menu {
-    position: static;
-    list-style-type: none;
-    margin: 5px 0;
-    padding: 0;
-    border: 1px solid grey;
-    width: 150px;
-    z-index: 1;
+  position: static;
+  display: flex;
+  flex-direction: horizontal;
+  list-style-type: none;
+  margin: 5px 5px;
+  padding: 0;
+  border: 1px solid grey;
+  width: 125px;
+  z-index: 1;
 }
 
 .menu > li {
-    margin: 0;
-    color: black;
-    background-color: white;
-    text-align: center;
-    font-size: 20px;
+  position: sticky;
+  border: 1px solid grey;
+  margin: 0;
+  color: black;
+  background-color: white;
+  text-align: center;
+  font-size: 20px;
 }
 
 .menu > li:hover {
-    background-color: lightgray;
+  background-color: lightgray;
 }
 
 .menu > li > button {
@@ -111,11 +116,11 @@ body {
 
 .memoryGame {
     font-family: 'Bungee Shade', cursive;
-    max-width: 1500px;
+    width: 1500px;
     margin: auto;
     display: flex;
     flex-direction: column;
-    min-height: 1100px;
+    min-height: 85vh;
     background-color: #DAD7CD;
 }
 
@@ -149,15 +154,14 @@ body {
 
 .cardGrid {
     margin-top: 40px;
-    /* margin-left: 35px; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 20px;
+    grid-gap: 10px;
 }
 
 .card {
     position: relative;
-    width: 150px;
+    width: 170px;
     height: 150px;
     margin-left: 20px;
     margin-bottom: 5px;
@@ -204,7 +208,32 @@ body {
 
 .quiz {
     background-color: #3D405B;
-    width: 30vw;;
+    display: flex;
+    width: 32vw;;
+    height: 53vh;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  #quizCorrect {
+    background-color: darkgreen;
+    display: flex;
+    width: 32vw;;
+    height: 53vh;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 10px 10px 42px 0px rgba(0, 0, 0, 0.75);
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .quizIncorrect {
+    background-color: rgb(255, 30, 30);
+    display: flex;
+    width: 32vw;;
     height: 53vh;
     border-radius: 15px;
     padding: 20px;
@@ -222,7 +251,6 @@ body {
   /* QUESTION/TIMER/LEFT SECTION */
   .question-section {
     width: 30vw;
-    font-size: 1.3vw;
     position: relative;
     text-align: center;
     color: white;
@@ -243,6 +271,8 @@ body {
     font-size: 1.1vw;
     text-align: center;
     justify-content: "center";
+    overflow-y: scroll;
+    height: 11vh;
   }
   
   .timer-text {
@@ -266,8 +296,8 @@ body {
   
  .quiz-button {
     width: 30vw;
-    height: 6vh;
-    font-size: "1.1vw";
+    height: 4vh;
+    font-size: 1vw;
     color: #ffffff;
     background-color: #252d4a;
     border-radius: 15px;
@@ -277,14 +307,6 @@ body {
     align-items: center;
     border: 5px solid #234668;
     cursor: pointer;
-  }
-  
-  .correct {
-    background-color: #2f922f;
-  }
-  
-  .incorrect {
-    background-color: #ff3333;
   }
   
   .quiz-button:hover {

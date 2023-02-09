@@ -58,7 +58,7 @@ const Quiz = () => {
 			],
 		},
 		{
-			questionText: 'Can mental illness can be treated?',
+			questionText: 'Can mental illness be treated?',
 			answerOptions: [
 				{ answerText: 'True', isCorrect: true, id:1 },
 				{ answerText: 'False', isCorrect: false, id:2 },
@@ -87,7 +87,7 @@ const Quiz = () => {
 			answerOptions: [
 				{ answerText: 'Helping them gain access to mental health services', isCorrect: false, id:1 },
 				{ answerText: 'Learning and sharing facts about mental health', isCorrect: false, id:2 },
-                { answerText: 'Reaching out and letting them know that help is available', isCorrect: false, id:3 },
+                { answerText: 'Reaching out and letting them know help is available', isCorrect: false, id:3 },
                 { answerText: 'All the above', isCorrect: true, id:4 },
 			],
 		},
@@ -96,17 +96,26 @@ const Quiz = () => {
 	const [currentQuestion, setCurrentQuestion] = useState(0);
 	const [showScore, setShowScore] = useState(false);
 	const [score, setScore] = useState(0);
+	const [className, setClassName] = useState(false)
+	const [correct, setCorrect] = useState("")
 
 	const handleAnswerOptionClick = (isCorrect) => {
 		if (isCorrect) {
 			setScore(score + 1);
+			setCorrect("quizCorrect")
+		} else {
+			setClassName(true)
 		}
 
 		const nextQuestion = currentQuestion + 1;
 		if (nextQuestion < questions.length) {
-			setCurrentQuestion(nextQuestion);
+			setTimeout(() => setCurrentQuestion(nextQuestion), 2000);
+			setTimeout(() => setClassName(false), 2000)
+			setTimeout(() => setCorrect(""), 2000)
 		} else {
-			setShowScore(true);
+			setTimeout(() => setShowScore(true), 2000);
+			setTimeout(() => setCorrect(""), 2000)
+			setTimeout(() => setClassName(false), 2000)
 		}
 	};
 
@@ -114,16 +123,18 @@ const Quiz = () => {
 		setCurrentQuestion(0)
 		setShowScore(false)
 		setScore(0)
+		setClassName(false)
+		setCorrect("")
 	}
 
 	return (
-		<div className='quiz' style={{width:"32vw", height: "52vh", display:"flex"}}>
+		<div className={className ? "quizIncorrect" : "quiz"} id ={correct}>
 			{showScore ? (
 				<div style={{display:"flex", flexDirection:"column",justifyContent:"space-evenly", width:"50vw", textAlign:"center", alignItems:"center", maxWidth:800, maxHeight:"20vh", fontSize:"1.3vw", alignSelf:"center"}}>
-					<div className='score-section' style={{fontSize: "2.5vw"}}>
+					<div className='score-section' style={{fontSize: "2.8vw", fontWeight:"bold", marginBottom:50, color:"white", fontFamily:"Jost"}}>
 						You scored {score} out of {questions.length}!
 					</div>
-					<Button onClick={handleTryAgain} style={{border:"5px solid white", fontSize:"1.8vw", backgroundColor:"white", color:"#1e3987", borderRadius:20, width: "18vw", alignSelf:"center"}}>Try Again</Button>
+					<Button onClick={handleTryAgain} style={{border:"5px solid white", fontSize:"1.8vw", backgroundColor:"white", color:"#1e3987", borderRadius:20, width: "18vw", alignSelf:"center", fontFamily:"Jost"}}>Try Again</Button>
 				</div> 
 			) : (
 				<div style={{width:"50vw", maxWidth:800, maxHeight:"15vh"}}>
@@ -134,10 +145,10 @@ const Quiz = () => {
 								<span style={{fontSize: "1.5vw"}}>Question {currentQuestion + 1} of {questions.length} </span>
 						</div>
 					</div>
-						<div className='question-section' style={{fontSize:"1.3vw"}}>
+						<div className='question-section'>
 							<div className='question-text'>{questions[currentQuestion].questionText}</div>
 						</div>
-						<div className='answer-section' style={{fontSize: "1.1vw"}}>
+						<div className='answer-section' style={{fontSize: "1vw"}}>
 							{questions[currentQuestion].answerOptions.map((answerOption) => {
 								return <button key={answerOption.id} className="quiz-button" onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
 							})}
