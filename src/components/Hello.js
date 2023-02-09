@@ -128,7 +128,7 @@ const Home = () => {
                   color: "#DAD7CD",
                 }}
               >
-                Music & Videos
+                Music
               </h1>
             </div>
           </Link>
@@ -156,7 +156,7 @@ const Home = () => {
                   fontSize: "3vw",
                 }}
               >
-                Memory Game
+                Game
               </h1>
             </div>
           </Link>

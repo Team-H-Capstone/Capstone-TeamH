@@ -116,11 +116,11 @@ body {
 
 .memoryGame {
     font-family: 'Bungee Shade', cursive;
-    max-width: 1600px;
+    width: 1500px;
     margin: auto;
     display: flex;
     flex-direction: column;
-    min-height: 1100px;
+    min-height: 85vh;
     background-color: #DAD7CD;
 }
 
@@ -156,12 +156,12 @@ body {
     margin-top: 40px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-gap: 20px;
+    grid-gap: 10px;
 }
 
 .card {
     position: relative;
-    width: 180px;
+    width: 170px;
     height: 150px;
     margin-left: 20px;
     margin-bottom: 5px;
