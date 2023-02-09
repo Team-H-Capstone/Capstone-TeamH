@@ -51,7 +51,7 @@ const Home = () => {
           data-aos-offset="0"
           className="title"
         >
-          BE MINDFUL
+        MINDFUL
         </h1>
       </section>
 
