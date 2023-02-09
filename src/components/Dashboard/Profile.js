@@ -85,10 +85,8 @@ const Profile = () => {
 
   return (
     <div
-      className="flex flex-col justify-center items-center w-full h-screen bg-[#1e3a8a] text-[#3A5A40]"
-      style={{
-        backgroundImage: "radial-gradient(#DAD7CD, #A3B18A, #588157)",
-      }}
+      className="flex flex-col justify-center items-center w-full h-screen bg-[#DAD7CD] text-[#3A5A40]"
+
     >
     <div className="flex flex-col justify-center items-center bg-[#D4A373] p-5">
       <h1 className="text-5xl font-bold flex justify-center text-[#344E41]">
