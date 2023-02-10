@@ -174,21 +174,37 @@ const Home = () => {
       </section>
       <section
         name="question"
-        className="flex flex-col justify-center items-center w-full h-full text-[#344E41]"
+        className="flex flex-row justify-center items-center w-full h-full text-[#344E41]"
         style={{
           backgroundImage: "radial-gradient(#DAD7CD, #A3B18A, #588157)",
         }}
       >  
-        <h1
-          className="flex justify-center items-center text-9xl font-bold text-center"
+        <div
+          className="text-9xl font-bold text-center"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
           data-aos-delay="500"
           data-aos-offset="0"
-          style={{ fontSize: "3.5vw", width:"50vw", lineHeight: "1.5" }}
+          style={{ fontSize: "3.5vw", width:"30vw", lineHeight: "1.5" }}
         >
-          Sign up to boost and refine mindfulness with a mood tracker and journal. With your free account, connect with other users through the forum and let your voice be heard.
-        </h1>
+          <Link className="text-[#800e13] font-bold hover:text-[#E07A5F] hover:text-[4.5vw] hover:underline" to="/register">Sign up</Link> to boost and refine mindfulness with a mood tracker and journal. 
+        </div>
+        <img
+          alt="homeimg"
+          width="400vw"
+          className="rounded-full px-[10px], border-2"
+          src="https://cdn.sanity.io/images/0vv8moc6/psychtimes/05a2dd97fbedb285c5fd380a411b24847c8dcc11-1000x819.jpg?fit=crop&auto=format"
+        />
+        <div
+          className="text-9xl font-bold text-center"
+          data-aos="fade-zoom-in"
+          data-aos-easing="ease-in-back"
+          data-aos-delay="500"
+          data-aos-offset="0"
+           style={{ fontSize: "3.5vw", width:"30vw", lineHeight: "1.5" }}
+        >
+          With your free account, connect with other users through the forum and let your voice be heard.
+        </div>
       </section>
       <section
         name="question"
