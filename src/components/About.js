@@ -17,19 +17,7 @@ const About = () => {
         <div className="flex flex-col pl-20">
           <h2 className="text-4xl font-bold pb-4">Mental Health Awareness</h2>
           <h3 className="text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Nec nam
-            aliquam sem et. Tincidunt id aliquet risus feugiat in. Aliquet nec
-            ullamcorper sit amet. Etiam non quam lacus suspendisse faucibus
-            interdum. Bibendum ut tristique et egestas.
-            <br></br>
-            <br></br>
-            Ut faucibus pulvinar elementum integer. Odio aenean sed adipiscing
-            diam donec adipiscing tristique. Volutpat commodo sed egestas
-            egestas fringilla phasellus. Sagittis vitae et leo duis. Nibh tortor
-            id aliquet lectus proin nibh nisl. Tellus cras adipiscing enim eu
-            turpis. Diam quis enim lobortis scelerisque.Tincidunt id aliquet
-            risus feugiat in. Aliquet nec ullamcorper sit amet.
+            We created Mindful to raise awareness and provide supportive tools for one of the world’s most critical issues: <strong>Mental Health</strong>. Significant progress has been made in recent years to make the discussion of mental health less taboo than in the past but there is still plenty of work to do; We hope to keep the momentum going with this website. Our forum was built to foster an inclusive community where users can express themselves and grow together. Whether you are currently living with a mental illness or not, welcome to <strong>Mindful</strong>.
           </h3>
         </div>
         <img
@@ -40,7 +28,7 @@ const About = () => {
         />
       </section>
       <section className="flex flex-col justify-center items-center w-full" style={{background:"white"}}>
-        <h2 className="text-3xl font-bold pb-6">Contact Us</h2>
+        <h2 className="text-3xl font-bold pb-6">Software Development Team</h2>
         <div className="flex flex-row pb-7 pt-1">
           <div className="flex flex-col justify-center items-center px-4">
             <img
@@ -50,7 +38,7 @@ const About = () => {
               src="/img/atif.jpeg"
             />
             <h3 className="text-xl font-extrabold font-medium">Atif Hussaini</h3>
-            <h4>Fullstack Developer</h4>
+            <h4>Full-Stack Developer</h4>
             <div className="space-x-3 text-lg font-medium border-t border-gray-200">
               <a
                 className="text-[#2E4C6D] dark:hover:text-[#e63946] transition-colors duration-200"
@@ -74,7 +62,7 @@ const About = () => {
               src="/img/andrew.jpeg"
             />
             <h3 className="text-xl font-extrabold font-medium">Andrew Kidd</h3>
-            <h4>Fullstack Developer</h4>
+            <h4>Full-Stack Developer</h4>
             <div className="space-x-3 text-lg font-medium border-t border-gray-200">
               <a
                 className="text-[#2E4C6D] dark:hover:text-[#e63946] transition-colors duration-200"
@@ -98,7 +86,7 @@ const About = () => {
               src="/img/tienL.jpeg"
             />
             <h3 className="text-xl font-extrabold font-medium">Tien La</h3>
-            <h4>Fullstack Developer</h4>
+            <h4>Full-Stack Developer</h4>
             <div className="space-x-3 text-lg font-medium border-t border-gray-200">
               <a
                 className="text-[#2E4C6D] dark:hover:text-[#e63946] transition-colors duration-200"
@@ -122,7 +110,7 @@ const About = () => {
               src="/img/evaLi.jpeg"
             />
             <h3 className="text-xl font-extrabold font-medium">Eva Li</h3>
-            <h4>Fullstack Developer</h4>
+            <h4>Full-Stack Developer</h4>
             <div className="space-x-3 text-lg font-medium border-t border-gray-200">
               <a
                 className="text-[#2E4C6D] dark:hover:text-[#e63946] transition-colors duration-200"
@@ -146,7 +134,7 @@ const About = () => {
               src="/img/justinS.png"
             />
             <h3 className="text-xl font-extrabold font-medium">Justin Signo</h3>
-            <h4>Fullstack Developer</h4>
+            <h4>Full-Stack Developer</h4>
             <div className="space-x-3 text-lg font-medium border-t border-gray-200">
               <a
                 className="text-[#2E4C6D] dark:hover:text-[#e63946] transition-colors duration-200"

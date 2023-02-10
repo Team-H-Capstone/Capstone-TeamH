@@ -59,6 +59,8 @@ const MyThoughts = () => {
     }
   }, [user]);
 
+  console.log("textbox ---->", list);
+
   
   const [currentPage, setCurrentPage] = useState(1);
   const postPerPage = 1

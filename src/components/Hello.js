@@ -25,7 +25,7 @@ const Home = () => {
         }}
       >
         <h1
-          className="flex justify-center items-center text-9xl font-bold text-center"
+          className="flex justify-center items-center text-9xl font-bold text-center pb-4"
           style={{ fontSize: "5vw" }}
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
@@ -47,56 +47,65 @@ const Home = () => {
         <h1
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
-          data-aos-delay="2000"
+          data-aos-delay="1750"
           data-aos-offset="0"
           className="title"
+          style={{ letterSpacing:"10px"}}
         >
         MINDFUL
         </h1>
-      </section>
-
-      <section
-        name="question"
-        className="flex flex-col justify-center items-center w-full h-full text-[#344E41]"
-        style={{
-          backgroundImage: "radial-gradient(#DAD7CD, #A3B18A, #588157)",
-        }}
-      >
-        <br></br>
         <h1
-          className="flex justify-center text-center items-center text-5xl font-bold"
+          className="flex justify-center items-center text-9xl font-bold text-center"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
-          data-aos-delay="500"
+          data-aos-delay="2500"
           data-aos-offset="0"
-          style={{ fontSize: "2vw" }}
+          style={{ fontSize: "3vw" }}
         >
-          Want to learn more about Mental Health? Take the quiz!
+        A safe space to reflect and improve your well-being.
         </h1>
-        <br></br>
-        <Quiz />
       </section>
       <section
-        name="question"
-        className="flex flex-col justify-center items-center w-full h-full text-[#344E41]"
+        name="rooms"
+        className="flex flex-row justify-center items-center w-full h-full text-[#344E41]"
         style={{
           backgroundImage: "radial-gradient(#DAD7CD, #A3B18A, #588157)",
         }}
       >
-        <h1
+        <div
+          style={{
+            width: "50vw",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+          }}
+        >
+          <h1 
           className="flex justify-center items-center text-9xl font-bold text-center"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
           data-aos-delay="500"
           data-aos-offset="0"
-          style={{ fontSize: "5vw" }}
+          style={{ fontSize: "4.5vw", lineHeight: "1.25"}}
+        >
+          Explore interactive wellness rooms and tour the forum as a visitor.
+        </h1>
+        </div>
+        <div>
+        <h1
+          className="text-9xl font-bold text-center"
+          data-aos="fade-zoom-in"
+          data-aos-easing="ease-in-back"
+          data-aos-delay="500"
+          data-aos-offset="0"
+          style={{ fontSize: "3.5vw" }}
         >
           Enter Our Interactive Rooms
         </h1>
         <div
           style={{
-            width: "100vw",
-            marginTop: 100,
+            width: "50vw",
+            marginTop: 60,
             display: "flex",
             flexDirection: "row",
             justifyContent: "center",
@@ -106,8 +115,8 @@ const Home = () => {
             <div
               style={{
                 display: "flex",
-                width: "25vw",
-                height: "25vh",
+                width: "20vw",
+                height: "20vh",
                 alignItems: "right",
                 border: "8px solid white",
                 backgroundImage: `url("/img/meditation.jpeg")`,
@@ -137,8 +146,8 @@ const Home = () => {
             <div
               style={{
                 display: "flex",
-                width: "25vw",
-                height: "25vh",
+                width: "20vw",
+                height: "20vh",
                 alignItems: "right",
                 border: "8px solid white",
                 backgroundImage: `url("/img/gameBackground.jpeg")`,
@@ -161,6 +170,46 @@ const Home = () => {
             </div>
           </Link>
         </div>
+        </div>
+      </section>
+      <section
+        name="question"
+        className="flex flex-col justify-center items-center w-full h-full text-[#344E41]"
+        style={{
+          backgroundImage: "radial-gradient(#DAD7CD, #A3B18A, #588157)",
+        }}
+      >  
+        <h1
+          className="flex justify-center items-center text-9xl font-bold text-center"
+          data-aos="fade-zoom-in"
+          data-aos-easing="ease-in-back"
+          data-aos-delay="500"
+          data-aos-offset="0"
+          style={{ fontSize: "3.5vw", width:"50vw", lineHeight: "1.5" }}
+        >
+          Sign up to boost and refine mindfulness with a mood tracker and journal. With your free account, connect with other users through the forum and let your voice be heard.
+        </h1>
+      </section>
+      <section
+        name="question"
+        className="flex flex-col justify-center items-center w-full h-full text-[#344E41]"
+        style={{
+          backgroundImage: "radial-gradient(#DAD7CD, #A3B18A, #588157)",
+        }}
+      >
+        <br></br>
+        <h1
+          className="flex justify-center text-center items-center text-5xl font-bold pb-4"
+          data-aos="fade-zoom-in"
+          data-aos-easing="ease-in-back"
+          data-aos-delay="500"
+          data-aos-offset="0"
+          style={{ fontSize: "2.5vw" }}
+        >
+          Want to learn more about Mental Health? Take the quiz!
+        </h1>
+        <br></br>
+        <Quiz />
       </section>
     </div>
   );

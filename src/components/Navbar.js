@@ -25,7 +25,6 @@ const Navbar = () => {
 
   const handleRoom2 = () => {
     setOpen(!open);
-
     console.log('Room 2 open!');
   };
 
@@ -41,9 +40,20 @@ const Navbar = () => {
                 Home
               </Button>
             </Link>
-            <Link to="/mydashboard">
-              <Button color="inherit" style={{fontSize:23, marginRight:5}} id="navBarDashboard">Dashboard</Button>
-            </Link>
+
+            {user ? (
+              <>
+              <Link to="/mydashboard">
+                <Button color="inherit" style={{fontSize:23, marginRight:5}} id="navBarDashboard">Dashboard</Button>
+              </Link>  
+              </>            
+            ):(
+              <Link to="/login">
+                <Button color="inherit" style={{fontSize:23, marginRight:5}} id="navBarLogin">Dashboard</Button>
+              </Link>
+            )
+              }
+
             <Link to="/data">
               <Button color="inherit" style={{fontSize:23, marginRight:5}} id="navBarData">data</Button>
             </Link>
@@ -64,7 +74,7 @@ const Navbar = () => {
             {user ? (
               <>
                 <Link to="/createpost">
-                  <Button color="inherit" style={{fontSize:23, marginRight:5}} id="navBarCreate">Create</Button>
+                  <Button color="inherit" style={{fontSize:23, marginRight:5}} id="navBarCreate">Post</Button>
                 </Link>
                 <Link to="/">
                 <Button color="inherit" style={{fontSize:23, marginRight:5}} onClick={() => logout()} id="navBarLogout">Logout</Button>
@@ -90,7 +100,9 @@ const Navbar = () => {
             {open ? null : (
               <ul className="menu">
                 <li className="menuItem">
+                <Link to="/music">
                   <Button onClick={handleRoom1} style={{color:"black", textAlign:"center", fontSize:15}} id="navBarMusic">Music</Button>
+                </Link>
                 </li>
                 <li className="menuItem">
                   <Link to="/memoryGame" >

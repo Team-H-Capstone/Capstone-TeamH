@@ -168,7 +168,7 @@ const Notepad = () => {
     className="flex flex-col justify-center items-center border-solid border-2 py-4 bg-[#fefcfb] rounded-3xl" 
     style={{ width:"43vw" }}
     >
-      <h1 className="text-3xl pb-2 px-10 text-[#344E41]">NotePad</h1>
+      <h1 className="text-3xl pb-2 px-10 text-[#344E41]">Journal</h1>
       <MenuBar editor={editor} />
       <div>
         <EditorContent editor={editor}/>
