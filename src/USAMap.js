@@ -37,8 +37,8 @@ const USA = () => {
       polygonSeries.set("heatRules", [{
         target: polygonSeries.mapPolygons.template,
         dataField: "value",
-        min: am5.color(0x0eff00),
-        max: am5.color(0x063b00),
+        min: am5.color(0x7EC8E3),
+        max: am5.color(0x000C66),
         key: "fill"
       }]);
 
@@ -102,8 +102,8 @@ const USA = () => {
 
       let heatLegend = chart.children.push(am5.HeatLegend.new(root, {
         orientation: "vertical",
-        startColor: am5.color(0x0eff00),
-        endColor: am5.color(0x063b00),
+        startColor: am5.color(0x7EC8E3),
+        endColor: am5.color(0x000C66),
         startText: "Lowest",
         endText: "Highest",
         stepCount: 5,

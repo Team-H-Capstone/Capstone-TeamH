@@ -34,9 +34,9 @@ const Comment = ({ id }) => {
       {comments.length === 0 ? (
         <h1>No Comments</h1>
       ) : (
-        <div className="pt-2 bg-white rounded-lg p-1">
+        <div className="pt-2 bg-white rounded-lg w-full sm:w-[900px] bg-white shadow-2xl m-2 p-2">
           {comments.map((comment) => (
-            <div key={comment} className=" text-black rounded-lg p-1 py-1">
+            <div key={comment} className="text-black rounded-lg p-1 py-1">
               <span className="text-[12px]">{comment.name}:</span>
               <h1 className="font-bold"> {comment.comment}</h1>
             </div>
