@@ -32,7 +32,7 @@ const MoodTracker = () => {
             auth.currentUser.uid,
             auth.currentUser.displayName
           ),
-          orderBy("date", "desc"),
+          orderBy("dateISO", "desc"),
           limit(7)
         );
         onSnapshot(q, (query) => {
@@ -60,16 +60,19 @@ const MoodTracker = () => {
       month: "long",
     });
 
+    const dateISO = new Date().toISOString().slice(0, 10);
+
     const moodRef = doc(
       db,
       "moods",
       auth.currentUser.uid,
       auth.currentUser.displayName,
-      currentDate
+      dateISO
     );
     await setDoc(moodRef, {
       mood: mood,
       dayOfWeek: currentDay,
+      dateISO: dateISO,
       date: currentDate,
     });
   };
