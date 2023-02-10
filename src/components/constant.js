@@ -37,6 +37,10 @@ export const forestImg = 'img/forest.png';
 export const rocksImg = 'img/rocks.png';
 export const waterImg = 'img/water.png';
 
+export const mentalImg = 'img/mental.png';
+export const mentalImg1 = 'img/mental1.png';
+export const treeImg = 'img/tree.png';
+
 export const circleChart = 'img/circle-chart.png';
 export const mapChart = 'img/map-chart.png';
 export const mapChart2 = 'img/map-chart2.png';
