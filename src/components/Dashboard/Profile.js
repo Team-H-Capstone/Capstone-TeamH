@@ -85,15 +85,14 @@ const Profile = () => {
 
   return (
     <div
-      className="flex flex-col justify-center items-center w-full h-screen bg-[#DAD7CD] text-[#3A5A40]"
-
+      className="flex flex-col justify-center items-center w-full h-screen bg-[#DAD7CD]"
     >
-    <div className="flex flex-col justify-center items-center bg-[#D4A373] p-5">
+    <div className="flex flex-col justify-center items-center bg-[#D4A373] p-5 rounded-lg">
       <h1 className="text-5xl font-bold flex justify-center text-[#344E41]">
         Edit Profile
       </h1>
       <div className="text-2xl font-bold flex justify-center">
-        <form className="p-10">
+        <form className="pt-10 px-10">
           <div>
             <input
               type="string"
@@ -124,7 +123,7 @@ const Profile = () => {
           <div className="flex justify-center pt-5">
             <button
               onClick={handleUpdate}
-              className="text-white bg-[#3D405B] group border-2 px-6 py-3 my-2 flex items-center hover:bg-[#6B9080] hover:border-[#CCE3DE] hover:text-[#283618] hover:font-bold"
+              className="text-white bg-[#343a40] group border-2 px-6 py-3 my-2 flex items-center hover:bg-[#6B9080] hover:border-[#CCE3DE] hover:text-[#283618] hover:font-bold rounded-full"
             >
               Update
             </button>
