@@ -22,10 +22,21 @@ const Forum = () => {
   return (
     <div className="w-full h-screen flex flex-col">
       <section className="pt-28 bg-[#DAD7CD] text-center text-[#3A5A40]">
-      <h1
-      className="text-[45px] font-bold "
-      >A Safe Space To Express Yourself</h1>
-      {!user ? (<p>Welcome to our forum, where you can connect with our community! Sign up to post and comment.</p>): null}
+        <h1 className="text-[45px] font-bold ">
+          A Safe Space To Express Yourself
+        </h1>
+        {!user ? (
+          <p>
+            Welcome to our forum, where you can connect with our community!{" "}
+            <Link
+              to="/register"
+              className="text-[#D90429] font-bold hover:text-[#D8572A] hover:text-45px hover:underline transition-colors duration-100"
+            >
+              Sign up
+            </Link>{" "}
+            to post and comment.
+          </p>
+        ) : null}
       </section>
       <div className="w-full grid grid-cols-1 sm:grid-cols-3 gap-4 pt-8 bg-[#DAD7CD]">
         {posts.length === 0 ? (
