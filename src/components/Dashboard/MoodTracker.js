@@ -180,8 +180,8 @@ const MoodTracker = () => {
           <div className="flex justify-center pb-2">
             <button
               type="submit"
-              className="mt-2 bg-[#343a40] border-2 hover:bg-[#6B9080] text-white hover:border-[#CCE3DE] hover:text-[#283618] py-2 px-4 rounded-full transition-colors duration-100"
-              style={{ fontSize: "3.5vh" }}
+              className="mt-2 bg-[#343a40] border-2 hover:bg-[#6B9080] text-white hover:border-[#CCE3DE] hover:text-[#283618] py-2 px-4 rounded-full transition-colors duration-100 focus:border-[#A3B18A] focus:border-[3px]"
+              style={{ fontSize: "3.5vh"}}
             >
               Submit Mood
             </button>
