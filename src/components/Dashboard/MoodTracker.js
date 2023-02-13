@@ -92,7 +92,7 @@ const MoodTracker = () => {
   };
 
   return (
-    <div className="flex flex-row justify-evenly min-w-fit mx-7">
+    <div  className="flex flex-row justify-evenly min-w-fit mx-7">
       <section className="flex flex-col justify-center items-center min-w-fit">
         <h1
         className="font-bold text-[#344E41] pt-2"
