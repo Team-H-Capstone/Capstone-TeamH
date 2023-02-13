@@ -141,7 +141,8 @@ const MusicPlayer = () => {
     );
   });
 
-  const volumeChange = (value) => {
+  const volumeChange = (event) => {
+    const value = Number(event.target.value)
     setVolume(mute ? volume : value);
     setVolumeIcon(mute || value === 0 ? muteVolumeImg : value <= 50 ? lowVolumeImg : loudVolumeImg);
   };
@@ -185,11 +186,9 @@ const MusicPlayer = () => {
         {/* <div className="timer text-white">00 : 00</div> */}
         {/* <div className="mt-12 text-white">{timeOptions}</div> */}
       </div>
-      <div className="audio_menu text-white" style={{opacity: opacity, transition: transition}}>{audioOptions}</div>
-     
       <Quotes /> 
+      <div className="audio_menu text-white" style={{opacity: opacity, transition: transition}}>{audioOptions}</div>
     </div>
-    
   );
 };
 
