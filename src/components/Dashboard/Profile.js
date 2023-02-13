@@ -1,16 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, db } from "../../firebase/firebase-config";
-import {
-  updateDoc,
-  doc,
-  setDoc,
-  getDoc,
-  collection,
-  getDocs,
-  onSnapshot,
-} from "firebase/firestore";
-import { getAuth, updateEmail, updateProfile } from "firebase/auth";
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth, db } from '../../firebase/firebase-config';
+import { updateDoc, doc, setDoc, getDoc, collection, getDocs, onSnapshot } from 'firebase/firestore';
+import { getAuth, updateEmail, updateProfile } from 'firebase/auth';
 
 const Profile = () => {
   // const users = auth.currentUser;
@@ -47,10 +39,10 @@ const Profile = () => {
   // }, []);
 
   const handleUpdateV2 = async (id) => {
-    const profileDoc = doc(db, "users", id);
+    const profileDoc = doc(db, 'users', id);
     await updateDoc(profileDoc, {
       name: name,
-    }).then(() => console.log("updated!", auth.currentUser.displayName));
+    }).then(() => console.log('updated!', auth.currentUser.displayName));
   };
 
   const handleUpdate = async (e) => {
@@ -60,9 +52,7 @@ const Profile = () => {
     // console.log('user id --->', user.uid);
     console.log("profileRef--->", profileRef);
 
-    const profileDoc = await getDoc(profileRef).catch((error) =>
-      console.error(error)
-    );
+    const profileDoc = await getDoc(profileRef).catch((error) => console.error(error));
     if (!profileDoc) {
       console.error("No document found for this user ID");
       return;
@@ -80,7 +70,7 @@ const Profile = () => {
     });
     await updateEmail(auth.currentUser, email);
     await auth.currentUser.reload();
-    console.log("updated!", auth.currentUser.displayName);
+    console.log('updated!', auth.currentUser.displayName);
   };
 
   return (
@@ -102,23 +92,18 @@ const Profile = () => {
               className="text-black p-2 rounded-lg"
             />
           </div>
-          <div className="pt-5">
+          <div className="">
             <input
               type="email"
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="text-black p-2 rounded-lg"
+              className="register__textBox
+            "
             />
           </div>
-          <div className="pt-5">
-            <input
-              type="string"
-              placeholder="Password"
-              name="password"
-              id="password"
-              className="text-black p-2 rounded-lg"
-            />
+          <div className="">
+            <input type="string" placeholder="Password" name="password" id="password" className="register__textBox" />
           </div>
           <div className="flex justify-center pt-5">
             <button

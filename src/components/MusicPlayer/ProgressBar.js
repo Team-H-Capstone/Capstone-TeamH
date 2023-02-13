@@ -1,56 +1,59 @@
-import React from 'react';
-import  {CircularProgressbarWithChildren, buildStyles} from 'react-circular-progressbar';
-// import 'react-circular-progressbar/dist/styles.css';
+//! Progress bar when music is played
+//TODO WIP - It does not work on loop and the progress is not accurate/smooth
 
-const ProgressBar = (props) => {
-  return (
-    <CircularProgressbarWithChildren
-      percentage={props.percentage}
-      // text={`${props.text}%`}
-    //   text={props.text}
-      strokeWidth={3}
-      styles={buildStyles({
-        // root: {},
-        // path: {
-        // //   stroke: `rgba(62, 152, 199, ${props.percentage / 100})`,
-        //   stroke: '#0086ffcc',
-        //   strokeLinecap: 'butt',
-        //   transition: 'stroke-dashoffset 0.5s ease 0s',
-        // },
-        // trail: {
-        //   stroke: '#ffffffcc',
-        //   // strokeLinecap: 'butt',
-        //   // transform: 'rotate(0.25turn)',
-        //   // transformOrigin: 'center center',
-        // },
-        // text: {
-        //   fill: '#f88',
-        //   fontSize: '30px',
-        // },
+// import React from 'react';
+// import  {CircularProgressbarWithChildren, buildStyles} from 'react-circular-progressbar';
+// // import 'react-circular-progressbar/dist/styles.css';
 
-         // Rotation of path and trail, in number of turns (0-1)
-    rotation: 0.25,
+// const ProgressBar = (props) => {
+//   return (
+//     <CircularProgressbarWithChildren
+//       percentage={props.percentage}
+//       // text={`${props.text}%`}
+//     //   text={props.text}
+//       strokeWidth={3}
+//       styles={buildStyles({
+//         // root: {},
+//         // path: {
+//         // //   stroke: `rgba(62, 152, 199, ${props.percentage / 100})`,
+//         //   stroke: '#0086ffcc',
+//         //   strokeLinecap: 'butt',
+//         //   transition: 'stroke-dashoffset 0.5s ease 0s',
+//         // },
+//         // trail: {
+//         //   stroke: '#ffffffcc',
+//         //   // strokeLinecap: 'butt',
+//         //   // transform: 'rotate(0.25turn)',
+//         //   // transformOrigin: 'center center',
+//         // },
+//         // text: {
+//         //   fill: '#f88',
+//         //   fontSize: '30px',
+//         // },
 
-    // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
-    strokeLinecap: 'butt',
+//          // Rotation of path and trail, in number of turns (0-1)
+//     rotation: 0.25,
 
-    // Text size
-    textSize: '16px',
+//     // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
+//     strokeLinecap: 'butt',
 
-    // How long animation takes to go from one percentage to another, in seconds
-    pathTransitionDuration: 0.5,
+//     // Text size
+//     textSize: '16px',
 
-    // Can specify path transition in more detail, or remove it entirely
-    // pathTransition: 'none',
+//     // How long animation takes to go from one percentage to another, in seconds
+//     pathTransitionDuration: 0.5,
 
-    // Colors
-    pathColor: `rgba(62, 152, 199, ${props.percentage / 100})`,
-    textColor: '#f88',
-    trailColor: '#d6d6d6',
-    backgroundColor: '#3e98c7',
-      })}
-    />
-  );
-};
+//     // Can specify path transition in more detail, or remove it entirely
+//     // pathTransition: 'none',
 
-export default ProgressBar;
+//     // Colors
+//     pathColor: `rgba(62, 152, 199, ${props.percentage / 100})`,
+//     textColor: '#f88',
+//     trailColor: '#d6d6d6',
+//     backgroundColor: '#3e98c7',
+//       })}
+//     />
+//   );
+// };
+
+// export default ProgressBar;
