@@ -98,12 +98,16 @@ const Profile = () => {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="register__textBox
-            "
+              className="text-black p-2 rounded-lg my-5"
             />
           </div>
           <div className="">
-            <input type="string" placeholder="Password" name="password" id="password" className="register__textBox" />
+            <input 
+            type="string" 
+            placeholder="Password" 
+            name="password" id="password" 
+            className="text-black p-2 rounded-lg"
+            />
           </div>
           <div className="flex justify-center pt-5">
             <button
