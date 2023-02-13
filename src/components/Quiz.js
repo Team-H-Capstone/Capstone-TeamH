@@ -140,15 +140,15 @@ const Quiz = () => {
 				<div style={{width:"50vw", maxWidth:800, maxHeight:"15vh"}}>
 					<div style={{width:"30vw", height:"10vh"}}>
 						<div style={{display:"flex", flexDirection:"row", justifyContent:"space-between", border:"3px solid white", borderRadius: 15, alignItems:"center", padding:10, marginBottom:10, width:"30vw", height:"10vh",maxWidth:800, textAlign:"center"}}>
-						<div style={{fontSize:"1.5vw", color:"#cdd9fa"}}>Mental Health Quiz</div>
+						<div style={{fontSize:"1.75vw", color:"#cdd9fa"}}>Mental Health Quiz</div>
 						<div className='question-count'>
-								<span style={{fontSize: "1.5vw"}}>Question {currentQuestion + 1} of {questions.length} </span>
+								<span style={{fontSize: "1.70vw"}}>Question {currentQuestion + 1} of {questions.length} </span>
 						</div>
 					</div>
 						<div className='question-section'>
 							<div className='question-text'>{questions[currentQuestion].questionText}</div>
 						</div>
-						<div className='answer-section' style={{fontSize: "1vw"}}>
+						<div className='answer-section'>
 							{questions[currentQuestion].answerOptions.map((answerOption) => {
 								return <button key={answerOption.id} className="quiz-button" onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</button>
 							})}
