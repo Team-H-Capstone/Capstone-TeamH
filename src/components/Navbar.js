@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { auth, logout } from "../firebase/firebase-config";
 import { useAuthState } from "react-firebase-hooks/auth";
 
+
 const Navbar = () => {
   const [open, setOpen] = useState('false');
 
