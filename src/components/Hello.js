@@ -171,7 +171,7 @@ const Home = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     width: "100%",
-                    fontSize: "3vw",
+                    fontSize: "3.5vw",
                   }}
                 >
                   Music
@@ -204,7 +204,7 @@ const Home = () => {
                     alignItems: "center",
                     justifyContent: "center",
                     width: "100%",
-                    fontSize: "3vw",
+                    fontSize: "3.5vw",
                   }}
                 >
                   Game

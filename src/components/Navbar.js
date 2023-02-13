@@ -34,12 +34,11 @@ const Navbar = () => {
   return (
     <div style={{ position: 'fixed', width: '100vw', zIndex: 200}}>
       <Box sx={{ flexGrow: 0}}>
-        <AppBar sx={{backgroundColor: "#344E41", color:"#DAD7CD"}}>
+        <AppBar sx={{backgroundColor: "#344E41", color:"#DAD7CD", maxHeight:60}}>
           <Toolbar>
             <Link to="/home">
-              <Button color="inherit" sx={{ ml: 0 }} style={{fontSize:25, marginRight:5}} id="navBarHome">
-                Mindful
-                {/* Home */}
+              <Button color="inherit" sx={{ ml: 0 }} style={{fontSize:45, marginRight:5}} id="navBarHome">
+                M
                 {/* <img 
                 alt="homeBtn" 
                 src="img/homeBtn.png" 
