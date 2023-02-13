@@ -47,7 +47,7 @@ body {
   left: 0;
   width: 100%;
   height: 100px;
-  background: linear-gradient(to top, #3A5A40, transparent);
+  background: linear-gradient(to top, #A3B18A, transparent);
   /* background: linear-gradient(to top, #2b53c4, #1e3987, #325edb, transparent); */
   /* background: radial-gradient(to top, #2b53c4, #1e3987, #325edb, transparent); */
   z-index: 10;
@@ -59,9 +59,9 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;  /* 100% but this a bug it will show the forest at the chart section */
-  pointer-events: none;
-  object-fit: cover;
+  height: 95%;  /* 100% but this a bug it will show the forest at the chart section */
+  /* pointer-events: none; */
+  /* object-fit: cover; */
 }
 
 #home_btn {

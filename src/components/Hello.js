@@ -25,8 +25,7 @@ const Home = () => {
   const water = document.getElementById('water');
   const btn = document.getElementById('home_btn');
 
-  const mental = document.getElementById('mental');
-  const mental1 = document.getElementById('mental1');
+
   const tree = document.getElementById('tree');
 
   window.addEventListener('scroll', function () {
@@ -37,13 +36,11 @@ const Home = () => {
     bird1.style.left = value * 2 + 'px';
     bird2.style.top = value * -1.5 + 'px';
     bird2.style.left = value * -5 + 'px';
-    // btn.style.marginTop = value * 1.5 + 'px';
+    forest.style.top = value * -0.55 + 'px';
+    tree.style.top = value * 0.15 + 'px';
     rocks.style.top = value * -0.1 + 'px';
-    forest.style.top = value * 0.55 + 'px';
+    // btn.style.marginTop = value * 1.5 + 'px';
 
-    mental.style.top = value * 0.55 + 'px';
-    mental1.style.top = value * -1.5 + 'px';
-    mental1.style.left = value * 2 + 'px';
   });
 
   const handleClick = () => {
@@ -63,20 +60,20 @@ const Home = () => {
     <div className="w-full h-screen">
       <section id="main_sec" className="flex flex-col justify-center items-center w-full h-screen relative bg-[#ADD8E6] text-red ">
         <h2 className="flex justify-center items-center text-9xl font-bold text-center  " id="text" style={{ fontSize: '5vw' }} data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500" data-aos-offset="0">
-          <span className="tracking-wide leading-none ">
+          {/* <span className="tracking-wide leading-none ">
             {' '}
             Hello <br />
             {user ? user.displayName : ''}!
-          </span>
+          </span> */}
           {/* <br/>{user ? user.displayName : ""}! */}
         </h2>
         <img src={bird1Img} id="bird1" alt="bird1" />
         <img src={bird2Img} id="bird2" alt="bird2" className="mt-8" />
         <img src={forestImg} id="forest" alt="forest" className="mt-10" />
+        <img src={treeImg} id="tree" alt="tree" className="mt-10" />
         {/* <button className='' id='home_btn' onClick={handleClick}>Explore</button> */}
-        {/* <img src={treeImg} id="tree" alt="tree" className="mt-10" /> */}
-        <img src={rocksImg} id="rocks" alt="rocks" className="my-10" />
-        <img src={waterImg} id='water' alt='water'/>
+        {/* <img src={rocksImg} id="rocks" alt="rocks" className="my-10" /> */}
+        {/* <img src={waterImg} id='water' alt='water'/> */}
 
         {/* <img src={mentalImg1} id="mental1" alt="mental1" className="mt-10" /> */}
         {/* <img src={mentalImg} id="mental" alt="mental" className="mt-20" /> */}
