@@ -27,7 +27,7 @@ const MyThoughts = () => {
         const q = query(
           collection(db, "Notepad"),
           where("uid", "==", auth.currentUser.uid),
-          orderBy("Timestamp", "desc"),
+          orderBy("dateISO", "desc"),
           limit(1)
         );
 
@@ -42,7 +42,7 @@ const MyThoughts = () => {
         const first10 = query(
           collection(db, "Notepad"),
           where("uid", "==", auth.currentUser.uid),
-          orderBy("Timestamp", "desc"),
+          orderBy("dateISO", "desc"),
           limit(10)
         );
 
@@ -58,9 +58,6 @@ const MyThoughts = () => {
       getData();
     }
   }, [user]);
-
-  console.log("textbox ---->", list);
-
   
   const [currentPage, setCurrentPage] = useState(1);
   const postPerPage = 1
@@ -100,24 +97,21 @@ const MyThoughts = () => {
     const doc1 = query(
       collection(db, "Notepad"),
       where("uid", "==", auth.currentUser.uid),
-      orderBy("Timestamp", "desc"),
+      orderBy("dateISO", "desc"),
       limit(10)
     );
 
     const x = await getDocs(doc1);
 
     const post = x.docs.map((post) => post.id);
-    console.log("id ----->",post);
 
     let lastPostIndex = currentPage * postPerPage;
     let firstPostIndex = lastPostIndex - postPerPage;
     let deletePost = post.slice(firstPostIndex, lastPostIndex);
     console.log("deletepost ---->", deletePost)
     const y = deletePost.pop();
-    console.log("y ---->", typeof y, y)
 
     const docRef = doc(db, "Notepad", y);
-    console.log("docref ------->", docRef)
 
     deleteDoc(docRef)
     .then(() => {
@@ -129,17 +123,17 @@ const MyThoughts = () => {
   }
 
   return (
-    <div className="flex flex-col justify-around items-center border-solid border-2 min-w-max max-w-xl py-4 bg-[#f8f9fa] rounded-3xl">
-      <div className="flex flex-row justify-center items-center">
+    <div className="flex flex-col justify-around items-center border-solid border-2 border-[#D4A373] py-2 bg-[#E7D7C1] rounded-3xl min-w-fit rounded-3xl">
+      <div className="flex flex-row justify-center items-center px-4">
         <button onClick={backwards}>
           <FaArrowLeft />
         </button>
-        <h1 className="text-3xl pb-2 px-10 text-[#463f3a]">Thoughts</h1>
+        <h1 className="pb-2 px-10 text-[#463f3a]" style={{ fontSize: "4.5vh" }}>Thoughts</h1>
         <button>
           <FaArrowRight onClick={fowards} />
         </button>
       </div>
-      <div className="text-lgr">
+      <div style={{ fontSize: "2.5vh" }}>
         {textBox.map((text) => {
           return (
             <div key={text.id} className="flex flex-col justify-around items-center">
@@ -151,7 +145,7 @@ const MyThoughts = () => {
       </div>
       <button
           onClick={deleteBtn}
-          className="px-2 border-solid border-2 hover:bg-white hover:text-gray-800 mt-5"
+          className="py-2 px-4 bg-[#343a40] border-2 hover:bg-[#6B9080] text-white hover:border-[#CCE3DE] hover:text-[#283618] rounded-full transition-colors duration-100"
           type="submit"
         >
           Delete Thoughts

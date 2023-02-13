@@ -19,6 +19,7 @@
   height: 100%;
   z-index: -5;
   position: fixed;
+  margin-right: 15px;
 }
 
 .background img {
@@ -37,8 +38,8 @@
   top: 0;
   bottom: 0;
   z-index: -1;
-  -webkit-backdrop-filter: blur(10px);
-  filter: blur(10px);
+  /* -webkit-backdrop-filter: blur(10px); */
+  /* filter: blur(10px); */
 }
 
 .nav {
@@ -76,14 +77,9 @@
   /* justify-content: center; */
   align-items: center;
   /* width: 100%; */
-  height: 60%;
+  height: 80%;
   
 }
-
-/* .player_container{ */
-  /* position: absolute; */
-  /* bottom: 1%; */
-/* } */
 
 .playPause {
   width: 50px;
@@ -104,29 +100,23 @@
   /* margin-top: 4rem; */
   column-gap: 1px;
   grid-gap: 25px;
-  margin-bottom: 30px;
-  padding-top: 20%;
-  padding-left: 10px;
+  /* margin-bottom: 50px; */
+  /* padding-top: 18%; */
+  padding-bottom: 3%;
+  padding-left: 65px;
   width: 100%;
   /* margin-top: 1rem; */
 }
-
-/* .audio_menus {
-  border-radius: 15px;
-  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 60px;
-} */
 
 .music_img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 10px;
 }
 
 .music_name {
+  padding-top: 5px;
   font-size: 16px;
   font-weight: 500;
   text-align: center;
@@ -153,6 +143,8 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+  padding-bottom: 3%;
+  padding-top: 17%;
 }
 
 .quote_container > blockquote {
@@ -160,7 +152,7 @@
 }
 
 .music_bt {
-  border-radius: 10px;
+  border-radius: 13px;
   display: flex;
   flex-direction: column;
   justify-content: center;

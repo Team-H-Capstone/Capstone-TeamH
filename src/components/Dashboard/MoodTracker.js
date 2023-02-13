@@ -92,10 +92,16 @@ const MoodTracker = () => {
   };
 
   return (
-    <div className="flex flex-row justify-around mx-7">
-      <section className="flex flex-col justify-center items-center">
-        <h1 className="text-4xl font-bold text-[#344E41] pt-2">Mood Tracker</h1>
-        <p className="text-lg text-gray-600 mb-2">
+    <div className="flex flex-row justify-evenly min-w-fit mx-7">
+      <section className="flex flex-col justify-center items-center min-w-fit">
+        <h1
+        className="font-bold text-[#344E41] pt-2"
+        style={{ fontSize: "4.5vh" }}
+        >Mood Tracker</h1>
+        <p
+          className="text-[#344E41] mb-2"
+          style={{ fontSize: "3.5vh" }}
+          >
           {`${new Date().toLocaleDateString("default", {
             day: "numeric",
             month: "long",
@@ -103,7 +109,10 @@ const MoodTracker = () => {
             weekday: "long",
           })}`}
         </p>
-        <h2 className="text-xl text-[#344E41]">How are you feeling today?</h2>
+        <h2
+         className="text-[#344E41]"
+         style={{ fontSize: "3.5vh" }}
+        >How are you feeling today?</h2>
         <form onSubmit={onSubmitMood} className="mt-5">
           <div className="flex text-center">
             <div className="mx-2">
@@ -115,6 +124,7 @@ const MoodTracker = () => {
                   radWiggle && "animate-wiggle"
                 } text-5xl cursor-pointer`}
                 onAnimationEnd={() => setRadWiggle(false)}
+                style={{ fontSize: "7vh" }}
               >
                 😁
               </div>
@@ -129,6 +139,7 @@ const MoodTracker = () => {
                   goodWiggle && "animate-wiggle"
                 } text-5xl cursor-pointer`}
                 onAnimationEnd={() => setGoodWiggle(false)}
+                style={{ fontSize: "7vh" }}
               >
                 😀
               </div>
@@ -143,6 +154,7 @@ const MoodTracker = () => {
                   mehWiggle && "animate-wiggle"
                 } text-5xl cursor-pointer`}
                 onAnimationEnd={() => setMehWiggle(false)}
+                style={{ fontSize: "7vh" }}
               >
                 😐
               </div>
@@ -157,6 +169,7 @@ const MoodTracker = () => {
                   badWiggle && "animate-wiggle"
                 } text-5xl cursor-pointer`}
                 onAnimationEnd={() => setBadWiggle(false)}
+                style={{ fontSize: "7vh" }}
               >
                 🙁
               </div>
@@ -171,6 +184,7 @@ const MoodTracker = () => {
                   awfulWiggle && "animate-wiggle"
                 } text-5xl cursor-pointer`}
                 onAnimationEnd={() => setAwfulWiggle(false)}
+                style={{ fontSize: "7vh" }}
               >
                 😢
               </div>
@@ -180,25 +194,35 @@ const MoodTracker = () => {
           <div className="flex justify-center pb-2">
             <button
               type="submit"
-              className="mt-5 bg-cyan-500 hover:bg-cyan-700 text-white py-2 px-4 rounded-full transition-colors duration-300"
+              className="mt-2 bg-[#343a40] border-2 hover:bg-[#6B9080] text-white hover:border-[#CCE3DE] hover:text-[#283618] py-2 px-4 rounded-full transition-colors duration-100"
+              style={{ fontSize: "3.5vh" }}
             >
               Submit Mood
             </button>
           </div>
         </form>
       </section>
-      <div>
-        <h2 className="text-3xl font-bold text-[#344E41] text-center pt-2">
+      <section className="flex flex-col items-center min-w-fit">
+        <h2
+          className="font-bold text-[#344E41] text-center pt-2"
+          style={{ fontSize: "4.5vh" }}
+        >
           Past Moods
         </h2>
-        <ul className="text-2xl text-[#344E41] mb-5">
+        <ul
+          className="text-2xl text-[#344E41] mb-5"
+          style={{ fontSize: "3.5vh" }}
+          >
           {moodList.map((mood) => (
-            <li>
-              {mood.date}, {mood.dayOfWeek} - {mood.mood}
+            <li
+            className="flex flex-row justify-between item-center"
+            >
+                <h1>{mood.date}, {mood.dayOfWeek}</h1>
+                <h1 className="pl-4">---- {mood.mood}</h1>
             </li>
           ))}
         </ul>
-      </div>
+      </section>
     </div>
   );
 };

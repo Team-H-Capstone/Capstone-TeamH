@@ -4,11 +4,11 @@ import * as am5 from "@amcharts/amcharts5";
 import * as am5map from "@amcharts/amcharts5/map";
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated";
 import am5geodata_usaHigh from "@amcharts/amcharts5-geodata/usaHigh";
+import * as am5plugins_exporting from "@amcharts/amcharts5/plugins/exporting";
 
 const USA = () => {
 
   useLayoutEffect(() => {
-    
     let root = am5.Root.new("chartdiv");
 
     root.setThemes([
@@ -20,7 +20,7 @@ const USA = () => {
         panX: "rotateX",
         panY: "rotateY",
         projection: am5map.geoAlbersUsa(),
-        layout: root.horizontalLayout
+        layout: root.horizontalLayout,
       }) 
     );
 
@@ -127,10 +127,26 @@ const USA = () => {
         heatLegend.set("endValue", polygonSeries.getPrivate("valueHigh"));
       });
 
+      // // Create a export menu to download the chart
+      // let exporting = am5plugins_exporting.Exporting.new(root, {
+      //   menu: am5plugins_exporting.ExportingMenu.new(root, {})
+      // });
+      
+      // // Export chart as PNG
+      // exporting.export("png", function(data) {
+      //   // Create an image element and set the source to the data URL
+      //   let img = document.createElement("img");
+      //   img.src = data;
+      
+      //   // Add the image to the page
+      //   document.body.appendChild(img);
+      // });
+
     return () => {
       root.dispose();
     };
   }, []);
+
 
   return (
     <div id="chartdiv" style={{ width: "45vw", height: "45vh"}}></div>

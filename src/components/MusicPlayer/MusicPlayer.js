@@ -5,8 +5,11 @@ import 'react-circular-progressbar/dist/styles.css';
 import Sound from './playSound';
 import ProgressBar from './ProgressBar';
 import StyleSlider from './Slider';
-import { playBtnImg, pauseBtnImg, loudVolumeImg, lowVolumeImg, muteVolumeImg, rainAudio, woodlandAudio, streamAudio, wavesAudio, fireAudio, thunderAudio, deepseaAudio, fanAudio, rainImg, woodlandImg, streamImg, wavesImg, fireImg, thunderImg, deepseaImg, fanImg } from './constant';
+import { playBtnImg, pauseBtnImg, loudVolumeImg, lowVolumeImg, muteVolumeImg, rainAudio, woodlandAudio, streamAudio, wavesAudio, fireAudio, thunderAudio, deepseaAudio, fanAudio, rainImg, woodlandImg, streamImg, wavesImg, fireImg, thunderImg, deepseaImg, fanImg, rainVid, woodlandVid, streamVid, wavesVid, fireVid, thunderVid, deepseaVid, fanVid } from '../constant';
 import Quotes from './Quotes';
+import Navbar from '../Navbar'
+
+
 
 const MusicPlayer = () => {
   const [playButton, setPlayButton] = useState(playBtnImg);
@@ -14,8 +17,8 @@ const MusicPlayer = () => {
   const [time, setTime] = useState([120, 300, 600, 900]); //* timeValues is an array of time values in seconds for the time
   const [audioNames, setAudioNames] = useState(['Rain', 'Woodland', 'Stream', 'Waves', 'Fire', 'Thunder', 'Deep Sea', 'Fan']); //* audioNames is an array of audio names
   const [seekCurrentPosition, setSeekCurrentPosition] = useState(0); //* seekCurrentPosition is the current position of the audio track
-  const [audio, setAudio] = useState(rainAudio); //* audio is current audio track
-  const [bgImg, setBgImg] = useState(rainImg); //* bgImg is the background image
+  const [audio, setAudio] = useState(wavesAudio); //* audio is current audio track
+  const [bgImg, setBgImg] = useState(wavesVid); //* bgImg is the background image
   const [desiredTime, setDesiredTime] = useState(120); //* desiredTime is the desired time in seconds
   const [volumeIcon, setVolumeIcon] = useState(); //* volumeIcon is the volume icon
   const [volume, setVolume] = useState(100); //* volume is the volume of the audio track
@@ -67,29 +70,29 @@ const MusicPlayer = () => {
     console.log('audioSelect');
     if (name === 'Woodland') {
       setAudio(woodlandAudio);
-      setBgImg(woodlandImg);
+      setBgImg(woodlandVid);
       // console.log('woodland', bgImg)
     } else if (name === 'Rain') {
       setAudio(rainAudio);
-      setBgImg(rainImg);
-    } else if (name === 'Stream') {
-      setAudio(streamAudio);
-      setBgImg('img/stream.jpg');
+      setBgImg(rainVid);
     } else if (name === 'Waves') {
       setAudio(wavesAudio);
-      setBgImg('img/waves.jpg');
+      setBgImg(wavesVid);
+    } else if (name === 'Stream') {
+      setAudio(streamAudio);
+      setBgImg(streamVid);
     } else if (name === 'Fire') {
       setAudio(fireAudio);
-      setBgImg('img/fire.jpg');
+      setBgImg(fireVid);
     } else if (name === 'Thunder') {
       setAudio(thunderAudio);
-      setBgImg('img/thunder.jpg');
+      setBgImg(thunderVid);
     } else if (name === 'Deep Sea') {
       setAudio(deepseaAudio);
-      setBgImg('img/deepsea.jpg');
+      setBgImg(deepseaVid);
     } else if (name === 'Fan') {
       setAudio(fanAudio);
-      setBgImg('img/fan.jpg');
+      setBgImg(fanVid);
     }
   };
 
@@ -141,7 +144,8 @@ const MusicPlayer = () => {
     );
   });
 
-  const volumeChange = (value) => {
+  const volumeChange = (event) => {
+    const value = Number(event.target.value)
     setVolume(mute ? volume : value);
     setVolumeIcon(mute || value === 0 ? muteVolumeImg : value <= 50 ? lowVolumeImg : loudVolumeImg);
   };
@@ -155,17 +159,14 @@ const MusicPlayer = () => {
     // <div className="flex max-w-screen-xl my-10 h-screen">
     
     <div className="app_container" onMouseMove={onMouseMove}>
+      <Navbar style={{opacity: opacity, transition: transition}}/>
       {/* <nav className='nav'> YOO</nav> */}
       <div className="background_overlay"></div>
       <div className="background">
-        {/* <video loop playsInline autoPlay disablePictureInPicture controlsList="nodownload noplaybackrate" id="bg_vid">
-          <source
-            // src="https://assets.calm.com/02468a3ae77a0cd4b8104fda6b0164e8.mp4"
-            src={bgImg}
-            type="video/mp4"
-          ></source>
-        </video> */}
-        <img src={bgImg} alt="backgroundImg" />
+        <video loop playsInline autoPlay disablePictureInPicture muted controlsList="nodownload noplaybackrate" id="bg_vid" src={bgImg}
+          type='video/mp4'>
+        </video>
+        {/* <img src={bgImg} alt="backgroundImg" /> */}
       </div>
       {/* <div className="mt-12 text-white">{timeOptions}</div> */}
       {/* <div className="grid mt-12 text-white">{audioOptions}</div> */}
@@ -185,11 +186,9 @@ const MusicPlayer = () => {
         {/* <div className="timer text-white">00 : 00</div> */}
         {/* <div className="mt-12 text-white">{timeOptions}</div> */}
       </div>
-      <div className="audio_menu text-white" style={{opacity: opacity, transition: transition}}>{audioOptions}</div>
-     
       <Quotes /> 
+      <div className="audio_menu text-white" style={{opacity: opacity, transition: transition}}>{audioOptions}</div>
     </div>
-    
   );
 };
 

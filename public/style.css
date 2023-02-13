@@ -21,7 +21,80 @@ body {
     background-color: #344E41;
     /* font-family: 'Comfortaa', cursive; */
     font-family: 'Jost', sans-serif;
+    overflow-x: hidden;
+    height: 100vh;
+    width: 100vw;
 }
+
+/* Parallax */
+#main_sec #text {
+  position: absolute;
+  font-size: 10vw;
+  line-height: 0.55em;
+  transform: translateY(-50%);
+}
+
+#main_sec #text span {
+  /* font-size: 0.20em; */
+  /* letter-spacing: 2px; */
+  font-size: 5vw;
+}
+
+#main_sec::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: linear-gradient(to top, #A3B18A, transparent);
+  /* background: linear-gradient(to top, #2b53c4, #1e3987, #325edb, transparent); */
+  /* background: radial-gradient(to top, #2b53c4, #1e3987, #325edb, transparent); */
+  z-index: 10;
+}
+
+
+#main_sec img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 95%;  /* 100% but this a bug it will show the forest at the chart section */
+  /* pointer-events: none; */
+  /* object-fit: cover; */
+}
+
+#home_btn {
+  display: inline-block;
+  padding: 8px 40px;
+  background: white;
+  color: red;
+  font-size: 1.2em;
+  font-weight: 500;
+  border-radius: 40px;
+  transform: translateY(100px);
+}
+
+#image_track {
+  display: flex;
+  flex-direction: row;
+  gap: 5vmin;
+  position: relative;
+  /* height: 50%; */
+  left: 50%;
+  /* top: 50%; */
+  transform: translate(0%, -50%);
+  /* z-index: 20; */
+  /* background:rgb(230, 153, 12) */
+}
+#image_track img {
+height: 40vmin;
+width: 80vmin;
+object-fit: cover;
+object-position: center;
+}
+
+
 
 /* Navbar CSS */
 
@@ -81,7 +154,7 @@ body {
   margin: 5px 5px;
   padding: 0;
   border: 1px solid grey;
-  width: 125px;
+  width: 134px;
   z-index: 1;
 }
 
@@ -142,6 +215,7 @@ body {
 .memoryGameButton:hover {
     background: #6b9080;
     color: #283618;
+    transition-duration: 150;
 }
 
 .memoryGameTitle {
@@ -268,7 +342,7 @@ body {
   }
   
   .question-text {
-    font-size: 1.1vw;
+    font-size: 1.3vw;
     text-align: center;
     justify-content: "center";
     overflow-y: scroll;
@@ -288,7 +362,6 @@ body {
   /* ANSWERS/RIGHT SECTION */
   .answer-section {
     width: 100%;
-    font-Size: "1.3vw";
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -296,8 +369,8 @@ body {
   
  .quiz-button {
     width: 30vw;
-    height: 4vh;
-    font-size: 1vw;
+    height: 5.2vh;
+    font-size: 1.5vw;
     color: #ffffff;
     background-color: #252d4a;
     border-radius: 15px;

@@ -18,8 +18,8 @@ const App = () => {
 
   return (
     <div>
-     {/* {location.pathname !== '/music' && <Navbar />} */}
-      <Navbar />
+     {location.pathname !== '/music' && <Navbar />}
+      {/* <Navbar /> */}
       <Routes>
         <Route path="/*" element={<Home />} />
         <Route path="/home" element={<Home />} />
