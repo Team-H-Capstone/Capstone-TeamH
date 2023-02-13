@@ -168,7 +168,7 @@ const Notepad = () => {
 
   return (
     <div 
-    className="flex flex-col justify-center items-center border-solid border-2 border-[#A78A7F] py-2 bg-[#E7D7C1] rounded-3xl min-w-fit" 
+    className="flex flex-col justify-center items-center border-solid border-2 border-[#D4A373] py-2 bg-[#E7D7C1] rounded-3xl min-w-fit" 
     style={{ width:"43vw" }}
     >
       <h1 className="pb-2 px-10 text-[#344E41]" style={{ fontSize: "4.5vh" }}>Journal</h1>

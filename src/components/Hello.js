@@ -99,7 +99,7 @@ const Home = () => {
             data-aos-offset="0"
             style={{ fontSize: "3.5vw" }}
           >
-            Enter Our Interactive Rooms
+            Enter Mental Spa
           </h1>
           <div
             style={{

@@ -123,7 +123,7 @@ const MyThoughts = () => {
   }
 
   return (
-    <div className="flex flex-col justify-around items-center border-solid border-2 border-[#A78A7F] py-2 bg-[#E7D7C1] rounded-3xl min-w-fit rounded-3xl">
+    <div className="flex flex-col justify-around items-center border-solid border-2 border-[#D4A373] py-2 bg-[#E7D7C1] rounded-3xl min-w-fit rounded-3xl">
       <div className="flex flex-row justify-center items-center px-4">
         <button onClick={backwards}>
           <FaArrowLeft />
