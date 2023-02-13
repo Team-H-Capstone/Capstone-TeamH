@@ -152,23 +152,26 @@ const Notepad = () => {
     return null
   }
 
+  const dateISO = new Date().toISOString();
+
   const handleSubmit = (evt) => {
     evt.preventDefault();
     addDoc(collection(db,"Notepad"),{
       textBox,
       name: auth.currentUser.displayName, 
       uid: auth.currentUser.uid,
-      Timestamp: new Date(Date.now()).toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'})
+      Timestamp: new Date(Date.now()).toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'}),
+      dateISO: dateISO,
     })
   };
 
 
   return (
     <div 
-    className="flex flex-col justify-center items-center border-solid border-2 py-4 bg-[#fefcfb] rounded-3xl" 
+    className="flex flex-col justify-center items-center border-solid border-2 border-[#A78A7F] py-2 bg-[#E7D7C1] rounded-3xl min-w-fit" 
     style={{ width:"43vw" }}
     >
-      <h1 className="text-3xl pb-2 px-10 text-[#344E41]">Journal</h1>
+      <h1 className="pb-2 px-10 text-[#344E41]" style={{ fontSize: "4.5vh" }}>Journal</h1>
       <MenuBar editor={editor} />
       <div>
         <EditorContent editor={editor}/>
@@ -176,7 +179,7 @@ const Notepad = () => {
             {editor.storage.characterCount.characters()}/{limit} characters
             <br />
             {editor.storage.characterCount.words()} words
-            <button className="px-2 border-solid border-2 hover:bg-[#3D405B] hover:text-[#F4F1DE] rounded-full" onClick={handleSubmit}>Save</button>
+            <button className="py-2 px-4 bg-[#343a40] border-2 hover:bg-[#6B9080] text-white hover:border-[#CCE3DE] hover:text-[#283618] rounded-full transition-colors duration-100" onClick={handleSubmit}>Save</button>
         </div>
       </div>
     </div>

@@ -6,11 +6,12 @@
     border-radius: 0 0 10px 10px;
     height: 35vh;
     width: 37vw;
+    min-width: 37vw;
   }
 
 .ProseMirror:focus {
     border: none;
-    outline: 2.5px solid #d8e2dc;
+    outline: 2px solid #735751;
 }
 
   
@@ -47,7 +48,7 @@
   /* ............................ */
 
     button {
-    font-size: 22px;
+    font-size: 3.5vh;
     margin: 5px;
     padding: px;
     color: #344E41;
@@ -64,6 +65,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
     color: #344E41;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }

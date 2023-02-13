@@ -21,6 +21,7 @@ body {
     background-color: #344E41;
     /* font-family: 'Comfortaa', cursive; */
     font-family: 'Jost', sans-serif;
+    /* background: linear-gradient(#DAD7CD, #A3B18A, #588157); */
 }
 
 /* Navbar CSS */
@@ -142,6 +143,7 @@ body {
 .memoryGameButton:hover {
     background: #6b9080;
     color: #283618;
+    transition-duration: 150;
 }
 
 .memoryGameTitle {
@@ -268,7 +270,7 @@ body {
   }
   
   .question-text {
-    font-size: 1.1vw;
+    font-size: 1.3vw;
     text-align: center;
     justify-content: "center";
     overflow-y: scroll;
@@ -288,7 +290,6 @@ body {
   /* ANSWERS/RIGHT SECTION */
   .answer-section {
     width: 100%;
-    font-Size: "1.3vw";
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -296,8 +297,8 @@ body {
   
  .quiz-button {
     width: 30vw;
-    height: 4vh;
-    font-size: 1vw;
+    height: 5.2vh;
+    font-size: 1.5vw;
     color: #ffffff;
     background-color: #252d4a;
     border-radius: 15px;

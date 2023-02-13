@@ -13,14 +13,16 @@ const MyDashboard = () => {
   const [user] = useAuthState(auth);
   console.log("user--->", auth.currentUser);
 
-  // color #203239
+  // top-0 left-0 
 
   return (
     <div
-      className="w-full h-screen flex flex-row"
-      style={{ background: "white" }}
+      className="w-full h-full flex flex-row bg-[#D4A373]"
     >
-      <section className="top-0 left-0 min-w-min bg-[#D4A373] h-screen border-r overflow overflow-auto pt-24 text-[#CCD5AE]">
+      <section 
+        className="bg-[#D4A373] overflow overflow-auto pt-24 text-[#CCD5AE]"
+        style={{ 	minWidth: "fit-content" }}
+      >
         <div className="flex flex-col justify-center items-center">
           <img
             className="rounded-full"
@@ -29,11 +31,11 @@ const MyDashboard = () => {
             src="https://cityofgood.sg/wp-content/uploads/2020/11/mental-health-cover.png"
           />
           {user ? (
-            <h1 className="text-3xl font-bold text-[#344E41] pt-4 px-4">
+            <h1 className="text-3xl font-bold text-[#344E41] pt-4 px-6">
               Hello, {user?.displayName} 
             </h1>
           ) : (
-            <h1 className="text-3xl font-bold text-[#344E41] pt-4">
+            <h1 className="text-3xl font-bold text-[#344E41] pt-4 px-6">
               Hello, Guest 
             </h1>
           )}
@@ -82,9 +84,9 @@ const MyDashboard = () => {
           </ul>
         </div>
       </section>
-      <section className="flex flex-col w-full h-full pt-20 bg-[#DAD7CD]">
+      <section className="flex flex-col w-full h-full pt-20 bg-[#DAD7CD] min-w-fit min-h-fit">
         <MoodTracker />
-        <div className="flex flex-row">
+        <div className="flex flex-row flex justify-evenly min-w-fit mb-4 bg-[#DAD7CD]">
           <Notepad />
           <MyThoughts />
         </div>
