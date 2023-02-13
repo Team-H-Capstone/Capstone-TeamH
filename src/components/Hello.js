@@ -102,7 +102,7 @@ const Home = () => {
       <div
         className="flex flex-col justify-center items-center w-full h-full relative bg-[#1e3a8a] text-[#3A5A40]"
         style={{
-          backgroundImage: 'radial-gradient(#DAD7CD, #A3B18A, #588157)',
+          backgroundImage: "linear-gradient(#d8f3dc, #95d5b2)",
         }}
       >
         <h1 className="flex justify-center items-center text-9xl font-bold text-center pb-4" style={{ fontSize: '5vw' }} data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500" data-aos-offset="0">
@@ -120,9 +120,9 @@ const Home = () => {
       </div>
       <section
         name="rooms"
-        className="flex flex-row justify-center items-center w-full h-full text-[#344E41]"
+        className="flex flex-row justify-center items-center w-full h-full text-[#1b4332]"
         style={{
-          backgroundImage: 'radial-gradient(#DAD7CD, #A3B18A, #588157)',
+          backgroundImage: "linear-gradient(#95d5b2, #74c69d)",
         }}
       >
         <div
@@ -138,42 +138,53 @@ const Home = () => {
           </h1>
         </div>
         <div>
-          <h1 className="text-9xl font-bold text-center" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500" data-aos-offset="0" style={{ fontSize: '3.5vw' }}>
-            Enter Our Interactive Rooms
+          <h1
+            className="text-9xl font-bold text-center"
+            data-aos="fade-zoom-in"
+            data-aos-easing="ease-in-back"
+            data-aos-delay="500"
+            data-aos-offset="0"
+            style={{ fontSize: "3.5vw" }}
+          >
+            Enter Mental Spa
           </h1>
           <div
             style={{
-              width: '50vw',
+              width: "50vw",
               marginTop: 60,
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'center',
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "center",
             }}
           >
             <Link to="/music">
               <div
                 style={{
-                  display: 'flex',
-                  width: '20vw',
-                  height: '20vh',
-                  alignItems: 'right',
-                  border: '8px solid white',
+                  display: "flex",
+                  width: "20vw",
+                  height: "20vh",
+                  alignItems: "right",
+                  border: "8px solid white",
                   backgroundImage: `url("/img/meditation.jpeg")`,
-                  backgroundPosition: 'center',
-                  backgroundSize: 'cover',
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
                   borderRadius: 50,
                   marginRight: 25,
                 }}
+                data-aos="fade-zoom-in"
+                data-aos-easing="ease-in-back"
+                data-aos-delay="500"
+                data-aos-offset="0"
               >
                 <h1
                   style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    textAlign: 'center',
-                    justifyContent: 'center',
-                    width: '100%',
-                    fontSize: '3vw',
-                    color: '#DAD7CD',
+                    display: "flex",
+                    alignItems: "center",
+                    textAlign: "center",
+                    justifyContent: "center",
+                    width: "100%",
+                    fontSize: "3vw",
+                    color: "#DAD7CD",
                   }}
                 >
                   Music
@@ -184,24 +195,28 @@ const Home = () => {
             <Link to="/memoryGame">
               <div
                 style={{
-                  display: 'flex',
-                  width: '20vw',
-                  height: '20vh',
-                  alignItems: 'right',
-                  border: '8px solid white',
+                  display: "flex",
+                  width: "20vw",
+                  height: "20vh",
+                  alignItems: "right",
+                  border: "8px solid white",
                   backgroundImage: `url("/img/gameBackground.jpeg")`,
-                  backgroundPosition: 'center',
+                  backgroundPosition: "center",
                   borderRadius: 50,
-                  color: '#DAD7CD',
+                  color: "#DAD7CD",
                 }}
+                data-aos="fade-zoom-in"
+                data-aos-easing="ease-in-back"
+                data-aos-delay="500"
+                data-aos-offset="0"
               >
                 <h1
                   style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    width: '100%',
-                    fontSize: '3vw',
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "100%",
+                    fontSize: "3vw",
                   }}
                 >
                   Game
@@ -213,15 +228,25 @@ const Home = () => {
       </section>
       <section
         name="question"
-        className="flex flex-row justify-center items-center w-full h-full text-[#344E41]"
+        className="flex flex-row justify-center items-center w-full h-full text-[#081c15]"
         style={{
-          backgroundImage: 'radial-gradient(#DAD7CD, #A3B18A, #588157)',
+          backgroundImage: "linear-gradient(#74c69d, #52b788)",
         }}
       >
-        <div className="text-9xl font-bold text-center" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500" data-aos-offset="0" style={{ fontSize: '3.5vw', width: '30vw', lineHeight: '1.5' }}>
-          <Link className="text-[#800e13] font-bold hover:text-[#E07A5F] hover:text-[4.5vw] hover:underline" to="/register">
+        <div
+          className="text-9xl font-bold text-center"
+          data-aos="fade-zoom-in"
+          data-aos-easing="ease-in-back"
+          data-aos-delay="500"
+          data-aos-offset="0"
+          style={{ fontSize: "3.5vw", width: "30vw", lineHeight: "1.5" }}
+        >
+          <Link
+            className="text-[#d90429] font-bold hover:text-[#d8572a] hover:text-[4.5vw] hover:underline transition-colors duration-100"
+            to="/register"
+          >
             Sign up
-          </Link>{' '}
+          </Link>{" "}
           to boost and refine mindfulness with a mood tracker and journal.
         </div>
         <img alt="homeimg" width="400vw" className="rounded-full px-[10px], border-2" src="https://cdn.sanity.io/images/0vv8moc6/psychtimes/05a2dd97fbedb285c5fd380a411b24847c8dcc11-1000x819.jpg?fit=crop&auto=format" />
@@ -231,17 +256,27 @@ const Home = () => {
       </section>
       <section
         name="question"
-        className="flex flex-col justify-center items-center w-full h-full text-[#344E41]"
+        className="w-full h-full flex justify-center text-[#081c15]"
         style={{
-          backgroundImage: 'radial-gradient(#DAD7CD, #A3B18A, #588157)',
+          backgroundImage: "linear-gradient(#52b788, #40916c)",
         }}
       >
-        <br></br>
-        <h1 className="flex justify-center text-center items-center text-5xl font-bold pb-4" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500" data-aos-offset="0" style={{ fontSize: '2.5vw' }}>
-          Want to learn more about Mental Health? Take the quiz!
-        </h1>
-        <br></br>
-        <Quiz />
+        <div
+          data-aos="fade-zoom-in"
+          data-aos-easing="ease-in-back"
+          data-aos-delay="500"
+          data-aos-offset="0"
+          className="flex flex-col justify-center items-center"
+        >
+          <h1
+            className="flex justify-center text-center items-center text-5xl font-bold pb-4"
+            style={{ fontSize: "3vw" }}
+          >
+            Want to learn more about Mental Health? Take the quiz!
+          </h1>
+          <br></br>
+          <Quiz />
+        </div>
       </section>
     </div>
   );

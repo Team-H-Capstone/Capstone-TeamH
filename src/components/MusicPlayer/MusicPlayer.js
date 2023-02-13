@@ -188,11 +188,9 @@ const MusicPlayer = () => {
         {/* <div className="timer text-white">00 : 00</div> */}
         {/* <div className="mt-12 text-white">{timeOptions}</div> */}
       </div>
-      <div className="audio_menu text-white" style={{opacity: opacity, transition: transition}}>{audioOptions}</div>
-     
       <Quotes /> 
+      <div className="audio_menu text-white" style={{opacity: opacity, transition: transition}}>{audioOptions}</div>
     </div>
-    
   );
 };
 

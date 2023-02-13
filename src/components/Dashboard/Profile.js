@@ -108,7 +108,7 @@ const Profile = () => {
           <div className="flex justify-center pt-5">
             <button
               onClick={handleUpdate}
-              className="text-white bg-[#343a40] group border-2 px-6 py-3 my-2 flex items-center hover:bg-[#6B9080] hover:border-[#CCE3DE] hover:text-[#283618] hover:font-bold rounded-full"
+              className="text-white bg-[#343a40] group border-2 px-6 py-3 my-2 flex items-center hover:bg-[#6B9080] hover:border-[#CCE3DE] hover:text-[#283618] hover:font-bold rounded-full transition-colors duration-100"
             >
               Update
             </button>
