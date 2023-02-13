@@ -92,16 +92,15 @@ const MoodTracker = () => {
   };
 
   return (
-    <div  className="flex flex-row justify-evenly min-w-fit mx-7">
+    <div className="flex flex-row justify-evenly min-w-fit mx-7">
       <section className="flex flex-col justify-center items-center min-w-fit">
         <h1
-        className="font-bold text-[#344E41] pt-2"
-        style={{ fontSize: "4.5vh" }}
-        >Mood Tracker</h1>
-        <p
-          className="text-[#344E41] mb-2"
-          style={{ fontSize: "3.5vh" }}
-          >
+          className="font-bold text-[#344E41] pt-2"
+          style={{ fontSize: "4.5vh" }}
+        >
+          Mood Tracker
+        </h1>
+        <p className="text-[#344E41] mb-2" style={{ fontSize: "3.5vh" }}>
           {`${new Date().toLocaleDateString("default", {
             day: "numeric",
             month: "long",
@@ -109,10 +108,9 @@ const MoodTracker = () => {
             weekday: "long",
           })}`}
         </p>
-        <h2
-         className="text-[#344E41]"
-         style={{ fontSize: "3.5vh" }}
-        >How are you feeling today?</h2>
+        <h2 className="text-[#344E41]" style={{ fontSize: "3.5vh" }}>
+          How are you feeling today?
+        </h2>
         <form onSubmit={onSubmitMood} className="mt-5">
           <div className="flex text-center">
             <div className="mx-2">
@@ -212,13 +210,13 @@ const MoodTracker = () => {
         <ul
           className="text-2xl text-[#344E41] mb-5"
           style={{ fontSize: "3.5vh" }}
-          >
+        >
           {moodList.map((mood) => (
-            <li
-            className="flex flex-row justify-between item-center"
-            >
-                <h1>{mood.date}, {mood.dayOfWeek}</h1>
-                <h1 className="pl-4">---- {mood.mood}</h1>
+            <li className="flex flex-row justify-between item-center">
+              <h1>
+                {mood.date}, {mood.dayOfWeek}
+              </h1>
+              <h1 className="pl-4">---- {mood.mood}</h1>
             </li>
           ))}
         </ul>
