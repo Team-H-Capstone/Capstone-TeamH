@@ -60,19 +60,16 @@ const MoodTracker = () => {
       month: "long",
     });
 
-    const dateISO = new Date().toISOString().slice(0, 10);
-
     const moodRef = doc(
       db,
       "moods",
       auth.currentUser.uid,
       auth.currentUser.displayName,
-      dateISO
+      currentDate
     );
     await setDoc(moodRef, {
       mood: mood,
       dayOfWeek: currentDay,
-      dateISO: dateISO,
       date: currentDate,
     });
   };
@@ -80,7 +77,7 @@ const MoodTracker = () => {
   return (
     <div className="flex flex-row justify-around items-center border-solid border-2 bg-[#f8f9fa] rounded-3xl">
       <section>
-        <h1 className="text-4xl font-bold text-212529 pt-4">Mood Tracker</h1>
+        <h1 className="text-4xl font-bold text-212529 pt-4">MyMoodTracker</h1>
         <p className="text-lg text-gray-600 mb-5">
           {`${new Date().toLocaleDateString("default", {
             day: "numeric",
@@ -89,81 +86,55 @@ const MoodTracker = () => {
             weekday: "long",
           })}`}
         </p>
-        <h2 className="text-xl">How are you feeling today?</h2>
+        <h2 className="text-xl text-[#344E41]">How are you feeling today?</h2>
         <form onSubmit={onSubmitMood} className="mt-5">
           <div className="flex text-center">
-            <div>
-              <div
-                role="img"
-                aria-label="Rad"
-                onClick={() => [setMood("😁"), setRadWiggle(true)]}
-                className={`${
-                  radWiggle && "animate-wiggle"
-                } text-5xl mr-5 cursor-pointer`}
-                onAnimationEnd={() => setRadWiggle(false)}
-              >
-                😁
-              </div>
-              <p className="pr-5 text-xl text-teal-500">rad</p>
-            </div>
-            <div>
-              <div
-                role="img"
-                aria-label="Good"
-                onClick={() => [setMood("😀"), setGoodWiggle(true)]}
-                className={`${
-                  goodWiggle && "animate-wiggle"
-                } text-5xl mr-5 cursor-pointer`}
-                onAnimationEnd={() => setGoodWiggle(false)}
-              >
-                😀
-              </div>
-              <p className="pr-5 text-xl text-green-500">good</p>
-            </div>
-            <div>
-              <div
-                role="img"
-                aria-label="Meh"
-                onClick={() => [setMood("😐"), setMehWiggle(true)]}
-                className={`${
-                  mehWiggle && "animate-wiggle"
-                } text-5xl mr-5 cursor-pointer`}
-                onAnimationEnd={() => setMehWiggle(false)}
-              >
-                😐
-              </div>
-              <p className="pr-5 text-xl text-blue-500">meh</p>
-            </div>
-            <div>
-              <div
-                role="img"
-                aria-label="Bad"
-                onClick={() => [setMood("🙁"), setBadWiggle(true)]}
-                className={`${
-                  badWiggle && "animate-wiggle"
-                } text-5xl mr-5 cursor-pointer`}
-                onAnimationEnd={() => setBadWiggle(false)}
-              >
-                🙁
-              </div>
-              <p className="pr-5 text-xl text-orange-500">bad</p>
-            </div>
-            <div>
-              <div
-                role="img"
-                aria-label="Awful"
-                onClick={() => [setMood("😢"), setAwfulWiggle(true)]}
-                className={`${
-                  awfulWiggle && "animate-wiggle"
-                } text-5xl mr-5 cursor-pointer`}
-                onAnimationEnd={() => setAwfulWiggle(false)}
-              >
-                😢
-              </div>
-              <p className="pr-5 text-xl text-red-500">awful</p>
-            </div>
+            <span
+              role="img"
+              aria-label="Happy"
+              onClick={() => [setMood("😊"), setHappyWiggle(true)]}
+              className={`${
+                happyWiggle && "animate-wiggle"
+              } text-5xl mr-5 cursor-pointer`}
+              onAnimationEnd={() => setHappyWiggle(false)}
+            >
+              😊
+            </span>
+            <span
+              role="img"
+              aria-label="Sad"
+              onClick={() => [setMood("😢"), setSadWiggle(true)]}
+              className={`${
+                sadWiggle && "animate-wiggle"
+              } text-5xl mr-5 cursor-pointer`}
+              onAnimationEnd={() => setSadWiggle(false)}
+            >
+              😢
+            </span>
+            <span
+              role="img"
+              aria-label="Excited"
+              onClick={() => [setMood("😁"), setExcitedWiggle(true)]}
+              className={`${
+                excitedWiggle && "animate-wiggle"
+              } text-5xl mr-5 cursor-pointer`}
+              onAnimationEnd={() => setExcitedWiggle(false)}
+            >
+              😁
+            </span>
+            <span
+              role="img"
+              aria-label="Stressed"
+              onClick={() => [setMood("😰"), setStressedWiggle("😰")]}
+              className={`text-5xl mr-5 cursor-pointer ${
+                stressedWiggle === "😰" ? "animate-wiggle" : ""
+              }`}
+              onAnimationEnd={() => setStressedWiggle("")}
+            >
+              😰
+            </span>
           </div>
-          <div className="flex justify-center">
+          <div className="flex justify-center pb-2">
             <button
               type="submit"
               className="mt-5 bg-cyan-500 hover:bg-cyan-700 text-white py-2 px-4 rounded-full transition-colors duration-300"
@@ -175,9 +146,9 @@ const MoodTracker = () => {
       </section>
       <div>
         <h2 className="text-3xl font-bold text-212529 pt-4 text-center">
-          Past Moods
+          History
         </h2>
-        <ul className="text-2xl text-600 mb-5">
+        <ul className="text-2xl text-[#344E41] mb-5">
           {moodList.map((mood) => (
             <li>
               {mood.date}, {mood.dayOfWeek} - {mood.mood}
