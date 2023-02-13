@@ -60,25 +60,42 @@ const MoodTracker = () => {
       month: "long",
     });
 
+    const getdateISO = () => {
+      const dateISO = new Date();
+      let year = dateISO.getFullYear();
+      let month = dateISO.getMonth() + 1;
+      let dt = dateISO.getDate();
+
+      if (dt < 10) {
+        dt = "0" + dt;
+      }
+      if (month < 10) {
+        month = "0" + month;
+      }
+
+      return year + "-" + month + "-" + dt;
+    };
+
     const moodRef = doc(
       db,
       "moods",
       auth.currentUser.uid,
       auth.currentUser.displayName,
-      currentDate
+      getdateISO()
     );
     await setDoc(moodRef, {
       mood: mood,
       dayOfWeek: currentDay,
+      dateISO: getdateISO(),
       date: currentDate,
     });
   };
 
   return (
-    <div className="flex flex-row justify-around items-center border-solid border-2 bg-[#f8f9fa] rounded-3xl">
-      <section>
-        <h1 className="text-4xl font-bold text-212529 pt-4">MyMoodTracker</h1>
-        <p className="text-lg text-gray-600 mb-5">
+    <div className="flex flex-row justify-around mx-7">
+      <section className="flex flex-col justify-center items-center">
+        <h1 className="text-4xl font-bold text-[#344E41] pt-2">Mood Tracker</h1>
+        <p className="text-lg text-gray-600 mb-2">
           {`${new Date().toLocaleDateString("default", {
             day: "numeric",
             month: "long",
@@ -89,50 +106,76 @@ const MoodTracker = () => {
         <h2 className="text-xl text-[#344E41]">How are you feeling today?</h2>
         <form onSubmit={onSubmitMood} className="mt-5">
           <div className="flex text-center">
-            <span
-              role="img"
-              aria-label="Happy"
-              onClick={() => [setMood("😊"), setHappyWiggle(true)]}
-              className={`${
-                happyWiggle && "animate-wiggle"
-              } text-5xl mr-5 cursor-pointer`}
-              onAnimationEnd={() => setHappyWiggle(false)}
-            >
-              😊
-            </span>
-            <span
-              role="img"
-              aria-label="Sad"
-              onClick={() => [setMood("😢"), setSadWiggle(true)]}
-              className={`${
-                sadWiggle && "animate-wiggle"
-              } text-5xl mr-5 cursor-pointer`}
-              onAnimationEnd={() => setSadWiggle(false)}
-            >
-              😢
-            </span>
-            <span
-              role="img"
-              aria-label="Excited"
-              onClick={() => [setMood("😁"), setExcitedWiggle(true)]}
-              className={`${
-                excitedWiggle && "animate-wiggle"
-              } text-5xl mr-5 cursor-pointer`}
-              onAnimationEnd={() => setExcitedWiggle(false)}
-            >
-              😁
-            </span>
-            <span
-              role="img"
-              aria-label="Stressed"
-              onClick={() => [setMood("😰"), setStressedWiggle("😰")]}
-              className={`text-5xl mr-5 cursor-pointer ${
-                stressedWiggle === "😰" ? "animate-wiggle" : ""
-              }`}
-              onAnimationEnd={() => setStressedWiggle("")}
-            >
-              😰
-            </span>
+            <div className="mx-2">
+              <div
+                role="img"
+                aria-label="Rad"
+                onClick={() => [setMood("😁"), setRadWiggle(true)]}
+                className={`${
+                  radWiggle && "animate-wiggle"
+                } text-5xl cursor-pointer`}
+                onAnimationEnd={() => setRadWiggle(false)}
+              >
+                😁
+              </div>
+              <p className="text-xl text-teal-500">rad</p>
+            </div>
+            <div className="mx-2">
+              <div
+                role="img"
+                aria-label="Good"
+                onClick={() => [setMood("😀"), setGoodWiggle(true)]}
+                className={`${
+                  goodWiggle && "animate-wiggle"
+                } text-5xl cursor-pointer`}
+                onAnimationEnd={() => setGoodWiggle(false)}
+              >
+                😀
+              </div>
+              <p className="text-xl text-green-500">good</p>
+            </div>
+            <div className="mx-2">
+              <div
+                role="img"
+                aria-label="Meh"
+                onClick={() => [setMood("😐"), setMehWiggle(true)]}
+                className={`${
+                  mehWiggle && "animate-wiggle"
+                } text-5xl cursor-pointer`}
+                onAnimationEnd={() => setMehWiggle(false)}
+              >
+                😐
+              </div>
+              <p className="text-xl text-blue-500">meh</p>
+            </div>
+            <div className="mx-2">
+              <div
+                role="img"
+                aria-label="Bad"
+                onClick={() => [setMood("🙁"), setBadWiggle(true)]}
+                className={`${
+                  badWiggle && "animate-wiggle"
+                } text-5xl cursor-pointer`}
+                onAnimationEnd={() => setBadWiggle(false)}
+              >
+                🙁
+              </div>
+              <p className="text-xl text-orange-500">bad</p>
+            </div>
+            <div className="mx-2">
+              <div
+                role="img"
+                aria-label="Awful"
+                onClick={() => [setMood("😢"), setAwfulWiggle(true)]}
+                className={`${
+                  awfulWiggle && "animate-wiggle"
+                } text-5xl cursor-pointer`}
+                onAnimationEnd={() => setAwfulWiggle(false)}
+              >
+                😢
+              </div>
+              <p className="text-xl text-red-500">awful</p>
+            </div>
           </div>
           <div className="flex justify-center pb-2">
             <button
@@ -145,8 +188,8 @@ const MoodTracker = () => {
         </form>
       </section>
       <div>
-        <h2 className="text-3xl font-bold text-212529 pt-4 text-center">
-          History
+        <h2 className="text-3xl font-bold text-[#344E41] text-center pt-2">
+          Past Moods
         </h2>
         <ul className="text-2xl text-[#344E41] mb-5">
           {moodList.map((mood) => (
