@@ -43,11 +43,6 @@ const Home = () => {
 
   });
 
-  const handleClick = () => {
-    const target = document.getElementById('map_chart');
-    // const target = document.querySelector('[name="question"]');
-    target.scrollIntoView({ behavior: 'smooth' });
-  };
 
   useEffect(() => {
     AOS.init();
@@ -58,26 +53,26 @@ const Home = () => {
 
   return (
     <div className="w-full h-screen">
-      <section id="main_sec" className="flex flex-col justify-center items-center w-full h-screen relative bg-[#ADD8E6] text-red ">
-        <h2 className="flex justify-center items-center text-9xl font-bold text-center  " id="text" style={{ fontSize: '5vw' }} data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500" data-aos-offset="0">
+      {/* <section id="main_sec" className="flex flex-col justify-center items-center w-full h-screen relative bg-[#ADD8E6] text-red ">
+        <h2 className="flex justify-center items-center text-9xl font-bold text-center  " id="text" style={{ fontSize: '5vw' }} data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500" data-aos-offset="0"> */}
           {/* <span className="tracking-wide leading-none ">
             {' '}
             Hello <br />
             {user ? user.displayName : ''}!
           </span> */}
           {/* <br/>{user ? user.displayName : ""}! */}
-        </h2>
-        <img src={bird1Img} id="bird1" alt="bird1" />
+        {/* </h2> */}
+        {/* <img src={bird1Img} id="bird1" alt="bird1" />
         <img src={bird2Img} id="bird2" alt="bird2" className="mt-8" />
         <img src={forestImg} id="forest" alt="forest" className="mt-10" />
-        <img src={treeImg} id="tree" alt="tree" className="mt-10" />
+        <img src={treeImg} id="tree" alt="tree" className="mt-10" /> */}
         {/* <button className='' id='home_btn' onClick={handleClick}>Explore</button> */}
         {/* <img src={rocksImg} id="rocks" alt="rocks" className="my-10" /> */}
         {/* <img src={waterImg} id='water' alt='water'/> */}
 
         {/* <img src={mentalImg1} id="mental1" alt="mental1" className="mt-10" /> */}
         {/* <img src={mentalImg} id="mental" alt="mental" className="mt-20" /> */}
-      </section>
+      {/* </section> */}
 
       {/* <div name="question" className="flex flex-col justify-center items-center w-full h-full bg-[#344E41] text-white relative p-24">
         <h1 className="flex justify-center items-center text-9xl font-bold text-center" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500" data-aos-offset="0" style={{ fontSize: '5vw' }}>
@@ -90,14 +85,6 @@ const Home = () => {
 
       {/* <ImageSlider /> */}
 
-      {/* <div name="question" className="flex flex-col justify-center items-center w-full h-full bg-[#344E41] text-white ">
-        <br></br>
-        <h1 className="flex justify-center text-center items-center text-5xl font-bold" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500" data-aos-offset="0" style={{ fontSize: '2vw' }}>
-          Want to learn more about Mental Health? Take the quiz!
-        </h1>
-        <br></br>
-        <Quiz />
-      </div> */} 
 
       <div
         className="flex flex-col justify-center items-center w-full h-full relative bg-[#1e3a8a] text-[#3A5A40]"

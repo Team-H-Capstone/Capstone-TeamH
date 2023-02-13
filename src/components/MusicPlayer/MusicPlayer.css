@@ -38,8 +38,8 @@
   top: 0;
   bottom: 0;
   z-index: -1;
-  -webkit-backdrop-filter: blur(10px);
-  filter: blur(10px);
+  /* -webkit-backdrop-filter: blur(10px); */
+  /* filter: blur(10px); */
 }
 
 .nav {

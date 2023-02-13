@@ -14,17 +14,24 @@ export const thunderAudio = 'audio/thunder.mp3';
 export const deepseaAudio = 'audio/deepsea.mp3';
 export const fanAudio = 'audio/fan.mp3';
 
-export const rainImg = 'img/rain.jpg';
-export const woodlandImg = 'img/woodland.jpg';
-export const streamImg = 'img/stream.jpg';
-export const wavesImg = 'img/waves.jpg';
-export const fireImg = 'img/fire.jpg';
-export const thunderImg = 'img/thunder.jpg';
-export const deepseaImg = 'img/deepsea.jpg';
-export const fanImg = 'img/fan.jpg';
+export const rainImg = 'img/rain.jpeg';
+export const woodlandImg = 'img/woodland.png';
+export const streamImg = 'img/stream2.jpeg';
+export const wavesImg = 'img/waves.png';
+export const fireImg = 'img/fire.png';
+export const thunderImg = 'img/thunder.jpeg';
+export const deepseaImg = 'img/deepsea.png';
+export const fanImg = 'img/fan.png';
 
-// const rainVid = 'img/rain.mp4';
-// const woodlandVid = 'img/woodland.mp4';
+export const rainVid = 'img/rain.mp4';
+export const woodlandVid = 'img/woodland.mp4';
+export const streamVid = 'img/stream.mp4';
+export const wavesVid = 'img/waves.mp4';
+export const fireVid = 'img/fire.mp4';
+export const thunderVid = 'img/thunder.mp4';
+export const deepseaVid = 'img/deepsea.mp4';
+export const fanVid = 'img/fan.mp4';
+
 
 
 // ------------------------------------------------------------------------//
