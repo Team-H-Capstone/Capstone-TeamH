@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ForumIcon from "@mui/icons-material/Forum";
-import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
+import CreateIcon from '@mui/icons-material/Create';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import Notepad from "./Notepad";
 import MyThoughts from "./MyThoughts";
@@ -55,16 +55,16 @@ const MyDashboard = () => {
                 </span>
               </p>
             </Link>
-            <Link to="/calendar">
+            <Link to="/createpost">
               <p
                 href="#"
                 className="relative flex flex-row items-center h-11 focus:outline-none text-[#344E41] hover:bg-[#f8f9fa] hover:text-gray-800 border-l-4 border-transparent hover:border-indigo-500 pr-6"
               >
                 <span className="inline-flex justify-center items-center ml-4">
-                  <CalendarMonthIcon />
+                  <CreateIcon />
                 </span>
                 <span className="ml-2 text-2xl tracking-wide truncate">
-                  Calendar
+                  Create Post
                 </span>
               </p>
             </Link>
