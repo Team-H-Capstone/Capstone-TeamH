@@ -103,7 +103,8 @@ object-position: center;
 }
 
 #navBarHome {
-  font-family: 'Jost', sans-serif;
+  /* font-family: 'Jost', sans-serif; */
+  font-family: "PeacefulNature";
 }
 
 #navBarDashboard {
@@ -403,6 +404,7 @@ object-position: center;
     font-size: 13vw;
     font-family: "PeacefulNature";
     text-align: center;
+    color: #3D405B;
   }
 
   /* UNITED STATES MAP */

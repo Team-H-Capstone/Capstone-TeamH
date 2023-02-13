@@ -107,7 +107,7 @@ const Home = () => {
       </div>
       <section
         name="rooms"
-        className="flex flex-row justify-center items-center w-full h-full text-[#1b4332]"
+        className="flex flex-col justify-center items-center w-full h-full text-[#1b4332]"
         style={{
           backgroundImage: "linear-gradient(#95d5b2, #74c69d)",
         }}
@@ -125,7 +125,7 @@ const Home = () => {
           </h1>
         </div>
         <div>
-          <h1
+          {/* <h1
             className="text-9xl font-bold text-center"
             data-aos="fade-zoom-in"
             data-aos-easing="ease-in-back"
@@ -134,7 +134,7 @@ const Home = () => {
             style={{ fontSize: "3.5vw" }}
           >
             Enter Mental Spa
-          </h1>
+          </h1> */}
           <div
             style={{
               width: "50vw",
@@ -148,15 +148,16 @@ const Home = () => {
               <div
                 style={{
                   display: "flex",
-                  width: "20vw",
-                  height: "20vh",
+                  width: "23vw",
+                  height: "24vh",
                   alignItems: "right",
                   border: "8px solid white",
                   backgroundImage: `url("/img/meditation.jpeg")`,
                   backgroundPosition: "center",
                   backgroundSize: "cover",
-                  borderRadius: 50,
+                  borderRadius: 55,
                   marginRight: 25,
+                  color: "#DAD7CD",
                 }}
                 data-aos="fade-zoom-in"
                 data-aos-easing="ease-in-back"
@@ -164,14 +165,13 @@ const Home = () => {
                 data-aos-offset="0"
               >
                 <h1
+                  className="hover:text-[#d8572a] transition-colors duration-100"
                   style={{
                     display: "flex",
                     alignItems: "center",
-                    textAlign: "center",
                     justifyContent: "center",
                     width: "100%",
-                    fontSize: "3vw",
-                    color: "#DAD7CD",
+                    fontSize: "3.5vw",
                   }}
                 >
                   Music
@@ -183,13 +183,13 @@ const Home = () => {
               <div
                 style={{
                   display: "flex",
-                  width: "20vw",
-                  height: "20vh",
+                  width: "23vw",
+                  height: "24vh",
                   alignItems: "right",
                   border: "8px solid white",
                   backgroundImage: `url("/img/gameBackground.jpeg")`,
                   backgroundPosition: "center",
-                  borderRadius: 50,
+                  borderRadius: 55,
                   color: "#DAD7CD",
                 }}
                 data-aos="fade-zoom-in"
@@ -198,12 +198,13 @@ const Home = () => {
                 data-aos-offset="0"
               >
                 <h1
+                  className="hover:text-[#d8572a] transition-colors duration-100"
                   style={{
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
                     width: "100%",
-                    fontSize: "3vw",
+                    fontSize: "3.5vw",
                   }}
                 >
                   Game

@@ -108,7 +108,6 @@ const MyThoughts = () => {
     let lastPostIndex = currentPage * postPerPage;
     let firstPostIndex = lastPostIndex - postPerPage;
     let deletePost = post.slice(firstPostIndex, lastPostIndex);
-    console.log("deletepost ---->", deletePost)
     const y = deletePost.pop();
 
     const docRef = doc(db, "Notepad", y);

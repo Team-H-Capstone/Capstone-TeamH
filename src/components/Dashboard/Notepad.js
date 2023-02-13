@@ -152,7 +152,24 @@ const Notepad = () => {
     return null
   }
 
-  const dateISO = new Date().toISOString();
+  const getdateISO = () => {
+    const dateISO = new Date();
+    let year = dateISO.getFullYear();
+    let month = dateISO.getMonth() + 1;
+    let dt = dateISO.getDate();
+    let hours = dateISO.getHours();
+    let minutes = dateISO.getMinutes();
+    let seconds = dateISO.getSeconds();
+
+    if (dt < 10) {
+      dt = "0" + dt;
+    }
+    if (month < 10) {
+      month = "0" + month;
+    }
+
+    return year + "-" + month + "-" + dt + " " + hours + ":" + minutes + ":" + seconds;
+  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -161,7 +178,7 @@ const Notepad = () => {
       name: auth.currentUser.displayName, 
       uid: auth.currentUser.uid,
       Timestamp: new Date(Date.now()).toLocaleString([], {year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit'}),
-      dateISO: dateISO,
+      dateISO: getdateISO(),
     })
   };
 

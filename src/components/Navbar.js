@@ -34,11 +34,16 @@ const Navbar = () => {
   return (
     <div style={{ position: 'fixed', width: '100vw', zIndex: 200}}>
       <Box sx={{ flexGrow: 0}}>
-        <AppBar sx={{backgroundColor: "#344E41", color:"#DAD7CD"}}>
+        <AppBar sx={{backgroundColor: "#344E41", color:"#DAD7CD", maxHeight:60}}>
           <Toolbar>
             <Link to="/home">
-              <Button color="inherit" sx={{ ml: 0 }} style={{fontSize:23, marginRight:5}} id="navBarHome">
-                Home
+              <Button color="inherit" sx={{ ml: 0 }} style={{fontSize:45, marginRight:5}} id="navBarHome">
+                M
+                {/* <img 
+                alt="homeBtn" 
+                src="img/homeBtn.png" 
+                className="rounded-full"
+                width="49" /> */}
               </Button>
             </Link>
 
@@ -87,7 +92,7 @@ const Navbar = () => {
               </Link>
             )}
 
-            <IconButton
+            {/* <IconButton
               className="dropdown"
               onClick={handleClick}
               size= "large"
@@ -95,9 +100,17 @@ const Navbar = () => {
               color="inherit"
               aria-label="menu"
               sx={{ mr: 0 }}
-            >
-              <MenuIcon />
-            </IconButton>
+            > */}
+              <MenuIcon 
+                className="dropdown"
+                onClick={handleClick}
+                size= "large"
+                edge="start"
+                color="inherit"
+                aria-label="menu"
+                sx={{ mr: 0 }}
+              />
+            {/* </IconButton> */}
             {open ? null : (
               <ul className="menu">
                 <li className="menuItem">
