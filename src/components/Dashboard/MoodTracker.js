@@ -60,19 +60,33 @@ const MoodTracker = () => {
       month: "long",
     });
 
-    const dateISO = new Date().toISOString().slice(0, 10);
+    const getdateISO = () => {
+      const dateISO = new Date();
+      let year = dateISO.getFullYear();
+      let month = dateISO.getMonth() + 1;
+      let dt = dateISO.getDate();
+
+      if (dt < 10) {
+        dt = "0" + dt;
+      }
+      if (month < 10) {
+        month = "0" + month;
+      }
+
+      return year + "-" + month + "-" + dt;
+    };
 
     const moodRef = doc(
       db,
       "moods",
       auth.currentUser.uid,
       auth.currentUser.displayName,
-      dateISO
+      getdateISO()
     );
     await setDoc(moodRef, {
       mood: mood,
       dayOfWeek: currentDay,
-      dateISO: dateISO,
+      dateISO: getdateISO(),
       date: currentDate,
     });
   };
@@ -80,11 +94,11 @@ const MoodTracker = () => {
   return (
     <div className="flex flex-row justify-evenly min-w-fit mx-7">
       <section className="flex flex-col justify-center items-center min-w-fit">
-        <h1 
+        <h1
         className="font-bold text-[#344E41] pt-2"
         style={{ fontSize: "4.5vh" }}
         >Mood Tracker</h1>
-        <p 
+        <p
           className="text-[#344E41] mb-2"
           style={{ fontSize: "3.5vh" }}
           >
@@ -95,7 +109,7 @@ const MoodTracker = () => {
             weekday: "long",
           })}`}
         </p>
-        <h2 
+        <h2
          className="text-[#344E41]"
          style={{ fontSize: "3.5vh" }}
         >How are you feeling today?</h2>
@@ -180,7 +194,7 @@ const MoodTracker = () => {
           <div className="flex justify-center pb-2">
             <button
               type="submit"
-              className="mt-2 bg-[#343a40] border-2 hover:bg-[#6B9080] text-white hover:border-[#CCE3DE] hover:text-[#283618] py-2 px-4 rounded-full transition-colors duration-100"
+              className="mt-2 bg-[#343a40] border-2 hover:bg-[#6B9080] text-white hover:border-[#CCE3DE] hover:text-[#283618] py-2 px-4 rounded-full transition-colors duration-100 focus:border-cyan-500 focus:border-[3px]"
               style={{ fontSize: "3.5vh" }}
             >
               Submit Mood
@@ -189,22 +203,22 @@ const MoodTracker = () => {
         </form>
       </section>
       <section className="flex flex-col items-center min-w-fit">
-        <h2 
+        <h2
           className="font-bold text-[#344E41] text-center pt-2"
           style={{ fontSize: "4.5vh" }}
         >
           Past Moods
         </h2>
-        <ul 
+        <ul
           className="text-2xl text-[#344E41] mb-5"
           style={{ fontSize: "3.5vh" }}
-          >
+        >
           {moodList.map((mood) => (
-            <li
-            className="flex flex-row justify-between item-center"
-            >
-                <h1>{mood.date}, {mood.dayOfWeek}</h1>
-                <h1 className="pl-4">---- {mood.mood}</h1>
+            <li className="flex flex-row justify-between item-center">
+              <h1>
+                {mood.date}, {mood.dayOfWeek}
+              </h1>
+              <h1 className="pl-4">---- {mood.mood}</h1>
             </li>
           ))}
         </ul>
