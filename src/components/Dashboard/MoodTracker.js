@@ -60,28 +60,40 @@ const MoodTracker = () => {
       month: "long",
     });
 
-    const dateISO = new Date().toISOString().slice(0, 10);
+    const getdateISO = () => {
+      const dateISO = new Date();
+      let year = dateISO.getFullYear();
+      let month = dateISO.getMonth() + 1;
+      let dt = dateISO.getDate();
+
+      if (dt < 10) {
+        dt = "0" + dt;
+      }
+      if (month < 10) {
+        month = "0" + month;
+      }
+
+      return year + "-" + month + "-" + dt;
+    };
 
     const moodRef = doc(
       db,
       "moods",
       auth.currentUser.uid,
       auth.currentUser.displayName,
-      dateISO
+      getdateISO()
     );
     await setDoc(moodRef, {
       mood: mood,
       dayOfWeek: currentDay,
-      dateISO: dateISO,
+      dateISO: getdateISO(),
       date: currentDate,
     });
   };
 
   return (
     <div className="flex flex-row justify-around mx-7">
-      <section 
-        className="flex flex-col justify-center items-center"
-      >
+      <section className="flex flex-col justify-center items-center">
         <h1 className="text-4xl font-bold text-[#344E41] pt-2">Mood Tracker</h1>
         <p className="text-lg text-gray-600 mb-2">
           {`${new Date().toLocaleDateString("default", {
