@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "default": "teamh-capstone"
+  },
+  "targets": {
+    "teamh-capstone": {
+      "hosting": {
+        "mindful": [
+          "mindful-site"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
