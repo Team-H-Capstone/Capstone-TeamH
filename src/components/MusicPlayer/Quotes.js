@@ -6,7 +6,7 @@ const Quotes = () => {
   let i = Math.floor(Math.random() * quotes.length);
   const [quote, setQuote] = useState(quotes[i]);
 
-  //   console.log(quote);
+    // console.log(quote);
 
   useEffect(() => {
     const first = setInterval(() => {
