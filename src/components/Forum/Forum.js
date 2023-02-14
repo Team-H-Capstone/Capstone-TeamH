@@ -51,10 +51,12 @@ const Forum = () => {
             >
               <Link to={`/post/${id}`}>
                 <h1 className="text-2xl font-bold">{title}</h1>
-                <p>{author.name}</p>
-                <p>{date}</p>
+                <div className="flex flex-row items-center">
+                  <p className="font-bold">{author.name}</p>
+                  <p className="text-[14px] italic ml-3">{date}</p>
+                </div>
                 <p
-                  className="h-500px overflow-auto font-bold pt-6"
+                  className="h-500px overflow-auto font-bold pt-3"
                   style={{ wordWrap: "break-word" }}
                 >
                   {post}

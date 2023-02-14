@@ -20,7 +20,8 @@ const Comment = ({ id }) => {
       updateDoc(commentCollection, {
         comments: arrayUnion({
           comment: comment,
-          name: user.displayName
+          name: user.displayName,
+          date: new Date().toLocaleDateString(),
         }),
       }).then(() => {
         setComment("");
@@ -37,8 +38,8 @@ const Comment = ({ id }) => {
         <div className="pt-2 bg-white rounded-lg w-full sm:w-[900px] bg-white shadow-2xl m-2 p-2">
           {comments.map((comment) => (
             <div key={comment} className="text-black rounded-lg p-1 py-1">
-              <span className="text-[12px]">{comment.name}:</span>
-              <h1 className="font-bold"> {comment.comment}</h1>
+              <span className="text-[12px]">{comment.name} -- {comment.date}</span>
+              <h1 className="font-bold">{comment.comment}</h1>
             </div>
           ))}
         </div>
