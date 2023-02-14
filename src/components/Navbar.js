@@ -38,12 +38,12 @@ const Navbar = () => {
           <Toolbar>
             <Link to="/home">
               <Button color="inherit" sx={{ ml: 0 }} style={{fontSize:45, marginRight:5}} id="navBarHome">
-                M
-                {/* <img 
+                {/* M */}
+                <img 
                 alt="homeBtn" 
-                src="img/homeBtn.png" 
-                className="rounded-full"
-                width="49" /> */}
+                src="img/mindful-end.png" 
+                className="rounded-full bg-[]"
+                width="45" />
               </Button>
             </Link>
 
