@@ -24,7 +24,7 @@ const Post = () => {
           >
             <div>
               <h1 className="font-bold text-4xl">{post.title}</h1>
-              <p>{post.author.name}</p>
+              <p>{post.date}, {post.author.name}</p>
               <p className="w-full sm:w-[900px] bg-white shadow-2xl m-2 p-2 rounded-lg text-black font-bold">
                 {post.post}
               </p>
