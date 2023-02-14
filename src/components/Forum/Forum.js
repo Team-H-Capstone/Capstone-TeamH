@@ -44,7 +44,7 @@ const Forum = () => {
             No Posts Found!
           </p>
         ) : (
-          posts.map(({ id, title, post, author, timestamp }) => (
+          posts.map(({ id, title, post, author, date }) => (
             <div
               key={id}
               className="w-full md:w-auto sm:w-auto h-500px bg-white shadow-2xl m-2 p-2 rounded-lg"
@@ -52,7 +52,7 @@ const Forum = () => {
               <Link to={`/post/${id}`}>
                 <h1 className="text-2xl font-bold">{title}</h1>
                 <p>{author.name}</p>
-                {/* <p>{timestamp}</p> */}
+                <p>{date}</p>
                 <p
                   className="h-500px overflow-auto font-bold pt-6"
                   style={{ wordWrap: "break-word" }}

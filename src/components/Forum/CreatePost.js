@@ -17,10 +17,13 @@ const CreatePost = () => {
       post,
       author: { name: auth.currentUser.displayName, id: auth.currentUser.uid },
       timestamp: serverTimestamp(),
+      date: new Date().toLocaleDateString(),
       comments: [],
     });
     navigate("/forum");
   };
+
+  console.log("timestamp ---->", new Date().toLocaleDateString())
 
   return (
     <div className="w-full h-screen bg-[#DAD7CD]">
