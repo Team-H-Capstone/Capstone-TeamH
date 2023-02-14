@@ -24,6 +24,10 @@ const Post = () => {
           >
             <div>
               <h1 className="font-bold text-4xl">{post.title}</h1>
+                <div className="flex flex-row items-center">
+                  <p className="font-bold">{post.author.name}</p>
+                  <p className="text-[14px] italic ml-3">{post.date}</p>
+                </div>
               <p className="w-full sm:w-[900px] bg-white shadow-2xl m-2 p-2 rounded-lg text-black font-bold">
                 {post.post}
               </p>
