@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactSound from 'react-sound';
 import './MusicPlayer.css';
 import 'react-circular-progressbar/dist/styles.css';
@@ -26,6 +26,7 @@ const MusicPlayer = () => {
   const [opacity, setOpacity] = useState(1); 
   const [transition, setTransition] = useState(''); 
   const [centerOpacity, setCenterOpacity] = useState(1);
+  const [showScenes, setShowScenes] = useState(false);
 
   const playPause = () => {
     console.log('playPause');
@@ -44,6 +45,7 @@ const MusicPlayer = () => {
     }
   };
 
+  // // Everything below is for the transition to opacity when you check the checkbox
   const onMouseMove = (e) => { 
     setOpacity(1);
     setCenterOpacity(1);
@@ -51,15 +53,27 @@ const MusicPlayer = () => {
 
     setTimeout(() => {
       if (
-        seekCurrentPosition < 100 &&
+        showScenes && seekCurrentPosition < 100 &&
         playButton === pauseBtnImg
       ) {
         setOpacity(0);
         setCenterOpacity(0.6);
-        setTransition("opacity 10s ease-out");
+        setTransition("opacity 5s ease-out");
       }
     }, 3000);
   }
+
+
+  const checkboxChange = (e) => {
+    setShowScenes(e.target.checked);
+  }
+
+  useEffect(() => {
+    setOpacity(showScenes ? 0 : 1);
+    setCenterOpacity(showScenes ? 0.6 : 1);
+    setTransition(showScenes ? "opacity 5s ease-out" : "opacity 0s");
+  }, [showScenes]);
+
 
   const timeSelect = (e) => {
     setDesiredTime(e.duration);
@@ -173,11 +187,18 @@ const MusicPlayer = () => {
       <div className="player_container">
         <img className="playPause" style={{opacity: centerOpacity, transition: transition }} src={playButton} onClick={playPause} alt="playPause" />
 
+
         <div className="volume_container" style={{opacity: opacity, transition: transition}}>
           <img className="volume_icon" src={volumeIcon} onClick={toggleMute} alt="volume" />
           <div className="volume_bar">
             <StyleSlider id="volume_slider" onChange={volumeChange} step={1} min={0} max={100} value={mute ? 0 : volume} />
           </div>
+        </div>
+        <div className='text-white'>
+          <label className=''>
+            <input type="checkbox" className='checkbox' onChange={checkboxChange}/>
+          </label>
+          Scenes will show when idle
         </div>
         {/* <div className="audio_bar">
           <ProgressBar id='seek' percentage={seekCurrentPosition} />
@@ -188,6 +209,7 @@ const MusicPlayer = () => {
       </div>
       <Quotes /> 
       <div className="audio_menu text-white" style={{opacity: opacity, transition: transition}}>{audioOptions}</div>
+      
     </div>
   );
 };

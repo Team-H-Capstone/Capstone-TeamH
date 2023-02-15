@@ -25,7 +25,6 @@ const Home = () => {
   const water = document.getElementById('water');
   const btn = document.getElementById('home_btn');
 
-
   const tree = document.getElementById('tree');
 
   window.addEventListener('scroll', function () {
@@ -40,9 +39,7 @@ const Home = () => {
     tree.style.top = value * 0.15 + 'px';
     rocks.style.top = value * -0.1 + 'px';
     // btn.style.marginTop = value * 1.5 + 'px';
-
   });
-
 
   useEffect(() => {
     AOS.init();
@@ -55,23 +52,23 @@ const Home = () => {
     <div className="w-full h-screen">
       {/* <section id="main_sec" className="flex flex-col justify-center items-center w-full h-screen relative bg-[#ADD8E6] text-red ">
         <h2 className="flex justify-center items-center text-9xl font-bold text-center  " id="text" style={{ fontSize: '5vw' }} data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500" data-aos-offset="0"> */}
-          {/* <span className="tracking-wide leading-none ">
+      {/* <span className="tracking-wide leading-none ">
             {' '}
             Hello <br />
             {user ? user.displayName : ''}!
           </span> */}
-          {/* <br/>{user ? user.displayName : ""}! */}
-        {/* </h2> */}
-        {/* <img src={bird1Img} id="bird1" alt="bird1" />
+      {/* <br/>{user ? user.displayName : ""}! */}
+      {/* </h2> */}
+      {/* <img src={bird1Img} id="bird1" alt="bird1" />
         <img src={bird2Img} id="bird2" alt="bird2" className="mt-8" />
         <img src={forestImg} id="forest" alt="forest" className="mt-10" />
         <img src={treeImg} id="tree" alt="tree" className="mt-10" /> */}
-        {/* <button className='' id='home_btn' onClick={handleClick}>Explore</button> */}
-        {/* <img src={rocksImg} id="rocks" alt="rocks" className="my-10" /> */}
-        {/* <img src={waterImg} id='water' alt='water'/> */}
+      {/* <button className='' id='home_btn' onClick={handleClick}>Explore</button> */}
+      {/* <img src={rocksImg} id="rocks" alt="rocks" className="my-10" /> */}
+      {/* <img src={waterImg} id='water' alt='water'/> */}
 
-        {/* <img src={mentalImg1} id="mental1" alt="mental1" className="mt-10" /> */}
-        {/* <img src={mentalImg} id="mental" alt="mental" className="mt-20" /> */}
+      {/* <img src={mentalImg1} id="mental1" alt="mental1" className="mt-10" /> */}
+      {/* <img src={mentalImg} id="mental" alt="mental" className="mt-20" /> */}
       {/* </section> */}
 
       {/* <div name="question" className="flex flex-col justify-center items-center w-full h-full bg-[#344E41] text-white relative p-24">
@@ -85,11 +82,10 @@ const Home = () => {
 
       {/* <ImageSlider /> */}
 
-
       <div
         className="flex flex-col justify-center items-center w-full h-full relative bg-[#1e3a8a] text-[#3A5A40]"
         style={{
-          backgroundImage: "linear-gradient(#d8f3dc, #95d5b2)",
+          backgroundImage: 'linear-gradient(#d8f3dc, #95d5b2)',
         }}
       >
         <h1 className="flex justify-center items-center text-9xl font-bold text-center pb-4" style={{ fontSize: '5vw' }} data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500" data-aos-offset="0">
@@ -109,7 +105,7 @@ const Home = () => {
         name="rooms"
         className="flex flex-col justify-center items-center w-full h-full text-[#1b4332]"
         style={{
-          backgroundImage: "linear-gradient(#95d5b2, #74c69d)",
+          backgroundImage: 'linear-gradient(#95d5b2, #74c69d)',
         }}
       >
         <div
@@ -137,27 +133,27 @@ const Home = () => {
           </h1> */}
           <div
             style={{
-              width: "50vw",
+              width: '50vw',
               marginTop: 60,
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
+              display: 'flex',
+              flexDirection: 'row',
+              justifyContent: 'center',
             }}
           >
             <Link to="/music">
               <div
                 style={{
-                  display: "flex",
-                  width: "23vw",
-                  height: "24vh",
-                  alignItems: "right",
-                  border: "8px solid white",
+                  display: 'flex',
+                  width: '23vw',
+                  height: '24vh',
+                  alignItems: 'right',
+                  border: '8px solid white',
                   backgroundImage: `url("/img/meditation.jpeg")`,
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
+                  backgroundPosition: 'center',
+                  backgroundSize: 'cover',
                   borderRadius: 55,
                   marginRight: 25,
-                  color: "#DAD7CD",
+                  color: '#DAD7CD',
                 }}
                 data-aos="fade-zoom-in"
                 data-aos-easing="ease-in-back"
@@ -167,11 +163,11 @@ const Home = () => {
                 <h1
                   className="hover:text-[#d8572a] transition-colors duration-100"
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    width: "100%",
-                    fontSize: "3.5vw",
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '100%',
+                    fontSize: '3.5vw',
                   }}
                 >
                   Music
@@ -182,15 +178,15 @@ const Home = () => {
             <Link to="/memoryGame">
               <div
                 style={{
-                  display: "flex",
-                  width: "23vw",
-                  height: "24vh",
-                  alignItems: "right",
-                  border: "8px solid white",
+                  display: 'flex',
+                  width: '23vw',
+                  height: '24vh',
+                  alignItems: 'right',
+                  border: '8px solid white',
                   backgroundImage: `url("/img/gameBackground.jpeg")`,
-                  backgroundPosition: "center",
+                  backgroundPosition: 'center',
                   borderRadius: 55,
-                  color: "#DAD7CD",
+                  color: '#DAD7CD',
                 }}
                 data-aos="fade-zoom-in"
                 data-aos-easing="ease-in-back"
@@ -200,11 +196,11 @@ const Home = () => {
                 <h1
                   className="hover:text-[#d8572a] transition-colors duration-100"
                   style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    width: "100%",
-                    fontSize: "3.5vw",
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '100%',
+                    fontSize: '3.5vw',
                   }}
                 >
                   Game
@@ -218,26 +214,25 @@ const Home = () => {
         name="question"
         className="flex flex-row justify-center items-center w-full h-full text-[#081c15]"
         style={{
-          backgroundImage: "linear-gradient(#74c69d, #52b788)",
+          backgroundImage: 'linear-gradient(#74c69d, #52b788)',
         }}
       >
-        <div
-          className="text-9xl font-bold text-center"
+        <div className="text-9xl font-bold text-center" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500" data-aos-offset="0" style={{ fontSize: '3.5vw', width: '30vw', lineHeight: '1.5' }}>
+          <Link className="text-[#d90429] font-bold hover:text-[#d8572a] hover:text-[4.5vw] hover:underline transition-colors duration-100" to="/register">
+            Sign up
+          </Link>{' '}
+          to boost and refine mindfulness with a mood tracker and journal.
+        </div>
+        <img
+          alt="homeimg"
+          width="400vw"
+          className="rounded-full px-[10px], border-2"
           data-aos="fade-zoom-in"
           data-aos-easing="ease-in-back"
           data-aos-delay="500"
           data-aos-offset="0"
-          style={{ fontSize: "3.5vw", width: "30vw", lineHeight: "1.5" }}
-        >
-          <Link
-            className="text-[#d90429] font-bold hover:text-[#d8572a] hover:text-[4.5vw] hover:underline transition-colors duration-100"
-            to="/register"
-          >
-            Sign up
-          </Link>{" "}
-          to boost and refine mindfulness with a mood tracker and journal.
-        </div>
-        <img alt="homeimg" width="400vw" className="rounded-full px-[10px], border-2" src="https://cdn.sanity.io/images/0vv8moc6/psychtimes/05a2dd97fbedb285c5fd380a411b24847c8dcc11-1000x819.jpg?fit=crop&auto=format" />
+          src="https://cdn.sanity.io/images/0vv8moc6/psychtimes/05a2dd97fbedb285c5fd380a411b24847c8dcc11-1000x819.jpg?fit=crop&auto=format"
+        />
         <div className="text-9xl font-bold text-center" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500" data-aos-offset="0" style={{ fontSize: '3.5vw', width: '30vw', lineHeight: '1.5' }}>
           With your free account, connect with other users through the forum and let your voice be heard.
         </div>
@@ -246,20 +241,11 @@ const Home = () => {
         name="question"
         className="w-full h-full flex justify-center text-[#081c15]"
         style={{
-          backgroundImage: "linear-gradient(#52b788, #40916c)",
+          backgroundImage: 'linear-gradient(#52b788, #40916c)',
         }}
       >
-        <div
-          data-aos="fade-zoom-in"
-          data-aos-easing="ease-in-back"
-          data-aos-delay="500"
-          data-aos-offset="0"
-          className="flex flex-col justify-center items-center"
-        >
-          <h1
-            className="flex justify-center text-center items-center text-5xl font-bold pb-4"
-            style={{ fontSize: "3vw" }}
-          >
+        <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="500" data-aos-offset="0" className="flex flex-col justify-center items-center">
+          <h1 className="flex justify-center text-center items-center text-5xl font-bold pb-4" style={{ fontSize: '3vw' }}>
             Want to learn more about Mental Health? Take the quiz!
           </h1>
           <br></br>
