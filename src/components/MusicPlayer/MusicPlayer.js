@@ -34,7 +34,7 @@ const MusicPlayer = () => {
       setPlayButton(pauseBtnImg);
       setAudioStatus(ReactSound.status.PLAYING);
       setOpacity(0);
-      setTransition('opacity 10s ease-out');
+      setTransition('opacity 5s ease-out');
       setCenterOpacity(0.5);
     } else if (playButton === pauseBtnImg) {
       setPlayButton(playBtnImg);
@@ -194,7 +194,7 @@ const MusicPlayer = () => {
             <StyleSlider id="volume_slider" onChange={volumeChange} step={1} min={0} max={100} value={mute ? 0 : volume} />
           </div>
         </div>
-        <div className='text-white'>
+        <div className='text-white' style={{opacity: opacity, transition: transition}}>
           <label className=''>
             <input type="checkbox" className='checkbox' onChange={checkboxChange}/>
           </label>
