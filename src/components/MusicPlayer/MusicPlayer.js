@@ -27,6 +27,7 @@ const MusicPlayer = () => {
   const [transition, setTransition] = useState(''); 
   const [centerOpacity, setCenterOpacity] = useState(1);
   const [showScenes, setShowScenes] = useState(false);
+  const [timeoutId, setTimeoutId] = useState(null); //* timeoutId is the id of the timeout when the mouse is moved
 
   const playPause = () => {
     console.log('playPause');
@@ -46,32 +47,44 @@ const MusicPlayer = () => {
   };
 
   // // Everything below is for the transition to opacity when you check the checkbox
-  const onMouseMove = (e) => { 
+  const onMouseMove = (e) => {
     setOpacity(1);
     setCenterOpacity(1);
-    setTransition("opacity 0s");
+    setTransition('opacity 0s');
 
-    setTimeout(() => {
-      if (
-        showScenes && seekCurrentPosition < 100 &&
-        playButton === pauseBtnImg
-      ) {
+    if (timeoutId) { //* if there is a timeout, clear it. This is so that the timeout doesn't keep getting reset. If timeoutId is null, it will not run
+      clearTimeout(timeoutId);
+      setTimeoutId(null);
+    }
+
+    if (showScenes && seekCurrentPosition < 100 && playButton === pauseBtnImg) {
+      const id = setTimeout(() => {
         setOpacity(0);
         setCenterOpacity(0.6);
-        setTransition("opacity 5s ease-out");
-      }
-    }, 3000);
-  }
-
+        setTransition('opacity 5s ease-out');
+      }, 3000);
+      setTimeoutId(id);
+    }
+  };
 
   const checkboxChange = (e) => {
     setShowScenes(e.target.checked);
-  }
+  };
 
   useEffect(() => {
-    setOpacity(showScenes ? 0 : 1);
-    setCenterOpacity(showScenes ? 0.6 : 1);
-    setTransition(showScenes ? "opacity 5s ease-out" : "opacity 0s");
+    if (showScenes) {
+      setOpacity(0);
+      setCenterOpacity(0.6);
+      setTransition('opacity 5s ease-out');
+    } else {
+      setOpacity(1);
+      setCenterOpacity(1);
+      setTransition('opacity 0s');
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+        setTimeoutId(null);
+      }
+    }
   }, [showScenes]);
 
 
