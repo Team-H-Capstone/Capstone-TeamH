@@ -1,70 +1,22 @@
-# Getting Started with Create React App
+# Mindful
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Description
 
-## Available Scripts
+Mindful is a mental health website built with React, using Firebase as our backend for efficient data storage and retrieval. To enhance the user interface, we utilized Tailwind and pure CSS for styling and responsive design. Our core functionality includes a mood tracker, journal, calming music, and a memory game to boost and refine mindfulness. Also, a forum to connect with other users and let your voice be heard. We incorporated Chart.js, D3.js, and amCharts 5 to present our findings on mental health in an engaging and easy-to-understand format, which we hope will raise awareness for mental health.
 
-In the project directory, you can run:
+## User Story
 
-### `npm start`
+Clark is looking for ways to improve his mental well-being and learn more on the subject. He finds Mindful and is able to check out our interactive wellness rooms. He also explores beautiful and informative graphics about mental illness prevalence on the data page. And tours the forum as a guest to see what users are saying. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Clark decides to sign up and now has access to his dashboard. Here he can privately express his thoughts and emotions. The dashboard consists of two main components: a mood tracker and a journal. The mood tracker allows him to input his emotions daily and track his past moods. In the journal, he can document and express his thoughts privately. He can now post to the forum and add comments to other users’ posts. Clark is impressed by Mindful and recommends it to his friends and family. Win for Team Mindful and its users!
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech Stack
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* React
+* Node.js
+* Firebase
+* Cloud Firestore
+* Tailwind
+* Chart.js
+* D3.js
+* amCharts
