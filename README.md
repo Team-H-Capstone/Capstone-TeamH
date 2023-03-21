@@ -19,4 +19,4 @@ Clark decides to sign up and now has access to his dashboard. Here he can privat
 * Tailwind
 * Chart.js
 * D3.js
-* amCharts
+* amCharts5
